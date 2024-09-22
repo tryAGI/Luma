@@ -1,8 +1,8 @@
 dotnet tool install --global autosdk.cli --prerelease
 
 autosdk init \
-  SolutionName \
-  SomeApi \
-  https://raw.githubusercontent.com/api/openapi.json \
-  CompanyName \
+  Luma \
+  LumaClient \
+  https://raw.githubusercontent.com/lumalabs/lumaai-api/refs/heads/main/openapi.yaml \
+  tryAGI \
   --output .
