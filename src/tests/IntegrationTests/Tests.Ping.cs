@@ -5,9 +5,9 @@ public partial class Tests
     [TestMethod]
     public async Task Ping()
     {
-        using var api = new LumaClient();
+        using var client = new LumaClient();
 
-        PingResponse response = await api.Ping.PingAsync();
+        PingResponse response = await client.Ping.PingAsync();
         response.Message.Should().Be("pong");
     }
 }

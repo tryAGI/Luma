@@ -11,12 +11,43 @@
 - Updated and supported automatically if there are no breaking changes
 - All modern .NET features - nullability, trimming, NativeAOT, etc.
 - Support .Net Framework/.Net Standard 2.0
+- DreamMachine API support
 
 ### Usage
 ```csharp
 using Luma;
 
 using var api = new LumaClient(apiKey);
+
+Generation generation = await client.Generations.CreateGenerationAsync(
+    prompt: "No camera movement. The girl just stands there and smiles. The waves in the background move a little.",
+    aspectRatio: AspectRatio.x4_3,
+    loop: false,
+    keyframes: new Keyframes
+    {
+        Frame0 = new ImageReference
+        {
+            Url = "https://i.ibb.co/WFJyPcR/cool-girl.png",
+        },
+        // Frame1 = new GenerationReference
+        // {
+        //     Id = Guid.Empty,
+        // },
+    });
+
+while (generation.State != State.Failed && generation.State != State.Completed)
+{
+    await Task.Delay(TimeSpan.FromSeconds(5), cancellationToken);
+    
+    generation = await client.Generations.GetGenerationAsync(
+        id: generation.Id?.Value.ToString(),
+        cancellationToken: cancellationToken);
+}
+
+Console.WriteLine($"Id: {generation.Id}");
+Console.WriteLine($"State: {generation.State}");
+Console.WriteLine($"FailureReason: {generation.FailureReason}");
+Console.WriteLine($"Video URL: {generation.Assets?.Video}");
 ```
 
 ## Support
