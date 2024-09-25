@@ -50,6 +50,8 @@ Console.WriteLine($"FailureReason: {generation.FailureReason}");
 Console.WriteLine($"Video URL: {generation.Assets?.Video}");
 ```
 
+https://github.com/user-attachments/assets/239cf6fb-928e-427e-8cb1-7a4a3d71ccb6
+
 ## Support
 
 Priority place for bugs: https://github.com/tryAGI/Luma/issues  
