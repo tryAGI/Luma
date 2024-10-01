@@ -5,12 +5,12 @@ namespace Luma
 {
     public sealed partial class LumaClient
     {
-        /// <inheritdoc cref="LumaClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::Luma.EndPointAuthorization?)"/>
+        /// <inheritdoc cref="LumaClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::Luma.EndPointAuthorization}?)"/>
         public LumaClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,
-            global::Luma.EndPointAuthorization? authorization = null) : this(httpClient, baseUri, authorization)
+            global::System.Collections.Generic.List<global::Luma.EndPointAuthorization>? authorizations = null) : this(httpClient, baseUri, authorizations)
         {
             Authorizing(_httpClient, ref apiKey);
 

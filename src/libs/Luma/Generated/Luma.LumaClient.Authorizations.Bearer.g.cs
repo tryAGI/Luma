@@ -14,11 +14,14 @@ namespace Luma
         {
             apiKey = apiKey ?? throw new global::System.ArgumentNullException(nameof(apiKey));
 
-            _authorization = new global::Luma.EndPointAuthorization
+            _authorizations.Clear();
+            _authorizations.Add(new global::Luma.EndPointAuthorization
             {
+                Type = "Http",
+                Location = "Header",
                 Name = "Bearer",
                 Value = apiKey,
-            };
+            });
         }
     }
 }
