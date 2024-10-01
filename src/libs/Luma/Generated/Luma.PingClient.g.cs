@@ -15,6 +15,7 @@ namespace Luma
         public const string BaseUrl = "https://api.lumalabs.ai/dream-machine/v1";
 
         private readonly global::System.Net.Http.HttpClient _httpClient;
+        private global::Luma.EndPointAuthorization? _authorization;
 
         /// <summary>
         /// 
@@ -28,13 +29,16 @@ namespace Luma
         /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
         /// </summary>
         /// <param name="httpClient"></param>
-        /// <param name="baseUri"></param> 
+        /// <param name="baseUri"></param>
+        /// <param name="authorization"></param>
         public PingClient(
             global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null)
+            global::System.Uri? baseUri = null,
+            global::Luma.EndPointAuthorization? authorization = null)
         {
             _httpClient = httpClient ?? new global::System.Net.Http.HttpClient();
             _httpClient.BaseAddress ??= baseUri ?? new global::System.Uri(BaseUrl);
+            _authorization = authorization;
 
             Initialized(_httpClient);
         }
