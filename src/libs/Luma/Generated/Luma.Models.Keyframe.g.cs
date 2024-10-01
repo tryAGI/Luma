@@ -111,6 +111,54 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
+        public TResult? Match<TResult>(
+            global::System.Func<global::Luma.GenerationReference?, TResult>? generationReference = null,
+            global::System.Func<global::Luma.ImageReference?, TResult>? imageReference = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsGenerationReference && generationReference != null)
+            {
+                return generationReference(GenerationReference!);
+            }
+            else if (IsImageReference && imageReference != null)
+            {
+                return imageReference(ImageReference!);
+            }
+
+            return default(TResult);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Match(
+            global::System.Action<global::Luma.GenerationReference?>? generationReference = null,
+            global::System.Action<global::Luma.ImageReference?>? imageReference = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsGenerationReference)
+            {
+                generationReference?.Invoke(GenerationReference!);
+            }
+            else if (IsImageReference)
+            {
+                imageReference?.Invoke(ImageReference!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public override int GetHashCode()
         {
             var fields = new object?[]
