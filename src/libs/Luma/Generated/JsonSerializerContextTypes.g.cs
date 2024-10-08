@@ -94,10 +94,18 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.PingResponse? Type19 { get; set; }
+        public global::Luma.Credits? Type19 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<string>? Type20 { get; set; }
+        public float? Type20 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.PingResponse? Type21 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<string>? Type22 { get; set; }
     }
 }

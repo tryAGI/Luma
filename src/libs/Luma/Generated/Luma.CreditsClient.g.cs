@@ -4,11 +4,10 @@
 namespace Luma
 {
     /// <summary>
-    /// Generate videos using Dream Machine.<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
-    public sealed partial class LumaClient : global::Luma.ILumaClient, global::System.IDisposable
+    public sealed partial class CreditsClient : global::Luma.ICreditsClient, global::System.IDisposable
     {
         /// <summary>
         /// 
@@ -25,38 +24,14 @@ namespace Luma
 
 
         /// <summary>
-        /// 
-        /// </summary>
-        public PingClient Ping => new PingClient(_httpClient, authorizations: _authorizations)
-        {
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public GenerationsClient Generations => new GenerationsClient(_httpClient, authorizations: _authorizations)
-        {
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public CreditsClient Credits => new CreditsClient(_httpClient, authorizations: _authorizations)
-        {
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
-        /// Creates a new instance of the LumaClient.
+        /// Creates a new instance of the CreditsClient.
         /// If no httpClient is provided, a new one will be created.
         /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
         /// </summary>
         /// <param name="httpClient"></param>
         /// <param name="baseUri"></param>
         /// <param name="authorizations"></param>
-        public LumaClient(
+        public CreditsClient(
             global::System.Net.Http.HttpClient? httpClient = null,
             global::System.Uri? baseUri = null,
             global::System.Collections.Generic.List<global::Luma.EndPointAuthorization>? authorizations = null)
