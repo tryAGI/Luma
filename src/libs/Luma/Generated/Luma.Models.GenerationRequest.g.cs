@@ -36,6 +36,12 @@ namespace Luma
         public global::Luma.Keyframes? Keyframes { get; set; }
 
         /// <summary>
+        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
+        public string? CallbackUrl { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]

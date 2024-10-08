@@ -33,6 +33,9 @@ namespace Luma
         /// <param name="keyframes">
         /// The keyframes of the generation
         /// </param>
+        /// <param name="callbackUrl">
+        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Luma.Generation> CreateGenerationAsync(
@@ -40,6 +43,7 @@ namespace Luma
             global::Luma.AspectRatio? aspectRatio = global::Luma.AspectRatio.x16_9,
             bool? loop = default,
             global::Luma.Keyframes? keyframes = default,
+            string? callbackUrl = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

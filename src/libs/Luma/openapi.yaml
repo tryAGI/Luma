@@ -10,7 +10,7 @@ info:
   license:
     name: Proprietary
     url: https://lumalabs.ai/legal/tos
-  version: 1.0.2
+  version: '1.1.0'
 servers:
   - url: https://api.lumalabs.ai/dream-machine/v1
 paths:
@@ -175,6 +175,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /credits:
+    get:
+      tags:
+        - Credits
+      summary: Get credits
+      description: Get the credits information for the api user
+      operationId: getCredits
+      responses:
+        '200':
+          description: Credits found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Credits'
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 components:
   schemas:
     Error:
@@ -316,6 +336,10 @@ components:
           description: Whether to loop the video
         keyframes:
           $ref: '#/components/schemas/Keyframes'
+        callback_url:
+          type: string
+          description: 'The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed'
+          format: uri
       description: The generation request object
     Generation:
       type: object
@@ -385,6 +409,16 @@ components:
         frame1:
           type: generation
           id: 123e4567-e89b-12d3-a456-426614174000
+    Credits:
+      required:
+        - credit_balance
+      type: object
+      properties:
+        credit_balance:
+          type: number
+          description: Available credits balance in USD cents
+          format: float
+      description: The credits object
   securitySchemes:
     BearerAuth:
       type: http

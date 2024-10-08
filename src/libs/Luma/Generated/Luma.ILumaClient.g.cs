@@ -26,5 +26,10 @@ namespace Luma
         /// </summary>
         public GenerationsClient Generations { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public CreditsClient Credits { get; }
+
     }
 }
