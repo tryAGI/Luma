@@ -97,7 +97,7 @@ namespace Luma
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::Luma.PingResponse), JsonSerializerContext) as global::Luma.PingResponse ??
+                global::Luma.PingResponse.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }

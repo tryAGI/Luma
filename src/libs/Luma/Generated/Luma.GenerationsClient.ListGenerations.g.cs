@@ -117,7 +117,7 @@ namespace Luma
             }
 
             return
-                global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::Luma.ListGenerationResponse), JsonSerializerContext) as global::Luma.ListGenerationResponse ??
+                global::Luma.ListGenerationResponse.FromJson(__content, JsonSerializerContext) ??
                 throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
         }
     }
