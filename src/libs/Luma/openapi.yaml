@@ -51,7 +51,7 @@ paths:
               default:
                 value:
                   prompt: A serene lake surrounded by mountains at sunset
-                  aspect_ratio: '2024-10-14T16:09:00.0000000+00:00'
+                  aspect_ratio: '2024-10-15T16:09:00.0000000+00:00'
                   loop: true
                   keyframes:
                     frame0:
@@ -253,7 +253,7 @@ components:
             version: v1.6
             request:
               prompt: A serene lake surrounded by mountains at sunset
-              aspect_ratio: '2024-10-14T16:09:00.0000000+00:00'
+              aspect_ratio: '2024-10-15T16:09:00.0000000+00:00'
               loop: true
               keyframes:
                 frame0:
@@ -375,7 +375,7 @@ components:
         version: v1.6
         request:
           prompt: A serene lake surrounded by mountains at sunset
-          aspect_ratio: '2024-10-14T16:09:00.0000000+00:00'
+          aspect_ratio: '2024-10-15T16:09:00.0000000+00:00'
           loop: true
           keyframes:
             frame0:
