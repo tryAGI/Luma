@@ -17,6 +17,8 @@ namespace Luma
             typeof(global::Luma.JsonConverters.StateNullableJsonConverter),
             typeof(global::Luma.JsonConverters.AspectRatioJsonConverter),
             typeof(global::Luma.JsonConverters.AspectRatioNullableJsonConverter),
+            typeof(global::Luma.JsonConverters.KeyframeDiscriminatorTypeJsonConverter),
+            typeof(global::Luma.JsonConverters.KeyframeDiscriminatorTypeNullableJsonConverter),
             typeof(global::Luma.JsonConverters.GenerationReferenceTypeJsonConverter),
             typeof(global::Luma.JsonConverters.GenerationReferenceTypeNullableJsonConverter),
             typeof(global::Luma.JsonConverters.ImageReferenceTypeJsonConverter),

@@ -78,34 +78,42 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationReference? Type15 { get; set; }
+        public global::Luma.KeyframeDiscriminator? Type15 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationReferenceType? Type16 { get; set; }
+        public global::Luma.KeyframeDiscriminatorType? Type16 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageReference? Type17 { get; set; }
+        public global::Luma.GenerationReference? Type17 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageReferenceType? Type18 { get; set; }
+        public global::Luma.GenerationReferenceType? Type18 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.Credits? Type19 { get; set; }
+        public global::Luma.ImageReference? Type19 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public float? Type20 { get; set; }
+        public global::Luma.ImageReferenceType? Type20 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.PingResponse? Type21 { get; set; }
+        public global::Luma.Credits? Type21 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<string>? Type22 { get; set; }
+        public float? Type22 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.PingResponse? Type23 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<string>? Type24 { get; set; }
     }
 }
