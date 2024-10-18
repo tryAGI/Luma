@@ -16,11 +16,10 @@ namespace Luma.JsonConverters
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
 
-            global::Luma.KeyframeDiscriminator? discriminator = default;
             var readerCopy = reader;
             var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.KeyframeDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.KeyframeDiscriminator> ??
                             throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Luma.KeyframeDiscriminator)}");
-            discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::Luma.GenerationReference? generationReference = default;
             if (discriminator?.Type == global::Luma.KeyframeDiscriminatorType.Generation)
@@ -38,6 +37,7 @@ namespace Luma.JsonConverters
             }
 
             var result = new global::Luma.Keyframe(
+                discriminator?.Type,
                 generationReference,
                 imageReference
                 );

@@ -11,6 +11,11 @@ namespace Luma
     public readonly partial struct Keyframe : global::System.IEquatable<Keyframe>
     {
         /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.KeyframeDiscriminatorType? Type { get; }
+
+        /// <summary>
         /// The generation reference object
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -84,10 +89,13 @@ namespace Luma
         /// 
         /// </summary>
         public Keyframe(
+            global::Luma.KeyframeDiscriminatorType? type,
             global::Luma.GenerationReference? generationReference,
             global::Luma.ImageReference? imageReference
             )
         {
+            Type = type;
+
             GenerationReference = generationReference;
             ImageReference = imageReference;
         }

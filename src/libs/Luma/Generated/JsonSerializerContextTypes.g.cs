@@ -78,27 +78,27 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.KeyframeDiscriminator? Type15 { get; set; }
+        public global::Luma.GenerationReference? Type15 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.KeyframeDiscriminatorType? Type16 { get; set; }
+        public global::Luma.GenerationReferenceType? Type16 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationReference? Type17 { get; set; }
+        public global::Luma.ImageReference? Type17 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationReferenceType? Type18 { get; set; }
+        public global::Luma.ImageReferenceType? Type18 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageReference? Type19 { get; set; }
+        public global::Luma.KeyframeDiscriminator? Type19 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageReferenceType? Type20 { get; set; }
+        public global::Luma.KeyframeDiscriminatorType? Type20 { get; set; }
         /// <summary>
         /// 
         /// </summary>
