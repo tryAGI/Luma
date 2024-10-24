@@ -21,7 +21,7 @@ namespace Luma
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("aspect_ratio")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.AspectRatioJsonConverter))]
-        public global::Luma.AspectRatio? AspectRatio { get; set; } = global::Luma.AspectRatio.x16_9;
+        public global::Luma.AspectRatio? AspectRatio { get; set; }
 
         /// <summary>
         /// Whether to loop the video
