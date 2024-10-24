@@ -40,7 +40,7 @@ namespace Luma
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Luma.Generation> CreateGenerationAsync(
             string? prompt = default,
-            global::Luma.AspectRatio? aspectRatio = global::Luma.AspectRatio.x16_9,
+            global::Luma.AspectRatio? aspectRatio = default,
             bool? loop = default,
             global::Luma.Keyframes? keyframes = default,
             string? callbackUrl = default,
