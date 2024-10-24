@@ -26,14 +26,14 @@ namespace Luma.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.GenerationReference), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.GenerationReference> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Luma.GenerationReference)}");
-                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                generationReference = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::Luma.ImageReference? imageReference = default;
             if (discriminator?.Type == global::Luma.KeyframeDiscriminatorType.Image)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.ImageReference), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.ImageReference> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Luma.ImageReference)}");
-                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                imageReference = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var result = new global::Luma.Keyframe(
