@@ -1,22 +1,23 @@
+using System.Text.RegularExpressions;
+using AutoSDK.Helpers;
 using Microsoft.OpenApi;
-using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Extensions;
-using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Readers;
 
 var path = args[0];
-var text = await File.ReadAllTextAsync(path);
+var yamlOrJson = await File.ReadAllTextAsync(path);
 
-text = text
-        .Replace("openapi: 3.1.0", "openapi: 3.0.1")
-    ;
+if (OpenApi31Support.IsOpenApi31(yamlOrJson))
+{
+    yamlOrJson = OpenApi31Support.ConvertToOpenApi30(yamlOrJson);
+}
 
-var openApiDocument = new OpenApiStringReader().Read(text, out var diagnostics);
+var openApiDocument = new OpenApiStringReader().Read(yamlOrJson, out var diagnostics);
 
 //openApiDocument.Components.Schemas["GenerateCompletionRequest"]!.Properties["stream"]!.Default = new OpenApiBoolean(true);
 
-text = openApiDocument.SerializeAsYaml(OpenApiSpecVersion.OpenApi3_0);
-_ = new OpenApiStringReader().Read(text, out diagnostics);
+yamlOrJson = openApiDocument.SerializeAsYaml(OpenApiSpecVersion.OpenApi3_0);
+_ = new OpenApiStringReader().Read(yamlOrJson, out diagnostics);
 
 if (diagnostics.Errors.Count > 0)
 {
@@ -28,5 +29,11 @@ if (diagnostics.Errors.Count > 0)
     Environment.Exit(1);
 }
 
-await File.WriteAllTextAsync(path, text);
+// Replaces strings like
+// aspect_ratio: '2024-10-25T16:09:00.0000000+00:00'
+// with
+// aspect_ratio: '16:9'
+yamlOrJson = Regex.Replace(yamlOrJson, @"aspect_ratio: '.*?'", "aspect_ratio: '16:9'");
+
+await File.WriteAllTextAsync(path, yamlOrJson);
 return;

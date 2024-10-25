@@ -14,66 +14,27 @@ info:
 servers:
   - url: https://api.lumalabs.ai/dream-machine/v1
 paths:
-  /ping:
+  /credits:
     get:
       tags:
-        - Ping
-      summary: Ping
-      description: Check if the API is running
-      operationId: ping
+        - Credits
+      summary: Get credits
+      description: Get the credits information for the api user
+      operationId: getCredits
       responses:
         '200':
-          description: API is running
+          description: Credits found
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: The message
-                example:
-                  message: pong
-  /generations:
-    post:
-      tags:
-        - Generations
-      summary: Create a generation
-      description: Initiate a new generation with the provided prompt
-      operationId: createGeneration
-      requestBody:
-        description: The generation request object
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GenerationRequest'
-            examples:
-              default:
-                value:
-                  prompt: A serene lake surrounded by mountains at sunset
-                  aspect_ratio: '2024-10-25T16:09:00.0000000+00:00'
-                  loop: true
-                  keyframes:
-                    frame0:
-                      type: image
-                      url: https://example.com/image.jpg
-                    frame1:
-                      type: generation
-                      id: 123e4567-e89b-12d3-a456-426614174000
-        required: true
-      responses:
-        '201':
-          description: Generation created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Generation'
+                $ref: '#/components/schemas/Credits'
         default:
           description: Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /generations:
     get:
       tags:
         - Generations
@@ -104,49 +65,39 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  '/generations/{id}':
-    get:
+    post:
       tags:
         - Generations
-      summary: Get a generation
-      description: Retrieve details of a specific generation by its ID
-      operationId: getGeneration
-      parameters:
-        - name: id
-          in: path
-          description: The ID of the generation
-          required: true
-          schema:
-            type: string
+      summary: Create a generation
+      description: Initiate a new generation with the provided prompt
+      operationId: createGeneration
+      requestBody:
+        description: The generation request object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerationRequest'
+            examples:
+              default:
+                value:
+                  aspect_ratio: '16:9'
+                  keyframes:
+                    frame0:
+                      type: image
+                      url: https://example.com/image.jpg
+                    frame1:
+                      id: 123e4567-e89b-12d3-a456-426614174000
+                      type: generation
+                  loop: true
+                  prompt: A serene lake surrounded by mountains at sunset
+        required: true
       responses:
-        '200':
-          description: Generation found
+        '201':
+          description: Generation created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Generation'
-        default:
-          description: Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    delete:
-      tags:
-        - Generations
-      summary: Delete a generation
-      description: Remove a specific generation by its ID
-      operationId: deleteGeneration
-      parameters:
-        - name: id
-          in: path
-          description: The ID of the generation
-          required: true
-          schema:
-            type: string
-      responses:
-        '204':
-          description: Generation deleted
         default:
           description: Error
           content:
@@ -175,28 +126,110 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /credits:
-    get:
+  '/generations/{id}':
+    delete:
       tags:
-        - Credits
-      summary: Get credits
-      description: Get the credits information for the api user
-      operationId: getCredits
+        - Generations
+      summary: Delete a generation
+      description: Remove a specific generation by its ID
+      operationId: deleteGeneration
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the generation
+          required: true
+          schema:
+            type: string
       responses:
-        '200':
-          description: Credits found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Credits'
+        '204':
+          description: Generation deleted
         default:
           description: Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+    get:
+      tags:
+        - Generations
+      summary: Get a generation
+      description: Retrieve details of a specific generation by its ID
+      operationId: getGeneration
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the generation
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Generation found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Generation'
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /ping:
+    get:
+      tags:
+        - Ping
+      summary: Ping
+      description: Check if the API is running
+      operationId: ping
+      responses:
+        '200':
+          description: API is running
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The message
+                example:
+                  message: pong
 components:
   schemas:
+    AspectRatio:
+      enum:
+        - '1:1'
+        - '16:9'
+        - '9:16'
+        - '4:3'
+        - '3:4'
+        - '21:9'
+        - '9:21'
+      type: string
+      description: The aspect ratio of the generation
+      default: '16:9'
+      example: '16:9'
+    Assets:
+      type: object
+      properties:
+        video:
+          type: string
+          description: The URL of the video
+          format: uri
+      description: The assets of the generation
+      example:
+        video: https://example.com/video.mp4
+    Credits:
+      required:
+        - credit_balance
+      type: object
+      properties:
+        credit_balance:
+          type: number
+          description: Available credits balance in USD cents
+          format: float
+      description: The credits object
     Error:
       type: object
       properties:
@@ -206,81 +239,92 @@ components:
       description: The error object
       example:
         detail: Invalid API key is provided
-    State:
-      enum:
-        - queued
-        - dreaming
-        - completed
-        - failed
-      type: string
-      description: The state of the generation
-      example: completed
-    ListGenerationResponse:
-      required:
-        - generations
+    Generation:
       type: object
       properties:
-        has_more:
-          type: boolean
-          description: Whether there are more generations
-        count:
-          type: integer
-          description: The number of generations returned
-        limit:
-          type: integer
-          description: The limit of the generations requested
-        offset:
-          type: integer
-          description: The offset of the generations requested
-        generations:
-          type: array
-          items:
-            $ref: '#/components/schemas/Generation'
-          description: The generations requested
-      description: The generations response object
+        assets:
+          $ref: '#/components/schemas/Assets'
+        created_at:
+          type: string
+          description: The date and time when the generation was created
+          format: date-time
+        failure_reason:
+          type: string
+          description: The reason for the state of the generation
+        id:
+          type: string
+          description: The ID of the generation
+          format: uuid
+        request:
+          $ref: '#/components/schemas/GenerationRequest'
+        state:
+          $ref: '#/components/schemas/State'
+        version:
+          type: string
+          description: The model version used for the generation eg. v1.6
+      description: The generation response object
       example:
-        has_more: false
-        count: 1
-        limit: 100
-        offset: 0
-        generations:
-          - id: 123e4567-e89b-12d3-a456-426614174000
-            state: completed
-            failure_reason: 
-            created_at: '2023-06-01T12:00:00.0000000+00:00'
-            assets:
-              video: https://example.com/video.mp4
-            version: v1.6
-            request:
-              prompt: A serene lake surrounded by mountains at sunset
-              aspect_ratio: '2024-10-25T16:09:00.0000000+00:00'
-              loop: true
-              keyframes:
-                frame0:
-                  type: image
-                  url: https://example.com/image.jpg
-                frame1:
-                  type: generation
-                  id: 123e4567-e89b-12d3-a456-426614174000
+        assets:
+          video: https://example.com/video.mp4
+        created_at: '2023-06-01T12:00:00.0000000+00:00'
+        failure_reason: 
+        id: 123e4567-e89b-12d3-a456-426614174000
+        request:
+          aspect_ratio: '16:9'
+          keyframes:
+            frame0:
+              type: image
+              url: https://example.com/image.jpg
+            frame1:
+              id: 123e4567-e89b-12d3-a456-426614174000
+              type: generation
+          loop: true
+          prompt: A serene lake surrounded by mountains at sunset
+        state: completed
+        version: v1.6
     GenerationReference:
       required:
         - type
         - id
       type: object
       properties:
+        id:
+          type: string
+          description: The ID of the generation
+          format: uuid
         type:
           enum:
             - generation
           type: string
           default: generation
-        id:
-          type: string
-          description: The ID of the generation
-          format: uuid
       description: The generation reference object
       example:
-        type: generation
         id: 123e4567-e89b-12d3-a456-426614174000
+        type: generation
+    GenerationRequest:
+      type: object
+      properties:
+        aspect_ratio:
+          $ref: '#/components/schemas/AspectRatio'
+        callback_url:
+          type: string
+          description: 'The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed'
+          format: uri
+        keyframes:
+          $ref: '#/components/schemas/Keyframes'
+        loop:
+          type: boolean
+          description: Whether to loop the video
+        prompt:
+          type: string
+          description: The prompt of the generation
+      description: The generation request object
+      example:
+        summary: Text to video
+        value:
+          aspect_ratio: '16:9'
+          loop: true
+          prompt: A serene lake surrounded by mountains at sunset
     ImageReference:
       required:
         - type
@@ -300,90 +344,6 @@ components:
       example:
         type: image
         url: https://example.com/image.jpg
-    Assets:
-      type: object
-      properties:
-        video:
-          type: string
-          description: The URL of the video
-          format: uri
-      description: The assets of the generation
-      example:
-        video: https://example.com/video.mp4
-    AspectRatio:
-      enum:
-        - '1:1'
-        - '16:9'
-        - '9:16'
-        - '4:3'
-        - '3:4'
-        - '21:9'
-        - '9:21'
-      type: string
-      description: The aspect ratio of the generation
-      default: '16:9'
-      example: '16:9'
-    GenerationRequest:
-      type: object
-      properties:
-        prompt:
-          type: string
-          description: The prompt of the generation
-        aspect_ratio:
-          $ref: '#/components/schemas/AspectRatio'
-        loop:
-          type: boolean
-          description: Whether to loop the video
-        keyframes:
-          $ref: '#/components/schemas/Keyframes'
-        callback_url:
-          type: string
-          description: 'The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed'
-          format: uri
-      description: The generation request object
-    Generation:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the generation
-          format: uuid
-        state:
-          $ref: '#/components/schemas/State'
-        failure_reason:
-          type: string
-          description: The reason for the state of the generation
-        created_at:
-          type: string
-          description: The date and time when the generation was created
-          format: date-time
-        assets:
-          $ref: '#/components/schemas/Assets'
-        version:
-          type: string
-          description: The model version used for the generation eg. v1.6
-        request:
-          $ref: '#/components/schemas/GenerationRequest'
-      description: The generation response object
-      example:
-        id: 123e4567-e89b-12d3-a456-426614174000
-        state: completed
-        failure_reason: 
-        created_at: '2023-06-01T12:00:00.0000000+00:00'
-        assets:
-          video: https://example.com/video.mp4
-        version: v1.6
-        request:
-          prompt: A serene lake surrounded by mountains at sunset
-          aspect_ratio: '2024-10-25T16:09:00.0000000+00:00'
-          loop: true
-          keyframes:
-            frame0:
-              type: image
-              url: https://example.com/image.jpg
-            frame1:
-              type: generation
-              id: 123e4567-e89b-12d3-a456-426614174000
     Keyframe:
       oneOf:
         - $ref: '#/components/schemas/GenerationReference'
@@ -394,6 +354,11 @@ components:
         mapping:
           generation: '#/components/schemas/GenerationReference'
           image: '#/components/schemas/ImageReference'
+      example:
+        summary: Generation reference
+        value:
+          id: 123e4567-e89b-12d3-a456-426614174000
+          type: generation
     Keyframes:
       type: object
       properties:
@@ -407,18 +372,64 @@ components:
           type: image
           url: https://example.com/image.jpg
         frame1:
-          type: generation
           id: 123e4567-e89b-12d3-a456-426614174000
-    Credits:
+          type: generation
+    ListGenerationResponse:
       required:
-        - credit_balance
+        - generations
       type: object
       properties:
-        credit_balance:
-          type: number
-          description: Available credits balance in USD cents
-          format: float
-      description: The credits object
+        count:
+          type: integer
+          description: The number of generations returned
+        generations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Generation'
+          description: The generations requested
+        has_more:
+          type: boolean
+          description: Whether there are more generations
+        limit:
+          type: integer
+          description: The limit of the generations requested
+        offset:
+          type: integer
+          description: The offset of the generations requested
+      description: The generations response object
+      example:
+        count: 1
+        generations:
+          - assets:
+              video: https://example.com/video.mp4
+            created_at: '2023-06-01T12:00:00.0000000+00:00'
+            failure_reason: 
+            id: 123e4567-e89b-12d3-a456-426614174000
+            request:
+              aspect_ratio: '16:9'
+              keyframes:
+                frame0:
+                  type: image
+                  url: https://example.com/image.jpg
+                frame1:
+                  id: 123e4567-e89b-12d3-a456-426614174000
+                  type: generation
+              loop: true
+              prompt: A serene lake surrounded by mountains at sunset
+            state: completed
+            version: v1.6
+        has_more: false
+        limit: 100
+        offset: 0
+    State:
+      enum:
+        - queued
+        - dreaming
+        - completed
+        - failed
+      type: string
+      description: The state of the generation
+      example: completed
   securitySchemes:
     BearerAuth:
       type: http

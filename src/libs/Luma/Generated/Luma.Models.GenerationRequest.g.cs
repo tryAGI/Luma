@@ -9,12 +9,6 @@ namespace Luma
     public sealed partial class GenerationRequest
     {
         /// <summary>
-        /// The prompt of the generation
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
-        public string? Prompt { get; set; }
-
-        /// <summary>
         /// The aspect ratio of the generation<br/>
         /// Default Value: 16:9<br/>
         /// Example: 16:9
@@ -24,10 +18,10 @@ namespace Luma
         public global::Luma.AspectRatio? AspectRatio { get; set; }
 
         /// <summary>
-        /// Whether to loop the video
+        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("loop")]
-        public bool? Loop { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
+        public string? CallbackUrl { get; set; }
 
         /// <summary>
         /// The keyframes of the generation
@@ -36,10 +30,16 @@ namespace Luma
         public global::Luma.Keyframes? Keyframes { get; set; }
 
         /// <summary>
-        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
+        /// Whether to loop the video
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
-        public string? CallbackUrl { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("loop")]
+        public bool? Loop { get; set; }
+
+        /// <summary>
+        /// The prompt of the generation
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
+        public string? Prompt { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

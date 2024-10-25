@@ -18,35 +18,35 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.Error? Type0 { get; set; }
+        public global::Luma.AspectRatio? Type0 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string? Type1 { get; set; }
+        public global::Luma.Assets? Type1 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.State? Type2 { get; set; }
+        public string? Type2 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ListGenerationResponse? Type3 { get; set; }
+        public global::Luma.Credits? Type3 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public bool? Type4 { get; set; }
+        public float? Type4 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public int? Type5 { get; set; }
+        public global::Luma.Error? Type5 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Luma.Generation>? Type6 { get; set; }
+        public global::Luma.Generation? Type6 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.Generation? Type7 { get; set; }
+        public global::System.DateTime? Type7 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -54,66 +54,66 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public global::System.DateTime? Type9 { get; set; }
+        public global::Luma.GenerationRequest? Type9 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.Assets? Type10 { get; set; }
+        public global::Luma.Keyframes? Type10 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationRequest? Type11 { get; set; }
+        public global::Luma.Keyframe? Type11 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.AspectRatio? Type12 { get; set; }
+        public global::Luma.GenerationReference? Type12 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.Keyframes? Type13 { get; set; }
+        public global::Luma.GenerationReferenceType? Type13 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.Keyframe? Type14 { get; set; }
+        public global::Luma.ImageReference? Type14 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationReference? Type15 { get; set; }
+        public global::Luma.ImageReferenceType? Type15 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationReferenceType? Type16 { get; set; }
+        public global::Luma.KeyframeDiscriminator? Type16 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageReference? Type17 { get; set; }
+        public global::Luma.KeyframeDiscriminatorType? Type17 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageReferenceType? Type18 { get; set; }
+        public bool? Type18 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.KeyframeDiscriminator? Type19 { get; set; }
+        public global::Luma.State? Type19 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.KeyframeDiscriminatorType? Type20 { get; set; }
+        public global::Luma.ListGenerationResponse? Type20 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.Credits? Type21 { get; set; }
+        public int? Type21 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public float? Type22 { get; set; }
+        public global::System.Collections.Generic.IList<global::Luma.Generation>? Type22 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.PingResponse? Type23 { get; set; }
+        public global::System.Collections.Generic.IList<string>? Type23 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<string>? Type24 { get; set; }
+        public global::Luma.PingResponse? Type24 { get; set; }
     }
 }

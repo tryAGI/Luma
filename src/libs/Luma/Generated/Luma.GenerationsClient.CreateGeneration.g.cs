@@ -119,40 +119,40 @@ namespace Luma
         /// Create a generation<br/>
         /// Initiate a new generation with the provided prompt
         /// </summary>
-        /// <param name="prompt">
-        /// The prompt of the generation
-        /// </param>
         /// <param name="aspectRatio">
         /// The aspect ratio of the generation<br/>
         /// Default Value: 16:9<br/>
         /// Example: 16:9
         /// </param>
-        /// <param name="loop">
-        /// Whether to loop the video
+        /// <param name="callbackUrl">
+        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
         /// </param>
         /// <param name="keyframes">
         /// The keyframes of the generation
         /// </param>
-        /// <param name="callbackUrl">
-        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
+        /// <param name="loop">
+        /// Whether to loop the video
+        /// </param>
+        /// <param name="prompt">
+        /// The prompt of the generation
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Luma.Generation> CreateGenerationAsync(
-            string? prompt = default,
             global::Luma.AspectRatio? aspectRatio = default,
-            bool? loop = default,
-            global::Luma.Keyframes? keyframes = default,
             string? callbackUrl = default,
+            global::Luma.Keyframes? keyframes = default,
+            bool? loop = default,
+            string? prompt = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Luma.GenerationRequest
             {
-                Prompt = prompt,
                 AspectRatio = aspectRatio,
-                Loop = loop,
-                Keyframes = keyframes,
                 CallbackUrl = callbackUrl,
+                Keyframes = keyframes,
+                Loop = loop,
+                Prompt = prompt,
             };
 
             return await CreateGenerationAsync(

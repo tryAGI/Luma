@@ -9,16 +9,23 @@ namespace Luma
     public sealed partial class ListGenerationResponse
     {
         /// <summary>
-        /// Whether there are more generations
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
-        public bool? HasMore { get; set; }
-
-        /// <summary>
         /// The number of generations returned
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("count")]
         public int? Count { get; set; }
+
+        /// <summary>
+        /// The generations requested
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("generations")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Luma.Generation> Generations { get; set; }
+
+        /// <summary>
+        /// Whether there are more generations
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("has_more")]
+        public bool? HasMore { get; set; }
 
         /// <summary>
         /// The limit of the generations requested
@@ -31,13 +38,6 @@ namespace Luma
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("offset")]
         public int? Offset { get; set; }
-
-        /// <summary>
-        /// The generations requested
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("generations")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Luma.Generation> Generations { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
