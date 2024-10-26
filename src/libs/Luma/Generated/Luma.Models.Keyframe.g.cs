@@ -19,18 +19,18 @@ namespace Luma
         /// The generation reference object
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Luma.GenerationReference? GenerationReference { get; init; }
+        public global::Luma.GenerationReference? Generation { get; init; }
 #else
-        public global::Luma.GenerationReference? GenerationReference { get; }
+        public global::Luma.GenerationReference? Generation { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(GenerationReference))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Generation))]
 #endif
-        public bool IsGenerationReference => GenerationReference != null;
+        public bool IsGeneration => Generation != null;
 
         /// <summary>
         /// 
@@ -40,32 +40,32 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Luma.GenerationReference?(Keyframe @this) => @this.GenerationReference;
+        public static implicit operator global::Luma.GenerationReference?(Keyframe @this) => @this.Generation;
 
         /// <summary>
         /// 
         /// </summary>
         public Keyframe(global::Luma.GenerationReference? value)
         {
-            GenerationReference = value;
+            Generation = value;
         }
 
         /// <summary>
         /// The image object
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Luma.ImageReference? ImageReference { get; init; }
+        public global::Luma.ImageReference? Image { get; init; }
 #else
-        public global::Luma.ImageReference? ImageReference { get; }
+        public global::Luma.ImageReference? Image { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(ImageReference))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Image))]
 #endif
-        public bool IsImageReference => ImageReference != null;
+        public bool IsImage => Image != null;
 
         /// <summary>
         /// 
@@ -75,14 +75,14 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Luma.ImageReference?(Keyframe @this) => @this.ImageReference;
+        public static implicit operator global::Luma.ImageReference?(Keyframe @this) => @this.Image;
 
         /// <summary>
         /// 
         /// </summary>
         public Keyframe(global::Luma.ImageReference? value)
         {
-            ImageReference = value;
+            Image = value;
         }
 
         /// <summary>
@@ -90,22 +90,22 @@ namespace Luma
         /// </summary>
         public Keyframe(
             global::Luma.KeyframeDiscriminatorType? type,
-            global::Luma.GenerationReference? generationReference,
-            global::Luma.ImageReference? imageReference
+            global::Luma.GenerationReference? generation,
+            global::Luma.ImageReference? image
             )
         {
             Type = type;
 
-            GenerationReference = generationReference;
-            ImageReference = imageReference;
+            Generation = generation;
+            Image = image;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            ImageReference as object ??
-            GenerationReference as object 
+            Image as object ??
+            Generation as object 
             ;
 
         /// <summary>
@@ -113,15 +113,15 @@ namespace Luma
         /// </summary>
         public bool Validate()
         {
-            return IsGenerationReference && !IsImageReference || !IsGenerationReference && IsImageReference;
+            return IsGeneration && !IsImage || !IsGeneration && IsImage;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Luma.GenerationReference?, TResult>? generationReference = null,
-            global::System.Func<global::Luma.ImageReference?, TResult>? imageReference = null,
+            global::System.Func<global::Luma.GenerationReference?, TResult>? generation = null,
+            global::System.Func<global::Luma.ImageReference?, TResult>? image = null,
             bool validate = true)
         {
             if (validate)
@@ -129,13 +129,13 @@ namespace Luma
                 Validate();
             }
 
-            if (IsGenerationReference && generationReference != null)
+            if (IsGeneration && generation != null)
             {
-                return generationReference(GenerationReference!);
+                return generation(Generation!);
             }
-            else if (IsImageReference && imageReference != null)
+            else if (IsImage && image != null)
             {
-                return imageReference(ImageReference!);
+                return image(Image!);
             }
 
             return default(TResult);
@@ -145,8 +145,8 @@ namespace Luma
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Luma.GenerationReference?>? generationReference = null,
-            global::System.Action<global::Luma.ImageReference?>? imageReference = null,
+            global::System.Action<global::Luma.GenerationReference?>? generation = null,
+            global::System.Action<global::Luma.ImageReference?>? image = null,
             bool validate = true)
         {
             if (validate)
@@ -154,13 +154,13 @@ namespace Luma
                 Validate();
             }
 
-            if (IsGenerationReference)
+            if (IsGeneration)
             {
-                generationReference?.Invoke(GenerationReference!);
+                generation?.Invoke(Generation!);
             }
-            else if (IsImageReference)
+            else if (IsImage)
             {
-                imageReference?.Invoke(ImageReference!);
+                image?.Invoke(Image!);
             }
         }
 
@@ -171,9 +171,9 @@ namespace Luma
         {
             var fields = new object?[]
             {
-                GenerationReference,
+                Generation,
                 typeof(global::Luma.GenerationReference),
-                ImageReference,
+                Image,
                 typeof(global::Luma.ImageReference),
             };
             const int offset = unchecked((int)2166136261);
@@ -190,8 +190,8 @@ namespace Luma
         public bool Equals(Keyframe other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::Luma.GenerationReference?>.Default.Equals(GenerationReference, other.GenerationReference) &&
-                global::System.Collections.Generic.EqualityComparer<global::Luma.ImageReference?>.Default.Equals(ImageReference, other.ImageReference) 
+                global::System.Collections.Generic.EqualityComparer<global::Luma.GenerationReference?>.Default.Equals(Generation, other.Generation) &&
+                global::System.Collections.Generic.EqualityComparer<global::Luma.ImageReference?>.Default.Equals(Image, other.Image) 
                 ;
         }
 

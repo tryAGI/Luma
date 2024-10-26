@@ -21,25 +21,25 @@ namespace Luma.JsonConverters
                             throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Luma.KeyframeDiscriminator)}");
             var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
-            global::Luma.GenerationReference? generationReference = default;
+            global::Luma.GenerationReference? generation = default;
             if (discriminator?.Type == global::Luma.KeyframeDiscriminatorType.Generation)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.GenerationReference), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.GenerationReference> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Luma.GenerationReference)}");
-                generationReference = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                generation = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::Luma.ImageReference? imageReference = default;
+            global::Luma.ImageReference? image = default;
             if (discriminator?.Type == global::Luma.KeyframeDiscriminatorType.Image)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.ImageReference), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.ImageReference> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Luma.ImageReference)}");
-                imageReference = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                image = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var result = new global::Luma.Keyframe(
                 discriminator?.Type,
-                generationReference,
-                imageReference
+                generation,
+                image
                 );
 
             return result;
@@ -54,17 +54,17 @@ namespace Luma.JsonConverters
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
 
-            if (value.IsGenerationReference)
+            if (value.IsGeneration)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.GenerationReference), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.GenerationReference?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Luma.GenerationReference).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.GenerationReference, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Generation, typeInfo);
             }
-            else if (value.IsImageReference)
+            else if (value.IsImage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.ImageReference), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.ImageReference?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Luma.ImageReference).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.ImageReference, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Image, typeInfo);
             }
         }
     }
