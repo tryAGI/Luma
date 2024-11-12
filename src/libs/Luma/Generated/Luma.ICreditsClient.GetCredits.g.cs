@@ -9,7 +9,7 @@ namespace Luma
         /// Get the credits information for the api user
         /// </summary>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
-        /// <exception cref="global::System.InvalidOperationException"></exception>
+        /// <exception cref="global::Luma.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Luma.Credits> GetCreditsAsync(
             global::System.Threading.CancellationToken cancellationToken = default);
     }
