@@ -24,6 +24,7 @@ namespace Luma
             typeof(global::Luma.JsonConverters.StateJsonConverter),
             typeof(global::Luma.JsonConverters.StateNullableJsonConverter),
             typeof(global::Luma.JsonConverters.KeyframeJsonConverter),
+            typeof(global::Luma.JsonConverters.UnixTimestampJsonConverter),
         })]
 
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Luma.JsonSerializerContextTypes))]
