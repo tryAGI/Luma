@@ -5,10 +5,7 @@ namespace Luma
 {
     public sealed partial class LumaClient
     {
-        /// <summary>
-        /// Authorize using bearer authentication.
-        /// </summary>
-        /// <param name="apiKey"></param>
+        /// <inheritdoc/>
         public void AuthorizeUsingBearer(
             string apiKey)
         {
