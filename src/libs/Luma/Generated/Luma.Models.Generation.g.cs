@@ -27,16 +27,30 @@ namespace Luma
         public string? FailureReason { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("generation_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.GenerationTypeJsonConverter))]
+        public global::Luma.GenerationType? GenerationType { get; set; }
+
+        /// <summary>
         /// The ID of the generation
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         public global::System.Guid? Id { get; set; }
 
         /// <summary>
-        /// The generation request object
+        /// The model used for the generation
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        public string? Model { get; set; }
+
+        /// <summary>
+        /// The request of the generation
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request")]
-        public global::Luma.GenerationRequest? Request { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.RequestJsonConverter))]
+        public global::Luma.Request? Request { get; set; }
 
         /// <summary>
         /// The state of the generation<br/>
@@ -46,12 +60,6 @@ namespace Luma
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.StateJsonConverter))]
         public global::Luma.State? State { get; set; }
-
-        /// <summary>
-        /// The model version used for the generation eg. v1.6
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("version")]
-        public string? Version { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -71,36 +79,39 @@ namespace Luma
         /// <param name="failureReason">
         /// The reason for the state of the generation
         /// </param>
+        /// <param name="generationType"></param>
         /// <param name="id">
         /// The ID of the generation
         /// </param>
+        /// <param name="model">
+        /// The model used for the generation
+        /// </param>
         /// <param name="request">
-        /// The generation request object
+        /// The request of the generation
         /// </param>
         /// <param name="state">
         /// The state of the generation<br/>
         /// Example: completed
-        /// </param>
-        /// <param name="version">
-        /// The model version used for the generation eg. v1.6
         /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public Generation(
             global::Luma.Assets? assets,
             global::System.DateTime? createdAt,
             string? failureReason,
+            global::Luma.GenerationType? generationType,
             global::System.Guid? id,
-            global::Luma.GenerationRequest? request,
-            global::Luma.State? state,
-            string? version)
+            string? model,
+            global::Luma.Request? request,
+            global::Luma.State? state)
         {
             this.Assets = assets;
             this.CreatedAt = createdAt;
             this.FailureReason = failureReason;
+            this.GenerationType = generationType;
             this.Id = id;
+            this.Model = model;
             this.Request = request;
             this.State = state;
-            this.Version = version;
         }
 
         /// <summary>

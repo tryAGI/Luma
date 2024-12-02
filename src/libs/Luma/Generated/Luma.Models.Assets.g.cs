@@ -9,6 +9,12 @@ namespace Luma
     public sealed partial class Assets
     {
         /// <summary>
+        /// The URL of the image
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("image")]
+        public string? Image { get; set; }
+
+        /// <summary>
         /// The URL of the video
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video")]
@@ -23,13 +29,18 @@ namespace Luma
         /// <summary>
         /// Initializes a new instance of the <see cref="Assets" /> class.
         /// </summary>
+        /// <param name="image">
+        /// The URL of the image
+        /// </param>
         /// <param name="video">
         /// The URL of the video
         /// </param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public Assets(
+            string? image,
             string? video)
         {
+            this.Image = image;
             this.Video = video;
         }
 

@@ -126,6 +126,34 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /generations/image:
+    post:
+      tags:
+        - Generations
+        - Image
+      summary: Generate an image
+      description: Generate an image with the provided prompt
+      operationId: generateImage
+      requestBody:
+        description: The image generation request object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageGenerationRequest'
+        required: true
+      responses:
+        '201':
+          description: Image generated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Generation'
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   '/generations/{id}':
     delete:
       tags:
@@ -213,13 +241,19 @@ components:
     Assets:
       type: object
       properties:
+        image:
+          type: string
+          description: The URL of the image
+          format: uri
         video:
           type: string
           description: The URL of the video
           format: uri
       description: The assets of the generation
       example:
-        video: https://example.com/video.mp4
+        summary: Video
+        value:
+          video: https://example.com/video.mp4
     Credits:
       required:
         - credit_balance
@@ -251,17 +285,22 @@ components:
         failure_reason:
           type: string
           description: The reason for the state of the generation
+        generation_type:
+          $ref: '#/components/schemas/GenerationType'
         id:
           type: string
           description: The ID of the generation
           format: uuid
+        model:
+          type: string
+          description: The model used for the generation
         request:
-          $ref: '#/components/schemas/GenerationRequest'
+          oneOf:
+            - $ref: '#/components/schemas/GenerationRequest'
+            - $ref: '#/components/schemas/ImageGenerationRequest'
+          description: The request of the generation
         state:
           $ref: '#/components/schemas/State'
-        version:
-          type: string
-          description: The model version used for the generation eg. v1.6
       description: The generation response object
       example:
         assets:
@@ -269,6 +308,7 @@ components:
         created_at: '2023-06-01T12:00:00.0000000+00:00'
         failure_reason: 
         id: 123e4567-e89b-12d3-a456-426614174000
+        model: ray-1-6
         request:
           aspect_ratio: '16:9'
           keyframes:
@@ -281,7 +321,6 @@ components:
           loop: true
           prompt: A serene lake surrounded by mountains at sunset
         state: completed
-        version: v1.6
     GenerationReference:
       required:
         - type
@@ -299,7 +338,7 @@ components:
           default: generation
       description: The generation reference object
       example:
-        id: 123e4567-e89b-12d3-a456-426614174000
+        id: 123e4567-e89b-12d3-a456-426614174002
         type: generation
     GenerationRequest:
       type: object
@@ -310,6 +349,11 @@ components:
           type: string
           description: 'The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed'
           format: uri
+        generation_type:
+          enum:
+            - video
+          type: string
+          default: video
         keyframes:
           $ref: '#/components/schemas/Keyframes'
         loop:
@@ -325,6 +369,74 @@ components:
           aspect_ratio: '16:9'
           loop: true
           prompt: A serene lake surrounded by mountains at sunset
+    GenerationType:
+      enum:
+        - video
+        - image
+      type: string
+    ImageGenerationRequest:
+      type: object
+      properties:
+        aspect_ratio:
+          $ref: '#/components/schemas/AspectRatio'
+        callback_url:
+          type: string
+          description: The callback URL for the generation
+          format: uri
+        character_ref:
+          type: object
+          properties:
+            identity0:
+              $ref: '#/components/schemas/ImageIdentity'
+        generation_type:
+          enum:
+            - image
+          type: string
+          default: image
+        image_ref:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageRef'
+        model:
+          $ref: '#/components/schemas/ImageModel'
+        modify_image_ref:
+          $ref: '#/components/schemas/ModifyImageRef'
+        prompt:
+          type: string
+          description: The prompt of the generation
+        style_ref:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageRef'
+      description: The image generation request object
+    ImageIdentity:
+      type: object
+      properties:
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+          description: The URLs of the image identity
+      description: The image identity object
+    ImageModel:
+      enum:
+        - photon-1
+        - photon-flash-1
+      type: string
+      description: The image model used for the generation
+      default: photon-1
+    ImageRef:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL of the image reference
+          format: uri
+        weight:
+          type: number
+          description: The weight of the image reference
+      description: The image reference object
     ImageReference:
       required:
         - type
@@ -421,6 +533,17 @@ components:
         has_more: false
         limit: 100
         offset: 0
+    ModifyImageRef:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL of the image reference
+          format: uri
+        weight:
+          type: number
+          description: The weight of the modify image reference
+      description: The modify image reference object
     State:
       enum:
         - queued

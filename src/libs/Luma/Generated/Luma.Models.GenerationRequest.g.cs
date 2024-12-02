@@ -25,6 +25,13 @@ namespace Luma
         public string? CallbackUrl { get; set; }
 
         /// <summary>
+        /// Default Value: video
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("generation_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.GenerationRequestGenerationTypeJsonConverter))]
+        public global::Luma.GenerationRequestGenerationType? GenerationType { get; set; }
+
+        /// <summary>
         /// The keyframes of the generation
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("keyframes")]
@@ -59,6 +66,9 @@ namespace Luma
         /// <param name="callbackUrl">
         /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
         /// </param>
+        /// <param name="generationType">
+        /// Default Value: video
+        /// </param>
         /// <param name="keyframes">
         /// The keyframes of the generation
         /// </param>
@@ -72,12 +82,14 @@ namespace Luma
         public GenerationRequest(
             global::Luma.AspectRatio? aspectRatio,
             string? callbackUrl,
+            global::Luma.GenerationRequestGenerationType? generationType,
             global::Luma.Keyframes? keyframes,
             bool? loop,
             string? prompt)
         {
             this.AspectRatio = aspectRatio;
             this.CallbackUrl = callbackUrl;
+            this.GenerationType = generationType;
             this.Keyframes = keyframes;
             this.Loop = loop;
             this.Prompt = prompt;
