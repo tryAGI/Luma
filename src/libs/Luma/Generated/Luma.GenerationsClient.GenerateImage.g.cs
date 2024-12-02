@@ -5,43 +5,43 @@ namespace Luma
 {
     public partial class GenerationsClient
     {
-        partial void PrepareCreateGenerationArguments(
+        partial void PrepareGenerateImageArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Luma.GenerationRequest request);
-        partial void PrepareCreateGenerationRequest(
+            global::Luma.ImageGenerationRequest request);
+        partial void PrepareGenerateImageRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Luma.GenerationRequest request);
-        partial void ProcessCreateGenerationResponse(
+            global::Luma.ImageGenerationRequest request);
+        partial void ProcessGenerateImageResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateGenerationResponseContent(
+        partial void ProcessGenerateImageResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create a generation<br/>
-        /// Initiate a new generation with the provided prompt
+        /// Generate an image<br/>
+        /// Generate an image with the provided prompt
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Luma.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Luma.Generation> CreateGenerationAsync(
-            global::Luma.GenerationRequest request,
+        public async global::System.Threading.Tasks.Task<global::Luma.Generation> GenerateImageAsync(
+            global::Luma.ImageGenerationRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateGenerationArguments(
+            PrepareGenerateImageArguments(
                 httpClient: HttpClient,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: "/generations",
+                path: "/generations/image",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -77,7 +77,7 @@ namespace Luma
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareCreateGenerationRequest(
+            PrepareGenerateImageRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 request: request);
@@ -90,7 +90,7 @@ namespace Luma
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessCreateGenerationResponse(
+            ProcessGenerateImageResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Error
@@ -130,7 +130,7 @@ namespace Luma
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessCreateGenerationResponseContent(
+                ProcessGenerateImageResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -187,8 +187,8 @@ namespace Luma
         }
 
         /// <summary>
-        /// Create a generation<br/>
-        /// Initiate a new generation with the provided prompt
+        /// Generate an image<br/>
+        /// Generate an image with the provided prompt
         /// </summary>
         /// <param name="aspectRatio">
         /// The aspect ratio of the generation<br/>
@@ -196,42 +196,52 @@ namespace Luma
         /// Example: 16:9
         /// </param>
         /// <param name="callbackUrl">
-        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
+        /// The callback URL for the generation
         /// </param>
+        /// <param name="characterRef"></param>
         /// <param name="generationType">
-        /// Default Value: video
+        /// Default Value: image
         /// </param>
-        /// <param name="keyframes">
-        /// The keyframes of the generation
+        /// <param name="imageRef"></param>
+        /// <param name="model">
+        /// The image model used for the generation<br/>
+        /// Default Value: photon-1
         /// </param>
-        /// <param name="loop">
-        /// Whether to loop the video
+        /// <param name="modifyImageRef">
+        /// The modify image reference object
         /// </param>
         /// <param name="prompt">
         /// The prompt of the generation
         /// </param>
+        /// <param name="styleRef"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Luma.Generation> CreateGenerationAsync(
+        public async global::System.Threading.Tasks.Task<global::Luma.Generation> GenerateImageAsync(
             global::Luma.AspectRatio? aspectRatio = default,
             string? callbackUrl = default,
-            global::Luma.GenerationRequestGenerationType? generationType = default,
-            global::Luma.Keyframes? keyframes = default,
-            bool? loop = default,
+            global::Luma.ImageGenerationRequestCharacterRef? characterRef = default,
+            global::Luma.ImageGenerationRequestGenerationType? generationType = default,
+            global::System.Collections.Generic.IList<global::Luma.ImageRef>? imageRef = default,
+            global::Luma.ImageModel? model = default,
+            global::Luma.ModifyImageRef? modifyImageRef = default,
             string? prompt = default,
+            global::System.Collections.Generic.IList<global::Luma.ImageRef>? styleRef = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Luma.GenerationRequest
+            var __request = new global::Luma.ImageGenerationRequest
             {
                 AspectRatio = aspectRatio,
                 CallbackUrl = callbackUrl,
+                CharacterRef = characterRef,
                 GenerationType = generationType,
-                Keyframes = keyframes,
-                Loop = loop,
+                ImageRef = imageRef,
+                Model = model,
+                ModifyImageRef = modifyImageRef,
                 Prompt = prompt,
+                StyleRef = styleRef,
             };
 
-            return await CreateGenerationAsync(
+            return await GenerateImageAsync(
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }
