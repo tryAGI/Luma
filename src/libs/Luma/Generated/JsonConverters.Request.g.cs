@@ -22,14 +22,14 @@ namespace Luma.JsonConverters
             var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::Luma.GenerationRequest? video = default;
-            if (discriminator?.Generation_type == global::Luma.GenerationRequestDiscriminatorGeneration_type.Video)
+            if (discriminator?.GenerationType == global::Luma.GenerationRequestDiscriminatorGenerationType.Video)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.GenerationRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.GenerationRequest> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Luma.GenerationRequest)}");
                 video = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::Luma.ImageGenerationRequest? image = default;
-            if (discriminator?.Generation_type == global::Luma.GenerationRequestDiscriminatorGeneration_type.Image)
+            if (discriminator?.GenerationType == global::Luma.GenerationRequestDiscriminatorGenerationType.Image)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.ImageGenerationRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.ImageGenerationRequest> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Luma.ImageGenerationRequest)}");
@@ -37,7 +37,7 @@ namespace Luma.JsonConverters
             }
 
             var result = new global::Luma.Request(
-                discriminator?.Generation_type,
+                discriminator?.GenerationType,
                 video,
                 image
                 );

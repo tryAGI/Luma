@@ -3,8 +3,7 @@ namespace Luma.IntegrationTests;
 [TestClass]
 public partial class Tests
 {
-    [TestMethod]
-    public LumaClient GetAuthenticatedClient()
+    private static LumaClient GetAuthenticatedClient()
     {
         var apiKey =
             Environment.GetEnvironmentVariable("LUMA_API_KEY") ??

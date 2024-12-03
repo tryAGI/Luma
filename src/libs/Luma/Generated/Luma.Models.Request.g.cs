@@ -12,7 +12,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationRequestDiscriminatorGeneration_type? Generation_type { get; }
+        public global::Luma.GenerationRequestDiscriminatorGenerationType? GenerationType { get; }
 
         /// <summary>
         /// The generation request object
@@ -88,12 +88,12 @@ namespace Luma
         /// 
         /// </summary>
         public Request(
-            global::Luma.GenerationRequestDiscriminatorGeneration_type? generation_type,
+            global::Luma.GenerationRequestDiscriminatorGenerationType? generationType,
             global::Luma.GenerationRequest? video,
             global::Luma.ImageGenerationRequest? image
             )
         {
-            Generation_type = generation_type;
+            GenerationType = generationType;
 
             Video = video;
             Image = image;
