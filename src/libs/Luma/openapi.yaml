@@ -338,7 +338,7 @@ components:
           default: generation
       description: The generation reference object
       example:
-        id: 123e4567-e89b-12d3-a456-426614174002
+        id: 123e4567-e89b-12d3-a456-426614174003
         type: generation
     GenerationRequest:
       type: object
