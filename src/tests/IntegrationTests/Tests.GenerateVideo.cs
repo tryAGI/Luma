@@ -3,14 +3,14 @@ namespace Luma.IntegrationTests;
 public partial class Tests
 {
     [TestMethod]
-    public async Task CreateGeneration()
+    public async Task GenerateVideo()
     {
         using var client = GetAuthenticatedClient();
         using var cancellationTokenSource = new CancellationTokenSource(TimeSpan.FromMinutes(5));
         var cancellationToken = cancellationTokenSource.Token;
 
         Generation generation = await client.Generations.CreateGenerationAsync(
-            prompt: "The girl just smiles",
+            prompt: "The beautiful woman just smiles",
             aspectRatio: AspectRatio.x4_3,
             loop: false,
             keyframes: new Keyframes

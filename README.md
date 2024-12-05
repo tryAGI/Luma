@@ -19,8 +19,15 @@ using Luma;
 
 using var api = new LumaClient(apiKey);
 
+// generate image
+Generation generation = await client.Generations.GenerateImageAsync(
+    prompt: "The beautiful woman just smiles",
+    aspectRatio: AspectRatio.x4_3,
+    cancellationToken: cancellationToken);
+
+// or generate video
 Generation generation = await client.Generations.CreateGenerationAsync(
-    prompt: "No camera movement. The girl just stands there and smiles. The waves in the background move a little.",
+    prompt: "No camera movement. The beautiful woman just stands there and smiles. The waves in the background move a little.",
     aspectRatio: AspectRatio.x4_3,
     loop: false,
     keyframes: new Keyframes
