@@ -25,6 +25,13 @@ namespace Luma
         public string? CallbackUrl { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("duration")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.VideoModelOutputDurationJsonConverter))]
+        public global::Luma.VideoModelOutputDuration? Duration { get; set; }
+
+        /// <summary>
         /// Default Value: video
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generation_type")]
@@ -44,10 +51,27 @@ namespace Luma
         public bool? Loop { get; set; }
 
         /// <summary>
+        /// The video model used for the generation<br/>
+        /// Default Value: ray-1-6<br/>
+        /// Example: ray-1-6
+        /// </summary>
+        /// <example>ray-1-6</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.VideoModelJsonConverter))]
+        public global::Luma.VideoModel? Model { get; set; }
+
+        /// <summary>
         /// The prompt of the generation
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
         public string? Prompt { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("resolution")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.VideoModelOutputResolutionJsonConverter))]
+        public global::Luma.VideoModelOutputResolution? Resolution { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -66,6 +90,7 @@ namespace Luma
         /// <param name="callbackUrl">
         /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
         /// </param>
+        /// <param name="duration"></param>
         /// <param name="generationType">
         /// Default Value: video
         /// </param>
@@ -75,24 +100,36 @@ namespace Luma
         /// <param name="loop">
         /// Whether to loop the video
         /// </param>
+        /// <param name="model">
+        /// The video model used for the generation<br/>
+        /// Default Value: ray-1-6<br/>
+        /// Example: ray-1-6
+        /// </param>
         /// <param name="prompt">
         /// The prompt of the generation
         /// </param>
+        /// <param name="resolution"></param>
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
         public GenerationRequest(
             global::Luma.AspectRatio? aspectRatio,
             string? callbackUrl,
+            global::Luma.VideoModelOutputDuration? duration,
             global::Luma.GenerationRequestGenerationType? generationType,
             global::Luma.Keyframes? keyframes,
             bool? loop,
-            string? prompt)
+            global::Luma.VideoModel? model,
+            string? prompt,
+            global::Luma.VideoModelOutputResolution? resolution)
         {
             this.AspectRatio = aspectRatio;
             this.CallbackUrl = callbackUrl;
+            this.Duration = duration;
             this.GenerationType = generationType;
             this.Keyframes = keyframes;
             this.Loop = loop;
+            this.Model = model;
             this.Prompt = prompt;
+            this.Resolution = resolution;
         }
 
         /// <summary>

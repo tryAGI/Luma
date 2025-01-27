@@ -349,6 +349,8 @@ components:
           type: string
           description: 'The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed'
           format: uri
+        duration:
+          $ref: '#/components/schemas/VideoModelOutputDuration'
         generation_type:
           enum:
             - video
@@ -359,9 +361,13 @@ components:
         loop:
           type: boolean
           description: Whether to loop the video
+        model:
+          $ref: '#/components/schemas/VideoModel'
         prompt:
           type: string
           description: The prompt of the generation
+        resolution:
+          $ref: '#/components/schemas/VideoModelOutputResolution'
       description: The generation request object
       example:
         summary: Text to video
@@ -553,6 +559,28 @@ components:
       type: string
       description: The state of the generation
       example: completed
+    VideoModel:
+      enum:
+        - ray-1-6
+        - ray-2
+      type: string
+      description: The video model used for the generation
+      default: ray-1-6
+      example: ray-1-6
+    VideoModelOutputDuration:
+      anyOf:
+        - enum:
+            - 5s
+            - 9s
+          type: string
+        - type: string
+    VideoModelOutputResolution:
+      anyOf:
+        - enum:
+            - 540p
+            - 720p
+          type: string
+        - type: string
   securitySchemes:
     BearerAuth:
       type: http
