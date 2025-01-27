@@ -74,110 +74,130 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationRequestGenerationType? Type12 { get; set; }
+        public global::Luma.VideoModelOutputDuration? Type12 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.Keyframes? Type13 { get; set; }
+        public global::Luma.VideoModelOutputDurationEnum? Type13 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.Keyframe? Type14 { get; set; }
+        public global::Luma.GenerationRequestGenerationType? Type14 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationReference? Type15 { get; set; }
+        public global::Luma.Keyframes? Type15 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationReferenceType? Type16 { get; set; }
+        public global::Luma.Keyframe? Type16 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageReference? Type17 { get; set; }
+        public global::Luma.GenerationReference? Type17 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageReferenceType? Type18 { get; set; }
+        public global::Luma.GenerationReferenceType? Type18 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.KeyframeDiscriminator? Type19 { get; set; }
+        public global::Luma.ImageReference? Type19 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.KeyframeDiscriminatorType? Type20 { get; set; }
+        public global::Luma.ImageReferenceType? Type20 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public bool? Type21 { get; set; }
+        public global::Luma.KeyframeDiscriminator? Type21 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageGenerationRequest? Type22 { get; set; }
+        public global::Luma.KeyframeDiscriminatorType? Type22 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageGenerationRequestCharacterRef? Type23 { get; set; }
+        public bool? Type23 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageIdentity? Type24 { get; set; }
+        public global::Luma.VideoModel? Type24 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<string>? Type25 { get; set; }
+        public global::Luma.VideoModelOutputResolution? Type25 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageGenerationRequestGenerationType? Type26 { get; set; }
+        public global::Luma.VideoModelOutputResolutionEnum? Type26 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Luma.ImageRef>? Type27 { get; set; }
+        public global::Luma.ImageGenerationRequest? Type27 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageRef? Type28 { get; set; }
+        public global::Luma.ImageGenerationRequestCharacterRef? Type28 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public double? Type29 { get; set; }
+        public global::Luma.ImageIdentity? Type29 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageModel? Type30 { get; set; }
+        public global::System.Collections.Generic.IList<string>? Type30 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ModifyImageRef? Type31 { get; set; }
+        public global::Luma.ImageGenerationRequestGenerationType? Type31 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationRequestDiscriminator? Type32 { get; set; }
+        public global::System.Collections.Generic.IList<global::Luma.ImageRef>? Type32 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationRequestDiscriminatorGenerationType? Type33 { get; set; }
+        public global::Luma.ImageRef? Type33 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.State? Type34 { get; set; }
+        public double? Type34 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ListGenerationResponse? Type35 { get; set; }
+        public global::Luma.ImageModel? Type35 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public int? Type36 { get; set; }
+        public global::Luma.ModifyImageRef? Type36 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Luma.Generation>? Type37 { get; set; }
+        public global::Luma.GenerationRequestDiscriminator? Type37 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.PingResponse? Type38 { get; set; }
+        public global::Luma.GenerationRequestDiscriminatorGenerationType? Type38 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.State? Type39 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.ListGenerationResponse? Type40 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? Type41 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::Luma.Generation>? Type42 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.PingResponse? Type43 { get; set; }
     }
 }

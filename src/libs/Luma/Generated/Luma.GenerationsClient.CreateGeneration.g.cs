@@ -198,6 +198,7 @@ namespace Luma
         /// <param name="callbackUrl">
         /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
         /// </param>
+        /// <param name="duration"></param>
         /// <param name="generationType">
         /// Default Value: video
         /// </param>
@@ -207,28 +208,40 @@ namespace Luma
         /// <param name="loop">
         /// Whether to loop the video
         /// </param>
+        /// <param name="model">
+        /// The video model used for the generation<br/>
+        /// Default Value: ray-1-6<br/>
+        /// Example: ray-1-6
+        /// </param>
         /// <param name="prompt">
         /// The prompt of the generation
         /// </param>
+        /// <param name="resolution"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Luma.Generation> CreateGenerationAsync(
             global::Luma.AspectRatio? aspectRatio = default,
             string? callbackUrl = default,
+            global::Luma.VideoModelOutputDuration? duration = default,
             global::Luma.GenerationRequestGenerationType? generationType = default,
             global::Luma.Keyframes? keyframes = default,
             bool? loop = default,
+            global::Luma.VideoModel? model = default,
             string? prompt = default,
+            global::Luma.VideoModelOutputResolution? resolution = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Luma.GenerationRequest
             {
                 AspectRatio = aspectRatio,
                 CallbackUrl = callbackUrl,
+                Duration = duration,
                 GenerationType = generationType,
                 Keyframes = keyframes,
                 Loop = loop,
+                Model = model,
                 Prompt = prompt,
+                Resolution = resolution,
             };
 
             return await CreateGenerationAsync(
