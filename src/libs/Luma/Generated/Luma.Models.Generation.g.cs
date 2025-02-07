@@ -93,7 +93,9 @@ namespace Luma
         /// The state of the generation<br/>
         /// Example: completed
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public Generation(
             global::Luma.Assets? assets,
             global::System.DateTime? createdAt,

@@ -109,7 +109,9 @@ namespace Luma
         /// The prompt of the generation
         /// </param>
         /// <param name="resolution"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public GenerationRequest(
             global::Luma.AspectRatio? aspectRatio,
             string? callbackUrl,

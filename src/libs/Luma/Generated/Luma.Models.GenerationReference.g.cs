@@ -38,7 +38,9 @@ namespace Luma
         /// <param name="type">
         /// Default Value: generation
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public GenerationReference(
             global::System.Guid id,
             global::Luma.GenerationReferenceType type = global::Luma.GenerationReferenceType.Generation)
