@@ -26,7 +26,9 @@ namespace Luma
         /// <param name="identity0">
         /// The image identity object
         /// </param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ImageGenerationRequestCharacterRef(
             global::Luma.ImageIdentity? identity0)
         {

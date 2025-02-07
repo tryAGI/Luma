@@ -102,7 +102,9 @@ namespace Luma
         /// The prompt of the generation
         /// </param>
         /// <param name="styleRef"></param>
+#if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
         public ImageGenerationRequest(
             global::Luma.AspectRatio? aspectRatio,
             string? callbackUrl,
