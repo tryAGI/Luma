@@ -16,6 +16,14 @@ namespace Luma
         /// 
         /// </summary>
         x720p,
+        /// <summary>
+        /// 
+        /// </summary>
+        x1080p,
+        /// <summary>
+        /// 
+        /// </summary>
+        x4k,
     }
 
     /// <summary>
@@ -32,6 +40,8 @@ namespace Luma
             {
                 VideoModelOutputResolutionEnum.x540p => "540p",
                 VideoModelOutputResolutionEnum.x720p => "720p",
+                VideoModelOutputResolutionEnum.x1080p => "1080p",
+                VideoModelOutputResolutionEnum.x4k => "4k",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +54,8 @@ namespace Luma
             {
                 "540p" => VideoModelOutputResolutionEnum.x540p,
                 "720p" => VideoModelOutputResolutionEnum.x720p,
+                "1080p" => VideoModelOutputResolutionEnum.x1080p,
+                "4k" => VideoModelOutputResolutionEnum.x4k,
                 _ => null,
             };
         }

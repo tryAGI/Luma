@@ -15,6 +15,12 @@ namespace Luma
         public string? Image { get; set; }
 
         /// <summary>
+        /// The URL of the progress video
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("progress_video")]
+        public string? ProgressVideo { get; set; }
+
+        /// <summary>
         /// The URL of the video
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("video")]
@@ -32,6 +38,9 @@ namespace Luma
         /// <param name="image">
         /// The URL of the image
         /// </param>
+        /// <param name="progressVideo">
+        /// The URL of the progress video
+        /// </param>
         /// <param name="video">
         /// The URL of the video
         /// </param>
@@ -40,9 +49,11 @@ namespace Luma
 #endif
         public Assets(
             string? image,
+            string? progressVideo,
             string? video)
         {
             this.Image = image;
+            this.ProgressVideo = progressVideo;
             this.Video = video;
         }
 

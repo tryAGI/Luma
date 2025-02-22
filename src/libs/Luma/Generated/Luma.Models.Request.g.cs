@@ -85,24 +85,62 @@ namespace Luma
         }
 
         /// <summary>
+        /// The upscale generation request object
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Luma.UpscaleVideoGenerationRequest? UpscaleVideo { get; init; }
+#else
+        public global::Luma.UpscaleVideoGenerationRequest? UpscaleVideo { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpscaleVideo))]
+#endif
+        public bool IsUpscaleVideo => UpscaleVideo != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Request(global::Luma.UpscaleVideoGenerationRequest value) => new Request(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::Luma.UpscaleVideoGenerationRequest?(Request @this) => @this.UpscaleVideo;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Request(global::Luma.UpscaleVideoGenerationRequest? value)
+        {
+            UpscaleVideo = value;
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         public Request(
             global::Luma.GenerationRequestDiscriminatorGenerationType? generationType,
             global::Luma.GenerationRequest? video,
-            global::Luma.ImageGenerationRequest? image
+            global::Luma.ImageGenerationRequest? image,
+            global::Luma.UpscaleVideoGenerationRequest? upscaleVideo
             )
         {
             GenerationType = generationType;
 
             Video = video;
             Image = image;
+            UpscaleVideo = upscaleVideo;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            UpscaleVideo as object ??
             Image as object ??
             Video as object 
             ;
@@ -112,7 +150,7 @@ namespace Luma
         /// </summary>
         public bool Validate()
         {
-            return IsVideo && !IsImage || !IsVideo && IsImage;
+            return IsVideo && !IsImage && !IsUpscaleVideo || !IsVideo && IsImage && !IsUpscaleVideo || !IsVideo && !IsImage && IsUpscaleVideo;
         }
 
         /// <summary>
@@ -121,6 +159,7 @@ namespace Luma
         public TResult? Match<TResult>(
             global::System.Func<global::Luma.GenerationRequest?, TResult>? video = null,
             global::System.Func<global::Luma.ImageGenerationRequest?, TResult>? image = null,
+            global::System.Func<global::Luma.UpscaleVideoGenerationRequest?, TResult>? upscaleVideo = null,
             bool validate = true)
         {
             if (validate)
@@ -136,6 +175,10 @@ namespace Luma
             {
                 return image(Image!);
             }
+            else if (IsUpscaleVideo && upscaleVideo != null)
+            {
+                return upscaleVideo(UpscaleVideo!);
+            }
 
             return default(TResult);
         }
@@ -146,6 +189,7 @@ namespace Luma
         public void Match(
             global::System.Action<global::Luma.GenerationRequest?>? video = null,
             global::System.Action<global::Luma.ImageGenerationRequest?>? image = null,
+            global::System.Action<global::Luma.UpscaleVideoGenerationRequest?>? upscaleVideo = null,
             bool validate = true)
         {
             if (validate)
@@ -161,6 +205,10 @@ namespace Luma
             {
                 image?.Invoke(Image!);
             }
+            else if (IsUpscaleVideo)
+            {
+                upscaleVideo?.Invoke(UpscaleVideo!);
+            }
         }
 
         /// <summary>
@@ -174,6 +222,8 @@ namespace Luma
                 typeof(global::Luma.GenerationRequest),
                 Image,
                 typeof(global::Luma.ImageGenerationRequest),
+                UpscaleVideo,
+                typeof(global::Luma.UpscaleVideoGenerationRequest),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -191,7 +241,8 @@ namespace Luma
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Luma.GenerationRequest?>.Default.Equals(Video, other.Video) &&
-                global::System.Collections.Generic.EqualityComparer<global::Luma.ImageGenerationRequest?>.Default.Equals(Image, other.Image) 
+                global::System.Collections.Generic.EqualityComparer<global::Luma.ImageGenerationRequest?>.Default.Equals(Image, other.Image) &&
+                global::System.Collections.Generic.EqualityComparer<global::Luma.UpscaleVideoGenerationRequest?>.Default.Equals(UpscaleVideo, other.UpscaleVideo) 
                 ;
         }
 

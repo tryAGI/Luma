@@ -174,30 +174,38 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationRequestDiscriminator? Type37 { get; set; }
+        public global::Luma.UpscaleVideoGenerationRequest? Type37 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.GenerationRequestDiscriminatorGenerationType? Type38 { get; set; }
+        public global::Luma.UpscaleVideoGenerationRequestGenerationType? Type38 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.State? Type39 { get; set; }
+        public global::Luma.GenerationRequestDiscriminator? Type39 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ListGenerationResponse? Type40 { get; set; }
+        public global::Luma.GenerationRequestDiscriminatorGenerationType? Type40 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public int? Type41 { get; set; }
+        public global::Luma.State? Type41 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Luma.Generation>? Type42 { get; set; }
+        public global::Luma.ListGenerationResponse? Type42 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.PingResponse? Type43 { get; set; }
+        public int? Type43 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::Luma.Generation>? Type44 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.PingResponse? Type45 { get; set; }
     }
 }
