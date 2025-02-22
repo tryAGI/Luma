@@ -203,6 +203,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  '/generations/{id}/upscale':
+    post:
+      tags:
+        - Generations
+      summary: Upscale a generation
+      description: Upscale a generation by its ID
+      operationId: upscaleGeneration
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the generation
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The upscale request object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpscaleVideoGenerationRequest'
+        required: true
+      responses:
+        '200':
+          description: Generation upscaled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Generation'
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /ping:
     get:
       tags:
@@ -244,6 +278,10 @@ components:
         image:
           type: string
           description: The URL of the image
+          format: uri
+        progress_video:
+          type: string
+          description: The URL of the progress video
           format: uri
         video:
           type: string
@@ -298,6 +336,7 @@ components:
           oneOf:
             - $ref: '#/components/schemas/GenerationRequest'
             - $ref: '#/components/schemas/ImageGenerationRequest'
+            - $ref: '#/components/schemas/UpscaleVideoGenerationRequest'
           description: The request of the generation
         state:
           $ref: '#/components/schemas/State'
@@ -559,6 +598,21 @@ components:
       type: string
       description: The state of the generation
       example: completed
+    UpscaleVideoGenerationRequest:
+      type: object
+      properties:
+        callback_url:
+          type: string
+          description: The callback URL for the upscale
+          format: uri
+        generation_type:
+          enum:
+            - upscale_video
+          type: string
+          default: upscale_video
+        resolution:
+          $ref: '#/components/schemas/VideoModelOutputResolution'
+      description: The upscale generation request object
     VideoModel:
       enum:
         - ray-1-6
@@ -579,6 +633,8 @@ components:
         - enum:
             - 540p
             - 720p
+            - 1080p
+            - 4k
           type: string
         - type: string
   securitySchemes:

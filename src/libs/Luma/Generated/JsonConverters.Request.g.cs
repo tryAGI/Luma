@@ -35,11 +35,19 @@ namespace Luma.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Luma.ImageGenerationRequest)}");
                 image = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::Luma.UpscaleVideoGenerationRequest? upscaleVideo = default;
+            if (discriminator?.GenerationType == global::Luma.GenerationRequestDiscriminatorGenerationType.UpscaleVideo)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.UpscaleVideoGenerationRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.UpscaleVideoGenerationRequest> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Luma.UpscaleVideoGenerationRequest)}");
+                upscaleVideo = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var result = new global::Luma.Request(
                 discriminator?.GenerationType,
                 video,
-                image
+                image,
+                upscaleVideo
                 );
 
             return result;
@@ -65,6 +73,12 @@ namespace Luma.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.ImageGenerationRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.ImageGenerationRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Luma.ImageGenerationRequest).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Image, typeInfo);
+            }
+            else if (value.IsUpscaleVideo)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.UpscaleVideoGenerationRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.UpscaleVideoGenerationRequest?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Luma.UpscaleVideoGenerationRequest).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpscaleVideo, typeInfo);
             }
         }
     }

@@ -35,6 +35,8 @@ namespace Luma
             typeof(global::Luma.JsonConverters.ImageGenerationRequestGenerationTypeNullableJsonConverter),
             typeof(global::Luma.JsonConverters.ImageModelJsonConverter),
             typeof(global::Luma.JsonConverters.ImageModelNullableJsonConverter),
+            typeof(global::Luma.JsonConverters.UpscaleVideoGenerationRequestGenerationTypeJsonConverter),
+            typeof(global::Luma.JsonConverters.UpscaleVideoGenerationRequestGenerationTypeNullableJsonConverter),
             typeof(global::Luma.JsonConverters.GenerationRequestDiscriminatorGenerationTypeJsonConverter),
             typeof(global::Luma.JsonConverters.GenerationRequestDiscriminatorGenerationTypeNullableJsonConverter),
             typeof(global::Luma.JsonConverters.StateJsonConverter),

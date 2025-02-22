@@ -16,6 +16,10 @@ namespace Luma
         /// 
         /// </summary>
         Image,
+        /// <summary>
+        /// 
+        /// </summary>
+        UpscaleVideo,
     }
 
     /// <summary>
@@ -32,6 +36,7 @@ namespace Luma
             {
                 GenerationRequestDiscriminatorGenerationType.Video => "video",
                 GenerationRequestDiscriminatorGenerationType.Image => "image",
+                GenerationRequestDiscriminatorGenerationType.UpscaleVideo => "upscale_video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +49,7 @@ namespace Luma
             {
                 "video" => GenerationRequestDiscriminatorGenerationType.Video,
                 "image" => GenerationRequestDiscriminatorGenerationType.Image,
+                "upscale_video" => GenerationRequestDiscriminatorGenerationType.UpscaleVideo,
                 _ => null,
             };
         }
