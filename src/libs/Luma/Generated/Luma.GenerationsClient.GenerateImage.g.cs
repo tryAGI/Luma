@@ -110,7 +110,7 @@ namespace Luma
                 }
 
                 throw new global::Luma.ApiException<global::Luma.Error>(
-                    message: __response.ReasonPhrase ?? string.Empty,
+                    message: __content_default ?? __response.ReasonPhrase ?? string.Empty,
                     statusCode: __response.StatusCode)
                 {
                     ResponseBody = __content_default,
