@@ -18,6 +18,10 @@ namespace Luma
         /// 
         /// </summary>
         Ray2,
+        /// <summary>
+        /// 
+        /// </summary>
+        RayFlash2,
     }
 
     /// <summary>
@@ -34,6 +38,7 @@ namespace Luma
             {
                 VideoModel.Ray16 => "ray-1-6",
                 VideoModel.Ray2 => "ray-2",
+                VideoModel.RayFlash2 => "ray-flash-2",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -46,6 +51,7 @@ namespace Luma
             {
                 "ray-1-6" => VideoModel.Ray16,
                 "ray-2" => VideoModel.Ray2,
+                "ray-flash-2" => VideoModel.RayFlash2,
                 _ => null,
             };
         }
