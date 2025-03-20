@@ -42,12 +42,20 @@ namespace Luma.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Luma.UpscaleVideoGenerationRequest)}");
                 upscaleVideo = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::Luma.AudioGenerationRequest? addAudio = default;
+            if (discriminator?.GenerationType == global::Luma.GenerationRequestDiscriminatorGenerationType.AddAudio)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.AudioGenerationRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.AudioGenerationRequest> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Luma.AudioGenerationRequest)}");
+                addAudio = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var result = new global::Luma.Request(
                 discriminator?.GenerationType,
                 video,
                 image,
-                upscaleVideo
+                upscaleVideo,
+                addAudio
                 );
 
             return result;
@@ -79,6 +87,12 @@ namespace Luma.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.UpscaleVideoGenerationRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.UpscaleVideoGenerationRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Luma.UpscaleVideoGenerationRequest).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.UpscaleVideo, typeInfo);
+            }
+            else if (value.IsAddAudio)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.AudioGenerationRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.AudioGenerationRequest?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Luma.AudioGenerationRequest).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.AddAudio, typeInfo);
             }
         }
     }

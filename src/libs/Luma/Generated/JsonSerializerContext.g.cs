@@ -15,6 +15,8 @@ namespace Luma
         { 
             typeof(global::Luma.JsonConverters.AspectRatioJsonConverter),
             typeof(global::Luma.JsonConverters.AspectRatioNullableJsonConverter),
+            typeof(global::Luma.JsonConverters.AudioGenerationRequestGenerationTypeJsonConverter),
+            typeof(global::Luma.JsonConverters.AudioGenerationRequestGenerationTypeNullableJsonConverter),
             typeof(global::Luma.JsonConverters.GenerationTypeJsonConverter),
             typeof(global::Luma.JsonConverters.GenerationTypeNullableJsonConverter),
             typeof(global::Luma.JsonConverters.VideoModelOutputDurationEnumJsonConverter),

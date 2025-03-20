@@ -203,6 +203,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  '/generations/{id}/audio':
+    post:
+      tags:
+        - Generations
+      summary: Add audio to a generation
+      description: Add audio to a generation by its ID
+      operationId: addAudioToGeneration
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the generation
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The audio generation request object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AudioGenerationRequest'
+        required: true
+      responses:
+        '200':
+          description: Audio added to generation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Generation'
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   '/generations/{id}/upscale':
     post:
       tags:
@@ -292,6 +326,25 @@ components:
         summary: Video
         value:
           video: https://example.com/video.mp4
+    AudioGenerationRequest:
+      type: object
+      properties:
+        callback_url:
+          type: string
+          description: The callback URL for the audio
+          format: uri
+        generation_type:
+          enum:
+            - add_audio
+          type: string
+          default: add_audio
+        negative_prompt:
+          type: string
+          description: The negative prompt of the audio
+        prompt:
+          type: string
+          description: The prompt of the audio
+      description: The audio generation request object
     Credits:
       required:
         - credit_balance
@@ -337,6 +390,7 @@ components:
             - $ref: '#/components/schemas/GenerationRequest'
             - $ref: '#/components/schemas/ImageGenerationRequest'
             - $ref: '#/components/schemas/UpscaleVideoGenerationRequest'
+            - $ref: '#/components/schemas/AudioGenerationRequest'
           description: The request of the generation
         state:
           $ref: '#/components/schemas/State'

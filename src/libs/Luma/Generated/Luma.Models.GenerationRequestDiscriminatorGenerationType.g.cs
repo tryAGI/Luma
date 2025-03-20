@@ -20,6 +20,10 @@ namespace Luma
         /// 
         /// </summary>
         UpscaleVideo,
+        /// <summary>
+        /// 
+        /// </summary>
+        AddAudio,
     }
 
     /// <summary>
@@ -37,6 +41,7 @@ namespace Luma
                 GenerationRequestDiscriminatorGenerationType.Video => "video",
                 GenerationRequestDiscriminatorGenerationType.Image => "image",
                 GenerationRequestDiscriminatorGenerationType.UpscaleVideo => "upscale_video",
+                GenerationRequestDiscriminatorGenerationType.AddAudio => "add_audio",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -50,6 +55,7 @@ namespace Luma
                 "video" => GenerationRequestDiscriminatorGenerationType.Video,
                 "image" => GenerationRequestDiscriminatorGenerationType.Image,
                 "upscale_video" => GenerationRequestDiscriminatorGenerationType.UpscaleVideo,
+                "add_audio" => GenerationRequestDiscriminatorGenerationType.AddAudio,
                 _ => null,
             };
         }
