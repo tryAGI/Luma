@@ -120,13 +120,49 @@ namespace Luma
         }
 
         /// <summary>
+        /// The audio generation request object
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Luma.AudioGenerationRequest? AddAudio { get; init; }
+#else
+        public global::Luma.AudioGenerationRequest? AddAudio { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(AddAudio))]
+#endif
+        public bool IsAddAudio => AddAudio != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator Request(global::Luma.AudioGenerationRequest value) => new Request(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator global::Luma.AudioGenerationRequest?(Request @this) => @this.AddAudio;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Request(global::Luma.AudioGenerationRequest? value)
+        {
+            AddAudio = value;
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         public Request(
             global::Luma.GenerationRequestDiscriminatorGenerationType? generationType,
             global::Luma.GenerationRequest? video,
             global::Luma.ImageGenerationRequest? image,
-            global::Luma.UpscaleVideoGenerationRequest? upscaleVideo
+            global::Luma.UpscaleVideoGenerationRequest? upscaleVideo,
+            global::Luma.AudioGenerationRequest? addAudio
             )
         {
             GenerationType = generationType;
@@ -134,12 +170,14 @@ namespace Luma
             Video = video;
             Image = image;
             UpscaleVideo = upscaleVideo;
+            AddAudio = addAudio;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            AddAudio as object ??
             UpscaleVideo as object ??
             Image as object ??
             Video as object 
@@ -150,7 +188,7 @@ namespace Luma
         /// </summary>
         public bool Validate()
         {
-            return IsVideo && !IsImage && !IsUpscaleVideo || !IsVideo && IsImage && !IsUpscaleVideo || !IsVideo && !IsImage && IsUpscaleVideo;
+            return IsVideo && !IsImage && !IsUpscaleVideo && !IsAddAudio || !IsVideo && IsImage && !IsUpscaleVideo && !IsAddAudio || !IsVideo && !IsImage && IsUpscaleVideo && !IsAddAudio || !IsVideo && !IsImage && !IsUpscaleVideo && IsAddAudio;
         }
 
         /// <summary>
@@ -160,6 +198,7 @@ namespace Luma
             global::System.Func<global::Luma.GenerationRequest?, TResult>? video = null,
             global::System.Func<global::Luma.ImageGenerationRequest?, TResult>? image = null,
             global::System.Func<global::Luma.UpscaleVideoGenerationRequest?, TResult>? upscaleVideo = null,
+            global::System.Func<global::Luma.AudioGenerationRequest?, TResult>? addAudio = null,
             bool validate = true)
         {
             if (validate)
@@ -179,6 +218,10 @@ namespace Luma
             {
                 return upscaleVideo(UpscaleVideo!);
             }
+            else if (IsAddAudio && addAudio != null)
+            {
+                return addAudio(AddAudio!);
+            }
 
             return default(TResult);
         }
@@ -190,6 +233,7 @@ namespace Luma
             global::System.Action<global::Luma.GenerationRequest?>? video = null,
             global::System.Action<global::Luma.ImageGenerationRequest?>? image = null,
             global::System.Action<global::Luma.UpscaleVideoGenerationRequest?>? upscaleVideo = null,
+            global::System.Action<global::Luma.AudioGenerationRequest?>? addAudio = null,
             bool validate = true)
         {
             if (validate)
@@ -209,6 +253,10 @@ namespace Luma
             {
                 upscaleVideo?.Invoke(UpscaleVideo!);
             }
+            else if (IsAddAudio)
+            {
+                addAudio?.Invoke(AddAudio!);
+            }
         }
 
         /// <summary>
@@ -224,6 +272,8 @@ namespace Luma
                 typeof(global::Luma.ImageGenerationRequest),
                 UpscaleVideo,
                 typeof(global::Luma.UpscaleVideoGenerationRequest),
+                AddAudio,
+                typeof(global::Luma.AudioGenerationRequest),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -242,7 +292,8 @@ namespace Luma
             return
                 global::System.Collections.Generic.EqualityComparer<global::Luma.GenerationRequest?>.Default.Equals(Video, other.Video) &&
                 global::System.Collections.Generic.EqualityComparer<global::Luma.ImageGenerationRequest?>.Default.Equals(Image, other.Image) &&
-                global::System.Collections.Generic.EqualityComparer<global::Luma.UpscaleVideoGenerationRequest?>.Default.Equals(UpscaleVideo, other.UpscaleVideo) 
+                global::System.Collections.Generic.EqualityComparer<global::Luma.UpscaleVideoGenerationRequest?>.Default.Equals(UpscaleVideo, other.UpscaleVideo) &&
+                global::System.Collections.Generic.EqualityComparer<global::Luma.AudioGenerationRequest?>.Default.Equals(AddAudio, other.AddAudio) 
                 ;
         }
 
