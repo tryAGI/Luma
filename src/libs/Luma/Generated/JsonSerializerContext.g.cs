@@ -39,14 +39,12 @@ namespace Luma
             typeof(global::Luma.JsonConverters.ImageModelNullableJsonConverter),
             typeof(global::Luma.JsonConverters.UpscaleVideoGenerationRequestGenerationTypeJsonConverter),
             typeof(global::Luma.JsonConverters.UpscaleVideoGenerationRequestGenerationTypeNullableJsonConverter),
-            typeof(global::Luma.JsonConverters.GenerationRequestDiscriminatorGenerationTypeJsonConverter),
-            typeof(global::Luma.JsonConverters.GenerationRequestDiscriminatorGenerationTypeNullableJsonConverter),
             typeof(global::Luma.JsonConverters.StateJsonConverter),
             typeof(global::Luma.JsonConverters.StateNullableJsonConverter),
-            typeof(global::Luma.JsonConverters.RequestJsonConverter),
             typeof(global::Luma.JsonConverters.VideoModelOutputDurationJsonConverter),
             typeof(global::Luma.JsonConverters.KeyframeJsonConverter),
             typeof(global::Luma.JsonConverters.VideoModelOutputResolutionJsonConverter),
+            typeof(global::Luma.JsonConverters.OneOfJsonConverter<global::Luma.GenerationRequest, global::Luma.ImageGenerationRequest, global::Luma.UpscaleVideoGenerationRequest, global::Luma.AudioGenerationRequest>),
             typeof(global::Luma.JsonConverters.UnixTimestampJsonConverter),
         })]
 
