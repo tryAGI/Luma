@@ -102,6 +102,14 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
+        public override string? ToString() =>
+            Value1?.ToValueString() ??
+            Value2?.ToString() 
+            ;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool Validate()
         {
             return IsValue1 || IsValue2;
