@@ -27,6 +27,9 @@ namespace Luma
         /// <param name="callbackUrl">
         /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
         /// </param>
+        /// <param name="concepts">
+        /// The concepts of the generation
+        /// </param>
         /// <param name="duration"></param>
         /// <param name="generationType">
         /// Default Value: video
@@ -51,6 +54,7 @@ namespace Luma
         global::System.Threading.Tasks.Task<global::Luma.Generation> CreateGenerationAsync(
             global::Luma.AspectRatio? aspectRatio = default,
             string? callbackUrl = default,
+            global::System.Collections.Generic.IList<global::Luma.Concept>? concepts = default,
             global::Luma.VideoModelOutputDuration? duration = default,
             global::Luma.GenerationRequestGenerationType? generationType = default,
             global::Luma.Keyframes? keyframes = default,

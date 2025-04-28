@@ -70,6 +70,20 @@ namespace Luma
         public global::System.Collections.Generic.IList<global::Luma.ImageRef>? StyleRef { get; set; }
 
         /// <summary>
+        /// Create image in synchronous mode and return complated image<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sync")]
+        public bool? Sync { get; set; }
+
+        /// <summary>
+        /// The timeout for the synchronous image generation<br/>
+        /// Default Value: 60
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sync_timeout")]
+        public double? SyncTimeout { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -102,6 +116,14 @@ namespace Luma
         /// The prompt of the generation
         /// </param>
         /// <param name="styleRef"></param>
+        /// <param name="sync">
+        /// Create image in synchronous mode and return complated image<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="syncTimeout">
+        /// The timeout for the synchronous image generation<br/>
+        /// Default Value: 60
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -114,7 +136,9 @@ namespace Luma
             global::Luma.ImageModel? model,
             global::Luma.ModifyImageRef? modifyImageRef,
             string? prompt,
-            global::System.Collections.Generic.IList<global::Luma.ImageRef>? styleRef)
+            global::System.Collections.Generic.IList<global::Luma.ImageRef>? styleRef,
+            bool? sync,
+            double? syncTimeout)
         {
             this.AspectRatio = aspectRatio;
             this.CallbackUrl = callbackUrl;
@@ -125,6 +149,8 @@ namespace Luma
             this.ModifyImageRef = modifyImageRef;
             this.Prompt = prompt;
             this.StyleRef = styleRef;
+            this.Sync = sync;
+            this.SyncTimeout = syncTimeout;
         }
 
         /// <summary>
