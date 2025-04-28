@@ -104,16 +104,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /generations/camera_motion/list:
+  /generations/concepts:
     get:
       tags:
         - Generations
-      summary: Get camera motions
-      description: Get all possible camera motions
-      operationId: getCameraMotion
+      summary: Get concepts
+      description: Get all possible concepts
+      operationId: getConcepts
       responses:
         '200':
-          description: Camera motion found
+          description: Concepts found
           content:
             application/json:
               schema:
@@ -345,6 +345,15 @@ components:
           type: string
           description: The prompt of the audio
       description: The audio generation request object
+    Concept:
+      required:
+        - key
+      type: object
+      properties:
+        key:
+          type: string
+          description: The key of the concept
+      description: The concept object
     Credits:
       required:
         - credit_balance
@@ -442,6 +451,11 @@ components:
           type: string
           description: 'The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed'
           format: uri
+        concepts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Concept'
+          description: The concepts of the generation
         duration:
           $ref: '#/components/schemas/VideoModelOutputDuration'
         generation_type:
@@ -507,6 +521,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ImageRef'
+        sync:
+          type: boolean
+          description: Create image in synchronous mode and return complated image
+          default: false
+        sync_timeout:
+          type: number
+          description: The timeout for the synchronous image generation
+          default: 60
       description: The image generation request object
     ImageIdentity:
       type: object

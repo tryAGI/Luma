@@ -5,36 +5,36 @@ namespace Luma
 {
     public partial class GenerationsClient
     {
-        partial void PrepareGetCameraMotionArguments(
+        partial void PrepareGetConceptsArguments(
             global::System.Net.Http.HttpClient httpClient);
-        partial void PrepareGetCameraMotionRequest(
+        partial void PrepareGetConceptsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage);
-        partial void ProcessGetCameraMotionResponse(
+        partial void ProcessGetConceptsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetCameraMotionResponseContent(
+        partial void ProcessGetConceptsResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get camera motions<br/>
-        /// Get all possible camera motions
+        /// Get concepts<br/>
+        /// Get all possible concepts
         /// </summary>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Luma.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<string>> GetCameraMotionAsync(
+        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<string>> GetConceptsAsync(
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetCameraMotionArguments(
+            PrepareGetConceptsArguments(
                 httpClient: HttpClient);
 
             var __pathBuilder = new PathBuilder(
-                path: "/generations/camera_motion/list",
+                path: "/generations/concepts",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -64,7 +64,7 @@ namespace Luma
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareGetCameraMotionRequest(
+            PrepareGetConceptsRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest);
 
@@ -76,7 +76,7 @@ namespace Luma
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessGetCameraMotionResponse(
+            ProcessGetConceptsResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Error
@@ -120,7 +120,7 @@ namespace Luma
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessGetCameraMotionResponseContent(
+                ProcessGetConceptsResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);

@@ -43,6 +43,14 @@ namespace Luma
         /// The prompt of the generation
         /// </param>
         /// <param name="styleRef"></param>
+        /// <param name="sync">
+        /// Create image in synchronous mode and return complated image<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="syncTimeout">
+        /// The timeout for the synchronous image generation<br/>
+        /// Default Value: 60
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Luma.Generation> GenerateImageAsync(
@@ -55,6 +63,8 @@ namespace Luma
             global::Luma.ModifyImageRef? modifyImageRef = default,
             string? prompt = default,
             global::System.Collections.Generic.IList<global::Luma.ImageRef>? styleRef = default,
+            bool? sync = default,
+            double? syncTimeout = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
