@@ -104,7 +104,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /generations/concepts:
+  /generations/concepts/list:
     get:
       tags:
         - Generations

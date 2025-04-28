@@ -34,7 +34,7 @@ namespace Luma
                 httpClient: HttpClient);
 
             var __pathBuilder = new PathBuilder(
-                path: "/generations/concepts",
+                path: "/generations/concepts/list",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
