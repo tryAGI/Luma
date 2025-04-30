@@ -166,54 +166,58 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageGenerationRequestGenerationType? Type35 { get; set; }
+        public global::Luma.ImageFormat? Type35 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Luma.ImageRef>? Type36 { get; set; }
+        public global::Luma.ImageGenerationRequestGenerationType? Type36 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageRef? Type37 { get; set; }
+        public global::System.Collections.Generic.IList<global::Luma.ImageRef>? Type37 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public double? Type38 { get; set; }
+        public global::Luma.ImageRef? Type38 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ImageModel? Type39 { get; set; }
+        public double? Type39 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ModifyImageRef? Type40 { get; set; }
+        public global::Luma.ImageModel? Type40 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.UpscaleVideoGenerationRequest? Type41 { get; set; }
+        public global::Luma.ModifyImageRef? Type41 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.UpscaleVideoGenerationRequestGenerationType? Type42 { get; set; }
+        public global::Luma.UpscaleVideoGenerationRequest? Type42 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.State? Type43 { get; set; }
+        public global::Luma.UpscaleVideoGenerationRequestGenerationType? Type43 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ListGenerationResponse? Type44 { get; set; }
+        public global::Luma.State? Type44 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public int? Type45 { get; set; }
+        public global::Luma.ListGenerationResponse? Type45 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Luma.Generation>? Type46 { get; set; }
+        public int? Type46 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.PingResponse? Type47 { get; set; }
+        public global::System.Collections.Generic.IList<global::Luma.Generation>? Type47 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.PingResponse? Type48 { get; set; }
     }
 }

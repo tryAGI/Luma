@@ -207,6 +207,10 @@ namespace Luma
         /// The callback URL for the generation
         /// </param>
         /// <param name="characterRef"></param>
+        /// <param name="format">
+        /// The format of the image<br/>
+        /// Default Value: jpg
+        /// </param>
         /// <param name="generationType">
         /// Default Value: image
         /// </param>
@@ -236,6 +240,7 @@ namespace Luma
             global::Luma.AspectRatio? aspectRatio = default,
             string? callbackUrl = default,
             global::Luma.ImageGenerationRequestCharacterRef? characterRef = default,
+            global::Luma.ImageFormat? format = default,
             global::Luma.ImageGenerationRequestGenerationType? generationType = default,
             global::System.Collections.Generic.IList<global::Luma.ImageRef>? imageRef = default,
             global::Luma.ImageModel? model = default,
@@ -251,6 +256,7 @@ namespace Luma
                 AspectRatio = aspectRatio,
                 CallbackUrl = callbackUrl,
                 CharacterRef = characterRef,
+                Format = format,
                 GenerationType = generationType,
                 ImageRef = imageRef,
                 Model = model,

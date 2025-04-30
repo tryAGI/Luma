@@ -487,6 +487,13 @@ components:
         - video
         - image
       type: string
+    ImageFormat:
+      enum:
+        - jpg
+        - png
+      type: string
+      description: The format of the image
+      default: jpg
     ImageGenerationRequest:
       type: object
       properties:
@@ -501,6 +508,8 @@ components:
           properties:
             identity0:
               $ref: '#/components/schemas/ImageIdentity'
+        format:
+          $ref: '#/components/schemas/ImageFormat'
         generation_type:
           enum:
             - image
