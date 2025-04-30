@@ -31,6 +31,14 @@ namespace Luma
         public global::Luma.ImageGenerationRequestCharacterRef? CharacterRef { get; set; }
 
         /// <summary>
+        /// The format of the image<br/>
+        /// Default Value: jpg
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("format")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ImageFormatJsonConverter))]
+        public global::Luma.ImageFormat? Format { get; set; }
+
+        /// <summary>
         /// Default Value: image
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generation_type")]
@@ -101,6 +109,10 @@ namespace Luma
         /// The callback URL for the generation
         /// </param>
         /// <param name="characterRef"></param>
+        /// <param name="format">
+        /// The format of the image<br/>
+        /// Default Value: jpg
+        /// </param>
         /// <param name="generationType">
         /// Default Value: image
         /// </param>
@@ -131,6 +143,7 @@ namespace Luma
             global::Luma.AspectRatio? aspectRatio,
             string? callbackUrl,
             global::Luma.ImageGenerationRequestCharacterRef? characterRef,
+            global::Luma.ImageFormat? format,
             global::Luma.ImageGenerationRequestGenerationType? generationType,
             global::System.Collections.Generic.IList<global::Luma.ImageRef>? imageRef,
             global::Luma.ImageModel? model,
@@ -143,6 +156,7 @@ namespace Luma
             this.AspectRatio = aspectRatio;
             this.CallbackUrl = callbackUrl;
             this.CharacterRef = characterRef;
+            this.Format = format;
             this.GenerationType = generationType;
             this.ImageRef = imageRef;
             this.Model = model;
