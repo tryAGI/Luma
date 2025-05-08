@@ -34,7 +34,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator Keyframe(global::Luma.GenerationReference value) => new Keyframe(value);
+        public static implicit operator Keyframe(global::Luma.GenerationReference value) => new Keyframe((global::Luma.GenerationReference?)value);
 
         /// <summary>
         /// 
@@ -69,7 +69,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator Keyframe(global::Luma.ImageReference value) => new Keyframe(value);
+        public static implicit operator Keyframe(global::Luma.ImageReference value) => new Keyframe((global::Luma.ImageReference?)value);
 
         /// <summary>
         /// 

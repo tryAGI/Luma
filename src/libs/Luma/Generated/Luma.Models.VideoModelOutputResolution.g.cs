@@ -29,7 +29,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator VideoModelOutputResolution(global::Luma.VideoModelOutputResolutionEnum value) => new VideoModelOutputResolution(value);
+        public static implicit operator VideoModelOutputResolution(global::Luma.VideoModelOutputResolutionEnum value) => new VideoModelOutputResolution((global::Luma.VideoModelOutputResolutionEnum?)value);
 
         /// <summary>
         /// 
@@ -64,7 +64,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator VideoModelOutputResolution(string value) => new VideoModelOutputResolution(value);
+        public static implicit operator VideoModelOutputResolution(string value) => new VideoModelOutputResolution((string?)value);
 
         /// <summary>
         /// 
