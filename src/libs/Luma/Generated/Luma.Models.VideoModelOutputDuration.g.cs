@@ -29,7 +29,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator VideoModelOutputDuration(global::Luma.VideoModelOutputDurationEnum value) => new VideoModelOutputDuration(value);
+        public static implicit operator VideoModelOutputDuration(global::Luma.VideoModelOutputDurationEnum value) => new VideoModelOutputDuration((global::Luma.VideoModelOutputDurationEnum?)value);
 
         /// <summary>
         /// 
@@ -64,7 +64,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator VideoModelOutputDuration(string value) => new VideoModelOutputDuration(value);
+        public static implicit operator VideoModelOutputDuration(string value) => new VideoModelOutputDuration((string?)value);
 
         /// <summary>
         /// 
