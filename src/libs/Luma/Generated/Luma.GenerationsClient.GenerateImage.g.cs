@@ -237,13 +237,13 @@ namespace Luma
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Luma.Generation> GenerateImageAsync(
+            global::Luma.ImageModel model,
             global::Luma.AspectRatio? aspectRatio = default,
             string? callbackUrl = default,
             global::Luma.ImageGenerationRequestCharacterRef? characterRef = default,
             global::Luma.ImageFormat? format = default,
             global::Luma.ImageGenerationRequestGenerationType? generationType = default,
             global::System.Collections.Generic.IList<global::Luma.ImageRef>? imageRef = default,
-            global::Luma.ImageModel? model = default,
             global::Luma.ModifyImageRef? modifyImageRef = default,
             string? prompt = default,
             global::System.Collections.Generic.IList<global::Luma.ImageRef>? styleRef = default,

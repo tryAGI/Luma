@@ -55,9 +55,11 @@ namespace Luma
         /// The image model used for the generation<br/>
         /// Default Value: photon-1
         /// </summary>
+        /// <default>global::Luma.ImageModel.Photon1</default>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ImageModelJsonConverter))]
-        public global::Luma.ImageModel? Model { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Luma.ImageModel Model { get; set; } = global::Luma.ImageModel.Photon1;
 
         /// <summary>
         /// The modify image reference object
@@ -140,26 +142,26 @@ namespace Luma
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ImageGenerationRequest(
+            global::Luma.ImageModel model,
             global::Luma.AspectRatio? aspectRatio,
             string? callbackUrl,
             global::Luma.ImageGenerationRequestCharacterRef? characterRef,
             global::Luma.ImageFormat? format,
             global::Luma.ImageGenerationRequestGenerationType? generationType,
             global::System.Collections.Generic.IList<global::Luma.ImageRef>? imageRef,
-            global::Luma.ImageModel? model,
             global::Luma.ModifyImageRef? modifyImageRef,
             string? prompt,
             global::System.Collections.Generic.IList<global::Luma.ImageRef>? styleRef,
             bool? sync,
             double? syncTimeout)
         {
+            this.Model = model;
             this.AspectRatio = aspectRatio;
             this.CallbackUrl = callbackUrl;
             this.CharacterRef = characterRef;
             this.Format = format;
             this.GenerationType = generationType;
             this.ImageRef = imageRef;
-            this.Model = model;
             this.ModifyImageRef = modifyImageRef;
             this.Prompt = prompt;
             this.StyleRef = styleRef;
