@@ -61,10 +61,12 @@ namespace Luma
         /// Default Value: ray-1-6<br/>
         /// Example: ray-1-6
         /// </summary>
+        /// <default>global::Luma.VideoModel.Ray16</default>
         /// <example>ray-1-6</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.VideoModelJsonConverter))]
-        public global::Luma.VideoModel? Model { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Luma.VideoModel Model { get; set; } = global::Luma.VideoModel.Ray16;
 
         /// <summary>
         /// The prompt of the generation
@@ -122,6 +124,7 @@ namespace Luma
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GenerationRequest(
+            global::Luma.VideoModel model,
             global::Luma.AspectRatio? aspectRatio,
             string? callbackUrl,
             global::System.Collections.Generic.IList<global::Luma.Concept>? concepts,
@@ -129,10 +132,10 @@ namespace Luma
             global::Luma.GenerationRequestGenerationType? generationType,
             global::Luma.Keyframes? keyframes,
             bool? loop,
-            global::Luma.VideoModel? model,
             string? prompt,
             global::Luma.VideoModelOutputResolution? resolution)
         {
+            this.Model = model;
             this.AspectRatio = aspectRatio;
             this.CallbackUrl = callbackUrl;
             this.Concepts = concepts;
@@ -140,7 +143,6 @@ namespace Luma
             this.GenerationType = generationType;
             this.Keyframes = keyframes;
             this.Loop = loop;
-            this.Model = model;
             this.Prompt = prompt;
             this.Resolution = resolution;
         }

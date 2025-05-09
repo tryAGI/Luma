@@ -231,6 +231,7 @@ namespace Luma
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Luma.Generation> CreateGenerationAsync(
+            global::Luma.VideoModel model,
             global::Luma.AspectRatio? aspectRatio = default,
             string? callbackUrl = default,
             global::System.Collections.Generic.IList<global::Luma.Concept>? concepts = default,
@@ -238,7 +239,6 @@ namespace Luma
             global::Luma.GenerationRequestGenerationType? generationType = default,
             global::Luma.Keyframes? keyframes = default,
             bool? loop = default,
-            global::Luma.VideoModel? model = default,
             string? prompt = default,
             global::Luma.VideoModelOutputResolution? resolution = default,
             global::System.Threading.CancellationToken cancellationToken = default)
