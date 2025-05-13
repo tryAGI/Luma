@@ -28,6 +28,10 @@ namespace Luma.JsonConverters
                     var numValue = reader.GetInt32();
                     return (global::Luma.ImageReferenceType)numValue;
                 }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::Luma.ImageReferenceType);
+                }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
             }

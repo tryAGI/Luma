@@ -28,6 +28,10 @@ namespace Luma.JsonConverters
                     var numValue = reader.GetInt32();
                     return (global::Luma.UpscaleVideoGenerationRequestGenerationType)numValue;
                 }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::Luma.UpscaleVideoGenerationRequestGenerationType?);
+                }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
             }

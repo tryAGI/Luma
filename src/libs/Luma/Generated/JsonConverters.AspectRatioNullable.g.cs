@@ -28,6 +28,10 @@ namespace Luma.JsonConverters
                     var numValue = reader.GetInt32();
                     return (global::Luma.AspectRatio)numValue;
                 }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::Luma.AspectRatio?);
+                }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
             }
