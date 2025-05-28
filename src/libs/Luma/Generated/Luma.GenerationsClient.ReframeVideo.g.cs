@@ -5,43 +5,43 @@ namespace Luma
 {
     public partial class GenerationsClient
     {
-        partial void PrepareCreateGenerationArguments(
+        partial void PrepareReframeVideoArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::Luma.GenerationRequest request);
-        partial void PrepareCreateGenerationRequest(
+            global::Luma.ReframeVideoRequest request);
+        partial void PrepareReframeVideoRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::Luma.GenerationRequest request);
-        partial void ProcessCreateGenerationResponse(
+            global::Luma.ReframeVideoRequest request);
+        partial void ProcessReframeVideoResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessCreateGenerationResponseContent(
+        partial void ProcessReframeVideoResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Create a generation<br/>
-        /// Initiate a new generation with the provided prompt
+        /// Reframe a video<br/>
+        /// Reframe a video by its ID
         /// </summary>
         /// <param name="request"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Luma.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Luma.Generation> CreateGenerationAsync(
-            global::Luma.GenerationRequest request,
+        public async global::System.Threading.Tasks.Task<global::Luma.Generation> ReframeVideoAsync(
+            global::Luma.ReframeVideoRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
                 client: HttpClient);
-            PrepareCreateGenerationArguments(
+            PrepareReframeVideoArguments(
                 httpClient: HttpClient,
                 request: request);
 
             var __pathBuilder = new PathBuilder(
-                path: "/generations/video",
+                path: "/generations/video/reframe",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
@@ -77,7 +77,7 @@ namespace Luma
             PrepareRequest(
                 client: HttpClient,
                 request: __httpRequest);
-            PrepareCreateGenerationRequest(
+            PrepareReframeVideoRequest(
                 httpClient: HttpClient,
                 httpRequestMessage: __httpRequest,
                 request: request);
@@ -90,7 +90,7 @@ namespace Luma
             ProcessResponse(
                 client: HttpClient,
                 response: __response);
-            ProcessCreateGenerationResponse(
+            ProcessReframeVideoResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
             // Error
@@ -134,7 +134,7 @@ namespace Luma
                     client: HttpClient,
                     response: __response,
                     content: ref __content);
-                ProcessCreateGenerationResponseContent(
+                ProcessReframeVideoResponseContent(
                     httpClient: HttpClient,
                     httpResponseMessage: __response,
                     content: ref __content);
@@ -195,8 +195,8 @@ namespace Luma
         }
 
         /// <summary>
-        /// Create a generation<br/>
-        /// Initiate a new generation with the provided prompt
+        /// Reframe a video<br/>
+        /// Reframe a video by its ID
         /// </summary>
         /// <param name="aspectRatio">
         /// The aspect ratio of the generation<br/>
@@ -206,58 +206,75 @@ namespace Luma
         /// <param name="callbackUrl">
         /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
         /// </param>
-        /// <param name="concepts">
-        /// The concepts of the generation
+        /// <param name="firstFrame">
+        /// The image entity object
         /// </param>
-        /// <param name="duration"></param>
         /// <param name="generationType">
-        /// Default Value: video
+        /// Default Value: reframe_video
         /// </param>
-        /// <param name="keyframes">
-        /// The keyframes of the generation
+        /// <param name="gridPositionX">
+        /// The x position of the image in the grid
         /// </param>
-        /// <param name="loop">
-        /// Whether to loop the video
+        /// <param name="gridPositionY">
+        /// The y position of the image in the grid
+        /// </param>
+        /// <param name="media">
+        /// The image entity object
         /// </param>
         /// <param name="model">
-        /// The video model used for the generation<br/>
-        /// Default Value: ray-1-6<br/>
-        /// Example: ray-1-6
+        /// The model used for the reframe video
         /// </param>
         /// <param name="prompt">
         /// The prompt of the generation
         /// </param>
-        /// <param name="resolution"></param>
+        /// <param name="xEnd">
+        /// The x end of the crop bounds
+        /// </param>
+        /// <param name="xStart">
+        /// The x start of the crop bounds
+        /// </param>
+        /// <param name="yEnd">
+        /// The y end of the crop bounds
+        /// </param>
+        /// <param name="yStart">
+        /// The y start of the crop bounds
+        /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Luma.Generation> CreateGenerationAsync(
-            global::Luma.VideoModel model,
-            global::Luma.AspectRatio? aspectRatio = default,
+        public async global::System.Threading.Tasks.Task<global::Luma.Generation> ReframeVideoAsync(
+            global::Luma.AspectRatio aspectRatio,
+            global::Luma.Media media,
+            global::Luma.ReframeVideoModels model,
             string? callbackUrl = default,
-            global::System.Collections.Generic.IList<global::Luma.Concept>? concepts = default,
-            global::Luma.VideoModelOutputDuration? duration = default,
-            global::Luma.GenerationRequestGenerationType? generationType = default,
-            global::Luma.Keyframes? keyframes = default,
-            bool? loop = default,
+            global::Luma.Media? firstFrame = default,
+            global::Luma.ReframeVideoRequestGenerationType generationType = global::Luma.ReframeVideoRequestGenerationType.ReframeVideo,
+            int? gridPositionX = default,
+            int? gridPositionY = default,
             string? prompt = default,
-            global::Luma.VideoModelOutputResolution? resolution = default,
+            int? xEnd = default,
+            int? xStart = default,
+            int? yEnd = default,
+            int? yStart = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Luma.GenerationRequest
+            var __request = new global::Luma.ReframeVideoRequest
             {
                 AspectRatio = aspectRatio,
                 CallbackUrl = callbackUrl,
-                Concepts = concepts,
-                Duration = duration,
+                FirstFrame = firstFrame,
                 GenerationType = generationType,
-                Keyframes = keyframes,
-                Loop = loop,
+                GridPositionX = gridPositionX,
+                GridPositionY = gridPositionY,
+                Media = media,
                 Model = model,
                 Prompt = prompt,
-                Resolution = resolution,
+                XEnd = xEnd,
+                XStart = xStart,
+                YEnd = yEnd,
+                YStart = yStart,
             };
 
-            return await CreateGenerationAsync(
+            return await ReframeVideoAsync(
                 request: __request,
                 cancellationToken: cancellationToken).ConfigureAwait(false);
         }
