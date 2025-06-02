@@ -49,6 +49,12 @@ namespace Luma
         /// <param name="prompt">
         /// The prompt of the generation
         /// </param>
+        /// <param name="resizedHeight">
+        /// Resized height of source image
+        /// </param>
+        /// <param name="resizedWidth">
+        /// Resized width of source image
+        /// </param>
         /// <param name="xEnd">
         /// The x end of the crop bounds
         /// </param>
@@ -73,6 +79,8 @@ namespace Luma
             int? gridPositionX = default,
             int? gridPositionY = default,
             string? prompt = default,
+            int? resizedHeight = default,
+            int? resizedWidth = default,
             int? xEnd = default,
             int? xStart = default,
             int? yEnd = default,

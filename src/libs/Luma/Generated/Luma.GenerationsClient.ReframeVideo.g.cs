@@ -227,6 +227,12 @@ namespace Luma
         /// <param name="prompt">
         /// The prompt of the generation
         /// </param>
+        /// <param name="resizedHeight">
+        /// Resized height of source video
+        /// </param>
+        /// <param name="resizedWidth">
+        /// Resized width of source video
+        /// </param>
         /// <param name="xEnd">
         /// The x end of the crop bounds
         /// </param>
@@ -251,6 +257,8 @@ namespace Luma
             int? gridPositionX = default,
             int? gridPositionY = default,
             string? prompt = default,
+            int? resizedHeight = default,
+            int? resizedWidth = default,
             int? xEnd = default,
             int? xStart = default,
             int? yEnd = default,
@@ -268,6 +276,8 @@ namespace Luma
                 Media = media,
                 Model = model,
                 Prompt = prompt,
+                ResizedHeight = resizedHeight,
+                ResizedWidth = resizedWidth,
                 XEnd = xEnd,
                 XStart = xStart,
                 YEnd = yEnd,
