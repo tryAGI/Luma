@@ -790,6 +790,12 @@ components:
           type: string
           description: The prompt of the generation
           default: ''
+        resized_height:
+          type: integer
+          description: Resized height of source image
+        resized_width:
+          type: integer
+          description: Resized width of source image
         x_end:
           type: integer
           description: The x end of the crop bounds
@@ -844,6 +850,12 @@ components:
           type: string
           description: The prompt of the generation
           default: ''
+        resized_height:
+          type: integer
+          description: Resized height of source video
+        resized_width:
+          type: integer
+          description: Resized width of source video
         x_end:
           type: integer
           description: The x end of the crop bounds

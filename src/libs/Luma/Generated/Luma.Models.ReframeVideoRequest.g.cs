@@ -74,6 +74,18 @@ namespace Luma
         public string? Prompt { get; set; }
 
         /// <summary>
+        /// Resized height of source video
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("resized_height")]
+        public int? ResizedHeight { get; set; }
+
+        /// <summary>
+        /// Resized width of source video
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("resized_width")]
+        public int? ResizedWidth { get; set; }
+
+        /// <summary>
         /// The x end of the crop bounds
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("x_end")]
@@ -135,6 +147,12 @@ namespace Luma
         /// <param name="prompt">
         /// The prompt of the generation
         /// </param>
+        /// <param name="resizedHeight">
+        /// Resized height of source video
+        /// </param>
+        /// <param name="resizedWidth">
+        /// Resized width of source video
+        /// </param>
         /// <param name="xEnd">
         /// The x end of the crop bounds
         /// </param>
@@ -159,6 +177,8 @@ namespace Luma
             int? gridPositionX,
             int? gridPositionY,
             string? prompt,
+            int? resizedHeight,
+            int? resizedWidth,
             int? xEnd,
             int? xStart,
             int? yEnd,
@@ -174,6 +194,8 @@ namespace Luma
             this.GridPositionX = gridPositionX;
             this.GridPositionY = gridPositionY;
             this.Prompt = prompt;
+            this.ResizedHeight = resizedHeight;
+            this.ResizedWidth = resizedWidth;
             this.XEnd = xEnd;
             this.XStart = xStart;
             this.YEnd = yEnd;
