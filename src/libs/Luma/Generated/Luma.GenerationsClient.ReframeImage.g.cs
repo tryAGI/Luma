@@ -40,7 +40,7 @@ namespace Luma
                 httpClient: HttpClient,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::Luma.PathBuilder(
                 path: "/generations/image/reframe",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

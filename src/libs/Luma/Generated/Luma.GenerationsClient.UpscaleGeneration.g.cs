@@ -45,7 +45,7 @@ namespace Luma
                 id: ref id,
                 request: request);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::Luma.PathBuilder(
                 path: $"/generations/{id}/upscale",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();
