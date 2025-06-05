@@ -38,7 +38,7 @@ namespace Luma
                 httpClient: HttpClient,
                 id: ref id);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::Luma.PathBuilder(
                 path: $"/generations/{id}",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

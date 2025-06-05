@@ -33,7 +33,7 @@ namespace Luma
             PrepareGetCreditsArguments(
                 httpClient: HttpClient);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::Luma.PathBuilder(
                 path: "/credits",
                 baseUri: HttpClient.BaseAddress); 
             var __path = __pathBuilder.ToString();

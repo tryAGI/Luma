@@ -47,7 +47,7 @@ namespace Luma
                 limit: ref limit,
                 offset: ref offset);
 
-            var __pathBuilder = new PathBuilder(
+            var __pathBuilder = new global::Luma.PathBuilder(
                 path: "/generations",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder 
