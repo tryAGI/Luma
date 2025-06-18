@@ -84,20 +84,29 @@ namespace Luma
             if (!__response.IsSuccessStatusCode)
             {
                 string? __content_default = null;
+                global::System.Exception? __exception_default = null;
                 global::Luma.Error? __value_default = null;
-                if (ReadResponseAsString)
+                try
                 {
-                    __content_default = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                    __value_default = global::Luma.Error.FromJson(__content_default, JsonSerializerContext);
+                    if (ReadResponseAsString)
+                    {
+                        __content_default = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                        __value_default = global::Luma.Error.FromJson(__content_default, JsonSerializerContext);
+                    }
+                    else
+                    {
+                        var __contentStream_default = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
+                        __value_default = await global::Luma.Error.FromJsonStreamAsync(__contentStream_default, JsonSerializerContext).ConfigureAwait(false);
+                    }
                 }
-                else
+                catch (global::System.Exception __ex)
                 {
-                    var __contentStream_default = await __response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false);
-                    __value_default = await global::Luma.Error.FromJsonStreamAsync(__contentStream_default, JsonSerializerContext).ConfigureAwait(false);
+                    __exception_default = __ex;
                 }
 
                 throw new global::Luma.ApiException<global::Luma.Error>(
                     message: __content_default ?? __response.ReasonPhrase ?? string.Empty,
+                    innerException: __exception_default,
                     statusCode: __response.StatusCode)
                 {
                     ResponseBody = __content_default,
@@ -125,8 +134,9 @@ namespace Luma
                 try
                 {
                     __response.EnsureSuccessStatusCode();
+
                 }
-                catch (global::System.Net.Http.HttpRequestException __ex)
+                catch (global::System.Exception __ex)
                 {
                     throw new global::Luma.ApiException(
                         message: __content ?? __response.ReasonPhrase ?? string.Empty,
@@ -140,15 +150,21 @@ namespace Luma
                             h => h.Value),
                     };
                 }
-
             }
             else
             {
                 try
                 {
                     __response.EnsureSuccessStatusCode();
+
+                    using var __content = await __response.Content.ReadAsStreamAsync(
+#if NET5_0_OR_GREATER
+                        cancellationToken
+#endif
+                    ).ConfigureAwait(false);
+
                 }
-                catch (global::System.Net.Http.HttpRequestException __ex)
+                catch (global::System.Exception __ex)
                 {
                     throw new global::Luma.ApiException(
                         message: __response.ReasonPhrase ?? string.Empty,
@@ -161,13 +177,6 @@ namespace Luma
                             h => h.Value),
                     };
                 }
-
-                using var __content = await __response.Content.ReadAsStreamAsync(
-#if NET5_0_OR_GREATER
-                    cancellationToken
-#endif
-                ).ConfigureAwait(false);
-
             }
         }
     }
