@@ -9,7 +9,7 @@ namespace Luma
     public sealed partial class Media
     {
         /// <summary>
-        /// The URL of the image
+        /// The URL of the media
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace Luma
         /// Initializes a new instance of the <see cref="Media" /> class.
         /// </summary>
         /// <param name="url">
-        /// The URL of the image
+        /// The URL of the media
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

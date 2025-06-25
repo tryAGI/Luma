@@ -184,6 +184,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /generations/video/modify:
+    post:
+      tags:
+        - Generations
+        - Video
+        - Modify
+      summary: Modify a video
+      description: Modify a video with style transfer and prompt-based editing
+      operationId: modifyVideo
+      requestBody:
+        description: The modify video generation request object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModifyVideoRequest'
+        required: true
+      responses:
+        '201':
+          description: Video modified
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Generation'
+        default:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /generations/video/reframe:
     post:
       tags:
@@ -461,6 +490,7 @@ components:
             - $ref: '#/components/schemas/AudioGenerationRequest'
             - $ref: '#/components/schemas/ReframeImageRequest'
             - $ref: '#/components/schemas/ReframeVideoRequest'
+            - $ref: '#/components/schemas/ModifyVideoRequest'
           description: The request of the generation
         state:
           $ref: '#/components/schemas/State'
@@ -735,7 +765,7 @@ components:
       properties:
         url:
           type: string
-          description: The URL of the image
+          description: The URL of the media
           format: uri
       description: The image entity object
     ModifyImageRef:
@@ -749,6 +779,53 @@ components:
           type: number
           description: The weight of the modify image reference
       description: The modify image reference object
+    ModifyVideoMode:
+      enum:
+        - adhere_1
+        - adhere_2
+        - adhere_3
+        - flex_1
+        - flex_2
+        - flex_3
+        - reimagine_1
+        - reimagine_2
+        - reimagine_3
+      type: string
+      description: The mode of the modify video
+    ModifyVideoModel:
+      enum:
+        - ray-2
+      type: string
+      description: The model used for the modify video
+    ModifyVideoRequest:
+      required:
+        - media
+        - model
+        - mode
+        - generation_type
+      type: object
+      properties:
+        callback_url:
+          type: string
+          description: 'The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed'
+          format: uri
+        first_frame:
+          $ref: '#/components/schemas/Media'
+        generation_type:
+          enum:
+            - modify_video
+          type: string
+          default: modify_video
+        media:
+          $ref: '#/components/schemas/Media'
+        mode:
+          $ref: '#/components/schemas/ModifyVideoMode'
+        model:
+          $ref: '#/components/schemas/ModifyVideoModel'
+        prompt:
+          type: string
+          description: The prompt of the generation
+      description: The modify video generation request object
     ReframeImageModels:
       enum:
         - photon-1

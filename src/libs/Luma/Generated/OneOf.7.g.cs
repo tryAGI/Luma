@@ -6,7 +6,7 @@ namespace Luma
     /// <summary>
     /// 
     /// </summary>
-    public readonly partial struct OneOf<T1, T2, T3, T4, T5, T6> : global::System.IEquatable<OneOf<T1, T2, T3, T4, T5, T6>>
+    public readonly partial struct OneOf<T1, T2, T3, T4, T5, T6, T7> : global::System.IEquatable<OneOf<T1, T2, T3, T4, T5, T6, T7>>
     {
         /// <summary>
         /// 
@@ -28,12 +28,12 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator OneOf<T1, T2, T3, T4, T5, T6>(T1 value) => new OneOf<T1, T2, T3, T4, T5, T6>((T1?)value);
+        public static implicit operator OneOf<T1, T2, T3, T4, T5, T6, T7>(T1 value) => new OneOf<T1, T2, T3, T4, T5, T6, T7>((T1?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T1?(OneOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value1;
+        public static implicit operator T1?(OneOf<T1, T2, T3, T4, T5, T6, T7> @this) => @this.Value1;
 
         /// <summary>
         /// 
@@ -63,12 +63,12 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator OneOf<T1, T2, T3, T4, T5, T6>(T2 value) => new OneOf<T1, T2, T3, T4, T5, T6>((T2?)value);
+        public static implicit operator OneOf<T1, T2, T3, T4, T5, T6, T7>(T2 value) => new OneOf<T1, T2, T3, T4, T5, T6, T7>((T2?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T2?(OneOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value2;
+        public static implicit operator T2?(OneOf<T1, T2, T3, T4, T5, T6, T7> @this) => @this.Value2;
 
         /// <summary>
         /// 
@@ -98,12 +98,12 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator OneOf<T1, T2, T3, T4, T5, T6>(T3 value) => new OneOf<T1, T2, T3, T4, T5, T6>((T3?)value);
+        public static implicit operator OneOf<T1, T2, T3, T4, T5, T6, T7>(T3 value) => new OneOf<T1, T2, T3, T4, T5, T6, T7>((T3?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T3?(OneOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value3;
+        public static implicit operator T3?(OneOf<T1, T2, T3, T4, T5, T6, T7> @this) => @this.Value3;
 
         /// <summary>
         /// 
@@ -133,12 +133,12 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator OneOf<T1, T2, T3, T4, T5, T6>(T4 value) => new OneOf<T1, T2, T3, T4, T5, T6>((T4?)value);
+        public static implicit operator OneOf<T1, T2, T3, T4, T5, T6, T7>(T4 value) => new OneOf<T1, T2, T3, T4, T5, T6, T7>((T4?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T4?(OneOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value4;
+        public static implicit operator T4?(OneOf<T1, T2, T3, T4, T5, T6, T7> @this) => @this.Value4;
 
         /// <summary>
         /// 
@@ -168,12 +168,12 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator OneOf<T1, T2, T3, T4, T5, T6>(T5 value) => new OneOf<T1, T2, T3, T4, T5, T6>((T5?)value);
+        public static implicit operator OneOf<T1, T2, T3, T4, T5, T6, T7>(T5 value) => new OneOf<T1, T2, T3, T4, T5, T6, T7>((T5?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T5?(OneOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value5;
+        public static implicit operator T5?(OneOf<T1, T2, T3, T4, T5, T6, T7> @this) => @this.Value5;
 
         /// <summary>
         /// 
@@ -203,12 +203,12 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator OneOf<T1, T2, T3, T4, T5, T6>(T6 value) => new OneOf<T1, T2, T3, T4, T5, T6>((T6?)value);
+        public static implicit operator OneOf<T1, T2, T3, T4, T5, T6, T7>(T6 value) => new OneOf<T1, T2, T3, T4, T5, T6, T7>((T6?)value);
 
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator T6?(OneOf<T1, T2, T3, T4, T5, T6> @this) => @this.Value6;
+        public static implicit operator T6?(OneOf<T1, T2, T3, T4, T5, T6, T7> @this) => @this.Value6;
 
         /// <summary>
         /// 
@@ -221,13 +221,49 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public T7? Value7 { get; init; }
+#else
+        public T7? Value7 { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value7))]
+#endif
+        public bool IsValue7 => Value7 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator OneOf<T1, T2, T3, T4, T5, T6, T7>(T7 value) => new OneOf<T1, T2, T3, T4, T5, T6, T7>((T7?)value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static implicit operator T7?(OneOf<T1, T2, T3, T4, T5, T6, T7> @this) => @this.Value7;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public OneOf(T7? value)
+        {
+            Value7 = value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public OneOf(
             T1? value1,
             T2? value2,
             T3? value3,
             T4? value4,
             T5? value5,
-            T6? value6
+            T6? value6,
+            T7? value7
             )
         {
             Value1 = value1;
@@ -236,12 +272,14 @@ namespace Luma
             Value4 = value4;
             Value5 = value5;
             Value6 = value6;
+            Value7 = value7;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
+            Value7 as object ??
             Value6 as object ??
             Value5 as object ??
             Value4 as object ??
@@ -259,7 +297,8 @@ namespace Luma
             Value3?.ToString() ??
             Value4?.ToString() ??
             Value5?.ToString() ??
-            Value6?.ToString() 
+            Value6?.ToString() ??
+            Value7?.ToString() 
             ;
 
         /// <summary>
@@ -267,7 +306,7 @@ namespace Luma
         /// </summary>
         public bool Validate()
         {
-            return IsValue1 && !IsValue2 && !IsValue3 && !IsValue4 && !IsValue5 && !IsValue6 || !IsValue1 && IsValue2 && !IsValue3 && !IsValue4 && !IsValue5 && !IsValue6 || !IsValue1 && !IsValue2 && IsValue3 && !IsValue4 && !IsValue5 && !IsValue6 || !IsValue1 && !IsValue2 && !IsValue3 && IsValue4 && !IsValue5 && !IsValue6 || !IsValue1 && !IsValue2 && !IsValue3 && !IsValue4 && IsValue5 && !IsValue6 || !IsValue1 && !IsValue2 && !IsValue3 && !IsValue4 && !IsValue5 && IsValue6;
+            return IsValue1 && !IsValue2 && !IsValue3 && !IsValue4 && !IsValue5 && !IsValue6 && !IsValue7 || !IsValue1 && IsValue2 && !IsValue3 && !IsValue4 && !IsValue5 && !IsValue6 && !IsValue7 || !IsValue1 && !IsValue2 && IsValue3 && !IsValue4 && !IsValue5 && !IsValue6 && !IsValue7 || !IsValue1 && !IsValue2 && !IsValue3 && IsValue4 && !IsValue5 && !IsValue6 && !IsValue7 || !IsValue1 && !IsValue2 && !IsValue3 && !IsValue4 && IsValue5 && !IsValue6 && !IsValue7 || !IsValue1 && !IsValue2 && !IsValue3 && !IsValue4 && !IsValue5 && IsValue6 && !IsValue7 || !IsValue1 && !IsValue2 && !IsValue3 && !IsValue4 && !IsValue5 && !IsValue6 && IsValue7;
         }
 
         /// <summary>
@@ -280,6 +319,7 @@ namespace Luma
             global::System.Func<T4, TResult>? value4 = null,
             global::System.Func<T5, TResult>? value5 = null,
             global::System.Func<T6, TResult>? value6 = null,
+            global::System.Func<T7, TResult>? value7 = null,
             bool validate = true)
         {
             if (validate)
@@ -311,6 +351,10 @@ namespace Luma
             {
                 return value6(Value6!);
             }
+            else if (IsValue7 && value7 != null)
+            {
+                return value7(Value7!);
+            }
 
             return default(TResult);
         }
@@ -325,6 +369,7 @@ namespace Luma
             global::System.Action<T4>? value4 = null,
             global::System.Action<T5>? value5 = null,
             global::System.Action<T6>? value6 = null,
+            global::System.Action<T7>? value7 = null,
             bool validate = true)
         {
             if (validate)
@@ -356,6 +401,10 @@ namespace Luma
             {
                 value6?.Invoke(Value6!);
             }
+            else if (IsValue7)
+            {
+                value7?.Invoke(Value7!);
+            }
         }
 
         /// <summary>
@@ -377,6 +426,8 @@ namespace Luma
                 typeof(T5),
                 Value6,
                 typeof(T6),
+                Value7,
+                typeof(T7),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -390,7 +441,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public bool Equals(OneOf<T1, T2, T3, T4, T5, T6> other)
+        public bool Equals(OneOf<T1, T2, T3, T4, T5, T6, T7> other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<T1?>.Default.Equals(Value1, other.Value1) &&
@@ -398,22 +449,23 @@ namespace Luma
                 global::System.Collections.Generic.EqualityComparer<T3?>.Default.Equals(Value3, other.Value3) &&
                 global::System.Collections.Generic.EqualityComparer<T4?>.Default.Equals(Value4, other.Value4) &&
                 global::System.Collections.Generic.EqualityComparer<T5?>.Default.Equals(Value5, other.Value5) &&
-                global::System.Collections.Generic.EqualityComparer<T6?>.Default.Equals(Value6, other.Value6) 
+                global::System.Collections.Generic.EqualityComparer<T6?>.Default.Equals(Value6, other.Value6) &&
+                global::System.Collections.Generic.EqualityComparer<T7?>.Default.Equals(Value7, other.Value7) 
                 ;
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public static bool operator ==(OneOf<T1, T2, T3, T4, T5, T6> obj1, OneOf<T1, T2, T3, T4, T5, T6> obj2)
+        public static bool operator ==(OneOf<T1, T2, T3, T4, T5, T6, T7> obj1, OneOf<T1, T2, T3, T4, T5, T6, T7> obj2)
         {
-            return global::System.Collections.Generic.EqualityComparer<OneOf<T1, T2, T3, T4, T5, T6>>.Default.Equals(obj1, obj2);
+            return global::System.Collections.Generic.EqualityComparer<OneOf<T1, T2, T3, T4, T5, T6, T7>>.Default.Equals(obj1, obj2);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public static bool operator !=(OneOf<T1, T2, T3, T4, T5, T6> obj1, OneOf<T1, T2, T3, T4, T5, T6> obj2)
+        public static bool operator !=(OneOf<T1, T2, T3, T4, T5, T6, T7> obj1, OneOf<T1, T2, T3, T4, T5, T6, T7> obj2)
         {
             return !(obj1 == obj2);
         }
@@ -423,7 +475,7 @@ namespace Luma
         /// </summary>
         public override bool Equals(object? obj)
         {
-            return obj is OneOf<T1, T2, T3, T4, T5, T6> o && Equals(o);
+            return obj is OneOf<T1, T2, T3, T4, T5, T6, T7> o && Equals(o);
         }
     }
 }
