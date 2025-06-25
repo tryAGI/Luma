@@ -51,8 +51,8 @@ namespace Luma
         /// The request of the generation
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.OneOfJsonConverter<global::Luma.GenerationRequest, global::Luma.ImageGenerationRequest, global::Luma.UpscaleVideoGenerationRequest, global::Luma.AudioGenerationRequest, global::Luma.ReframeImageRequest, global::Luma.ReframeVideoRequest>))]
-        public global::Luma.OneOf<global::Luma.GenerationRequest, global::Luma.ImageGenerationRequest, global::Luma.UpscaleVideoGenerationRequest, global::Luma.AudioGenerationRequest, global::Luma.ReframeImageRequest, global::Luma.ReframeVideoRequest>? Request { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.OneOfJsonConverter<global::Luma.GenerationRequest, global::Luma.ImageGenerationRequest, global::Luma.UpscaleVideoGenerationRequest, global::Luma.AudioGenerationRequest, global::Luma.ReframeImageRequest, global::Luma.ReframeVideoRequest, global::Luma.ModifyVideoRequest>))]
+        public global::Luma.OneOf<global::Luma.GenerationRequest, global::Luma.ImageGenerationRequest, global::Luma.UpscaleVideoGenerationRequest, global::Luma.AudioGenerationRequest, global::Luma.ReframeImageRequest, global::Luma.ReframeVideoRequest, global::Luma.ModifyVideoRequest>? Request { get; set; }
 
         /// <summary>
         /// The state of the generation<br/>
@@ -105,7 +105,7 @@ namespace Luma
             global::Luma.GenerationType? generationType,
             global::System.Guid? id,
             string? model,
-            global::Luma.OneOf<global::Luma.GenerationRequest, global::Luma.ImageGenerationRequest, global::Luma.UpscaleVideoGenerationRequest, global::Luma.AudioGenerationRequest, global::Luma.ReframeImageRequest, global::Luma.ReframeVideoRequest>? request,
+            global::Luma.OneOf<global::Luma.GenerationRequest, global::Luma.ImageGenerationRequest, global::Luma.UpscaleVideoGenerationRequest, global::Luma.AudioGenerationRequest, global::Luma.ReframeImageRequest, global::Luma.ReframeVideoRequest, global::Luma.ModifyVideoRequest>? request,
             global::Luma.State? state)
         {
             this.Assets = assets;

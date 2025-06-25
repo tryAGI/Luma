@@ -2,7 +2,7 @@
 
 namespace Luma
 {
-    public readonly partial struct OneOf<T1, T2, T3, T4, T5, T6>
+    public readonly partial struct OneOf<T1, T2, T3, T4, T5, T6, T7>
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -34,14 +34,14 @@ namespace Luma
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::Luma.OneOf<T1, T2, T3, T4, T5, T6>? FromJson(
+        public static global::Luma.OneOf<T1, T2, T3, T4, T5, T6, T7>? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::Luma.OneOf<T1, T2, T3, T4, T5, T6>),
-                jsonSerializerContext) as global::Luma.OneOf<T1, T2, T3, T4, T5, T6>?;
+                typeof(global::Luma.OneOf<T1, T2, T3, T4, T5, T6, T7>),
+                jsonSerializerContext) as global::Luma.OneOf<T1, T2, T3, T4, T5, T6, T7>?;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace Luma
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::Luma.OneOf<T1, T2, T3, T4, T5, T6>? FromJson(
+        public static global::Luma.OneOf<T1, T2, T3, T4, T5, T6, T7>? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::Luma.OneOf<T1, T2, T3, T4, T5, T6>>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::Luma.OneOf<T1, T2, T3, T4, T5, T6, T7>>(
                 json,
                 jsonSerializerOptions);
         }
@@ -63,14 +63,14 @@ namespace Luma
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::Luma.OneOf<T1, T2, T3, T4, T5, T6>?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::Luma.OneOf<T1, T2, T3, T4, T5, T6, T7>?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::Luma.OneOf<T1, T2, T3, T4, T5, T6>),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Luma.OneOf<T1, T2, T3, T4, T5, T6>?;
+                typeof(global::Luma.OneOf<T1, T2, T3, T4, T5, T6, T7>),
+                jsonSerializerContext).ConfigureAwait(false)) as global::Luma.OneOf<T1, T2, T3, T4, T5, T6, T7>?;
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace Luma
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::Luma.OneOf<T1, T2, T3, T4, T5, T6>?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::Luma.OneOf<T1, T2, T3, T4, T5, T6, T7>?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Luma.OneOf<T1, T2, T3, T4, T5, T6>?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Luma.OneOf<T1, T2, T3, T4, T5, T6, T7>?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

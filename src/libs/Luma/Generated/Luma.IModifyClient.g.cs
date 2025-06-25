@@ -4,11 +4,10 @@
 namespace Luma
 {
     /// <summary>
-    /// Generate videos using Dream Machine.<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
-    public partial interface ILumaClient : global::System.IDisposable
+    public partial interface IModifyClient : global::System.IDisposable
     {
         /// <summary>
         /// The HttpClient instance.
@@ -36,41 +35,6 @@ namespace Luma
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public CreditsClient Credits { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public GenerationsClient Generations { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ImageClient Image { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ReframeClient Reframe { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public VideoClient Video { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ModifyClient Modify { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public PingClient Ping { get; }
 
     }
 }

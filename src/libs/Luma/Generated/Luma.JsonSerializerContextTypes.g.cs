@@ -78,7 +78,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.OneOf<global::Luma.GenerationRequest, global::Luma.ImageGenerationRequest, global::Luma.UpscaleVideoGenerationRequest, global::Luma.AudioGenerationRequest, global::Luma.ReframeImageRequest, global::Luma.ReframeVideoRequest>? Type13 { get; set; }
+        public global::Luma.OneOf<global::Luma.GenerationRequest, global::Luma.ImageGenerationRequest, global::Luma.UpscaleVideoGenerationRequest, global::Luma.AudioGenerationRequest, global::Luma.ReframeImageRequest, global::Luma.ReframeVideoRequest, global::Luma.ModifyVideoRequest>? Type13 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -234,18 +234,34 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.State? Type52 { get; set; }
+        public global::Luma.ModifyVideoRequest? Type52 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.ListGenerationResponse? Type53 { get; set; }
+        public global::Luma.ModifyVideoRequestGenerationType? Type53 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Luma.Generation>? Type54 { get; set; }
+        public global::Luma.ModifyVideoMode? Type54 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Luma.PingResponse? Type55 { get; set; }
+        public global::Luma.ModifyVideoModel? Type55 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.State? Type56 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.ListGenerationResponse? Type57 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::System.Collections.Generic.IList<global::Luma.Generation>? Type58 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.PingResponse? Type59 { get; set; }
     }
 }

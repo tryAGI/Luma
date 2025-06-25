@@ -3,10 +3,10 @@
 namespace Luma.JsonConverters
 {
     /// <inheritdoc />
-    public class OneOfJsonConverter<T1, T2, T3, T4, T5, T6> : global::System.Text.Json.Serialization.JsonConverter<global::Luma.OneOf<T1, T2, T3, T4, T5, T6>>
+    public class OneOfJsonConverter<T1, T2, T3, T4, T5, T6, T7> : global::System.Text.Json.Serialization.JsonConverter<global::Luma.OneOf<T1, T2, T3, T4, T5, T6, T7>>
     {
         /// <inheritdoc />
-        public override global::Luma.OneOf<T1, T2, T3, T4, T5, T6> Read(
+        public override global::Luma.OneOf<T1, T2, T3, T4, T5, T6, T7> Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -87,13 +87,26 @@ namespace Luma.JsonConverters
             {
             }
 
-            var result = new global::Luma.OneOf<T1, T2, T3, T4, T5, T6>(
+            readerCopy = reader;
+            T7? value7 = default;
+            try
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(T7), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<T7> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T7).Name}");
+                value7 = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, typeInfo);
+            }
+            catch (global::System.Text.Json.JsonException)
+            {
+            }
+
+            var result = new global::Luma.OneOf<T1, T2, T3, T4, T5, T6, T7>(
                 value1,
                 value2,
                 value3,
                 value4,
                 value5,
-                value6
+                value6,
+                value7
                 );
 
             if (value1 != null)
@@ -132,6 +145,12 @@ namespace Luma.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T6).Name}");
                 _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            else if (value7 != null)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(T7), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<T7> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T7).Name}");
+                _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             return result;
         }
@@ -139,7 +158,7 @@ namespace Luma.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::Luma.OneOf<T1, T2, T3, T4, T5, T6> value,
+            global::Luma.OneOf<T1, T2, T3, T4, T5, T6, T7> value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
@@ -180,6 +199,12 @@ namespace Luma.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(T6), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<T6?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T6).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value6, typeInfo);
+            }
+            else if (value.IsValue7)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(T7), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<T7?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(T7).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Value7, typeInfo);
             }
         }
     }
