@@ -45,10 +45,10 @@ namespace Luma
         global::System.Threading.Tasks.Task<global::Luma.Generation> ModifyVideoAsync(
             global::Luma.Media media,
             global::Luma.ModifyVideoMode mode,
+            global::Luma.ModifyVideoModel model,
             string? callbackUrl = default,
             global::Luma.Media? firstFrame = default,
             global::Luma.ModifyVideoRequestGenerationType generationType = global::Luma.ModifyVideoRequestGenerationType.ModifyVideo,
-            global::Luma.ModifyVideoModel model = default,
             string? prompt = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
