@@ -48,7 +48,8 @@ namespace Luma
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ModifyVideoModelJsonConverter))]
-        public global::Luma.ModifyVideoModel Model { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Luma.ModifyVideoModel Model { get; set; }
 
         /// <summary>
         /// The prompt of the generation
@@ -92,18 +93,18 @@ namespace Luma
         public ModifyVideoRequest(
             global::Luma.Media media,
             global::Luma.ModifyVideoMode mode,
+            global::Luma.ModifyVideoModel model,
             string? callbackUrl,
             global::Luma.Media? firstFrame,
-            global::Luma.ModifyVideoModel model,
             string? prompt,
             global::Luma.ModifyVideoRequestGenerationType generationType = global::Luma.ModifyVideoRequestGenerationType.ModifyVideo)
         {
             this.Media = media ?? throw new global::System.ArgumentNullException(nameof(media));
             this.Mode = mode;
+            this.Model = model;
             this.CallbackUrl = callbackUrl;
             this.FirstFrame = firstFrame;
             this.GenerationType = generationType;
-            this.Model = model;
             this.Prompt = prompt;
         }
 

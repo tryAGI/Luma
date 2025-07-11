@@ -795,6 +795,7 @@ components:
     ModifyVideoModel:
       enum:
         - ray-2
+        - ray-flash-2
       type: string
       description: The model used for the modify video
     ModifyVideoRequest:

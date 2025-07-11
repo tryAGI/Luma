@@ -12,6 +12,10 @@ namespace Luma
         /// 
         /// </summary>
         Ray2,
+        /// <summary>
+        /// 
+        /// </summary>
+        RayFlash2,
     }
 
     /// <summary>
@@ -27,6 +31,7 @@ namespace Luma
             return value switch
             {
                 ModifyVideoModel.Ray2 => "ray-2",
+                ModifyVideoModel.RayFlash2 => "ray-flash-2",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -38,6 +43,7 @@ namespace Luma
             return value switch
             {
                 "ray-2" => ModifyVideoModel.Ray2,
+                "ray-flash-2" => ModifyVideoModel.RayFlash2,
                 _ => null,
             };
         }
