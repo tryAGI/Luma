@@ -58,15 +58,13 @@ namespace Luma
 
         /// <summary>
         /// The video model used for the generation<br/>
-        /// Default Value: ray-1-6<br/>
-        /// Example: ray-1-6
+        /// Example: ray-2
         /// </summary>
-        /// <default>global::Luma.VideoModel.Ray16</default>
-        /// <example>ray-1-6</example>
+        /// <example>ray-2</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.VideoModelJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Luma.VideoModel Model { get; set; } = global::Luma.VideoModel.Ray16;
+        public required global::Luma.VideoModel Model { get; set; }
 
         /// <summary>
         /// The prompt of the generation
@@ -113,8 +111,7 @@ namespace Luma
         /// </param>
         /// <param name="model">
         /// The video model used for the generation<br/>
-        /// Default Value: ray-1-6<br/>
-        /// Example: ray-1-6
+        /// Example: ray-2
         /// </param>
         /// <param name="prompt">
         /// The prompt of the generation

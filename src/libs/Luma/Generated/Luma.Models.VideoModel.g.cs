@@ -5,15 +5,10 @@ namespace Luma
 {
     /// <summary>
     /// The video model used for the generation<br/>
-    /// Default Value: ray-1-6<br/>
-    /// Example: ray-1-6
+    /// Example: ray-2
     /// </summary>
     public enum VideoModel
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        Ray16,
         /// <summary>
         /// 
         /// </summary>
@@ -36,7 +31,6 @@ namespace Luma
         {
             return value switch
             {
-                VideoModel.Ray16 => "ray-1-6",
                 VideoModel.Ray2 => "ray-2",
                 VideoModel.RayFlash2 => "ray-flash-2",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -49,7 +43,6 @@ namespace Luma
         {
             return value switch
             {
-                "ray-1-6" => VideoModel.Ray16,
                 "ray-2" => VideoModel.Ray2,
                 "ray-flash-2" => VideoModel.RayFlash2,
                 _ => null,
