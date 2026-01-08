@@ -42,8 +42,7 @@ namespace Luma
         /// </param>
         /// <param name="model">
         /// The video model used for the generation<br/>
-        /// Default Value: ray-1-6<br/>
-        /// Example: ray-1-6
+        /// Example: ray-2
         /// </param>
         /// <param name="prompt">
         /// The prompt of the generation
