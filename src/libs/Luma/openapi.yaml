@@ -501,7 +501,7 @@ components:
         created_at: '2023-06-01T12:00:00.0000000+00:00'
         failure_reason: 
         id: 123e4567-e89b-12d3-a456-426614174000
-        model: ray-1-6
+        model: ray-2
         request:
           aspect_ratio: '16:9'
           keyframes:
@@ -973,13 +973,11 @@ components:
       description: The upscale generation request object
     VideoModel:
       enum:
-        - ray-1-6
         - ray-2
         - ray-flash-2
       type: string
       description: The video model used for the generation
-      default: ray-1-6
-      example: ray-1-6
+      example: ray-2
     VideoModelOutputDuration:
       anyOf:
         - enum:
