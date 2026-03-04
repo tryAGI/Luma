@@ -4,7 +4,8 @@
 namespace Luma
 {
     /// <summary>
-    /// The generation request object
+    /// The generation request object<br/>
+    /// Example: {"summary":"Text to video","value":{"aspect_ratio":"16:9","loop":true,"prompt":"A serene lake surrounded by mountains at sunset"}}
     /// </summary>
     public sealed partial class GenerationRequest
     {
@@ -45,8 +46,10 @@ namespace Luma
         public global::Luma.GenerationRequestGenerationType? GenerationType { get; set; }
 
         /// <summary>
-        /// The keyframes of the generation
+        /// The keyframes of the generation<br/>
+        /// Example: {"frame0":{"type":"image","url":"https://example.com/image.jpg"},"frame1":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}}
         /// </summary>
+        /// <example>{"frame0":{"type":"image","url":"https://example.com/image.jpg"},"frame1":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("keyframes")]
         public global::Luma.Keyframes? Keyframes { get; set; }
 
@@ -58,15 +61,13 @@ namespace Luma
 
         /// <summary>
         /// The video model used for the generation<br/>
-        /// Default Value: ray-1-6<br/>
-        /// Example: ray-1-6
+        /// Example: ray-2
         /// </summary>
-        /// <default>global::Luma.VideoModel.Ray16</default>
-        /// <example>ray-1-6</example>
+        /// <example>ray-2</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.VideoModelJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Luma.VideoModel Model { get; set; } = global::Luma.VideoModel.Ray16;
+        public required global::Luma.VideoModel Model { get; set; }
 
         /// <summary>
         /// The prompt of the generation
@@ -106,15 +107,15 @@ namespace Luma
         /// Default Value: video
         /// </param>
         /// <param name="keyframes">
-        /// The keyframes of the generation
+        /// The keyframes of the generation<br/>
+        /// Example: {"frame0":{"type":"image","url":"https://example.com/image.jpg"},"frame1":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}}
         /// </param>
         /// <param name="loop">
         /// Whether to loop the video
         /// </param>
         /// <param name="model">
         /// The video model used for the generation<br/>
-        /// Default Value: ray-1-6<br/>
-        /// Example: ray-1-6
+        /// Example: ray-2
         /// </param>
         /// <param name="prompt">
         /// The prompt of the generation

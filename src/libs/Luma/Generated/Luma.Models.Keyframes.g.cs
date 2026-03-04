@@ -4,20 +4,25 @@
 namespace Luma
 {
     /// <summary>
-    /// The keyframes of the generation
+    /// The keyframes of the generation<br/>
+    /// Example: {"frame0":{"type":"image","url":"https://example.com/image.jpg"},"frame1":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}}
     /// </summary>
     public sealed partial class Keyframes
     {
         /// <summary>
-        /// A keyframe can be either a Generation reference, an Image, or a Video
+        /// A keyframe can be either a Generation reference, an Image, or a Video<br/>
+        /// Example: {"summary":"Generation reference","value":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}}
         /// </summary>
+        /// <example>{"summary":"Generation reference","value":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("frame0")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.KeyframeJsonConverter))]
         public global::Luma.Keyframe? Frame0 { get; set; }
 
         /// <summary>
-        /// A keyframe can be either a Generation reference, an Image, or a Video
+        /// A keyframe can be either a Generation reference, an Image, or a Video<br/>
+        /// Example: {"summary":"Generation reference","value":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}}
         /// </summary>
+        /// <example>{"summary":"Generation reference","value":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("frame1")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.KeyframeJsonConverter))]
         public global::Luma.Keyframe? Frame1 { get; set; }
@@ -32,10 +37,12 @@ namespace Luma
         /// Initializes a new instance of the <see cref="Keyframes" /> class.
         /// </summary>
         /// <param name="frame0">
-        /// A keyframe can be either a Generation reference, an Image, or a Video
+        /// A keyframe can be either a Generation reference, an Image, or a Video<br/>
+        /// Example: {"summary":"Generation reference","value":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}}
         /// </param>
         /// <param name="frame1">
-        /// A keyframe can be either a Generation reference, an Image, or a Video
+        /// A keyframe can be either a Generation reference, an Image, or a Video<br/>
+        /// Example: {"summary":"Generation reference","value":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}}
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

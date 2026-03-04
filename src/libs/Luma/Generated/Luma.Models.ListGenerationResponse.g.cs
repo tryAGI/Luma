@@ -4,7 +4,8 @@
 namespace Luma
 {
     /// <summary>
-    /// The generations response object
+    /// The generations response object<br/>
+    /// Example: {"count":1,"generations":[{"assets":{"video":"https://example.com/video.mp4"},"created_at":"2023-06-01T12:00:00.0000000\u002B00:00","failure_reason":"","id":"123e4567-e89b-12d3-a456-426614174000","request":{"aspect_ratio":"16:9","keyframes":{"frame0":{"type":"image","url":"https://example.com/image.jpg"},"frame1":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}},"loop":true,"prompt":"A serene lake surrounded by mountains at sunset"},"state":"completed","version":"v1.6"}],"has_more":false,"limit":100,"offset":0}
     /// </summary>
     public sealed partial class ListGenerationResponse
     {

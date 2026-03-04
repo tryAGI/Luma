@@ -4,7 +4,8 @@
 namespace Luma
 {
     /// <summary>
-    /// The generation reference object
+    /// The generation reference object<br/>
+    /// Example: {"id":"123e4567-e89b-12d3-a456-426614174003","type":"generation"}
     /// </summary>
     public sealed partial class GenerationReference
     {

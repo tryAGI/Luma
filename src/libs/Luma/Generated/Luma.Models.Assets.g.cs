@@ -4,7 +4,8 @@
 namespace Luma
 {
     /// <summary>
-    /// The assets of the generation
+    /// The assets of the generation<br/>
+    /// Example: {"summary":"Video","value":{"video":"https://example.com/video.mp4"}}
     /// </summary>
     public sealed partial class Assets
     {

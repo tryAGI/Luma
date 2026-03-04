@@ -4,7 +4,7 @@
 namespace Luma
 {
     /// <summary>
-    /// 
+    /// Example: {"message":"pong"}
     /// </summary>
     public sealed partial class PingResponse
     {

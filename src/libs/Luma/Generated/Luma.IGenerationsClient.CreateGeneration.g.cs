@@ -35,15 +35,15 @@ namespace Luma
         /// Default Value: video
         /// </param>
         /// <param name="keyframes">
-        /// The keyframes of the generation
+        /// The keyframes of the generation<br/>
+        /// Example: {"frame0":{"type":"image","url":"https://example.com/image.jpg"},"frame1":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}}
         /// </param>
         /// <param name="loop">
         /// Whether to loop the video
         /// </param>
         /// <param name="model">
         /// The video model used for the generation<br/>
-        /// Default Value: ray-1-6<br/>
-        /// Example: ray-1-6
+        /// Example: ray-2
         /// </param>
         /// <param name="prompt">
         /// The prompt of the generation

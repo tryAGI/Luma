@@ -29,6 +29,22 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
+#if NET6_0_OR_GREATER
+        public string? Value2 { get; init; }
+#else
+        public string? Value2 { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value2))]
+#endif
+        public bool IsValue2 => Value2 != null;
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator VideoModelOutputDuration(global::Luma.VideoModelOutputDurationEnum value) => new VideoModelOutputDuration((global::Luma.VideoModelOutputDurationEnum?)value);
 
         /// <summary>
@@ -43,23 +59,6 @@ namespace Luma
         {
             Value1 = value;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public string? Value2 { get; init; }
-#else
-        public string? Value2 { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value2))]
-#endif
-        public bool IsValue2 => Value2 != null;
 
         /// <summary>
         /// 

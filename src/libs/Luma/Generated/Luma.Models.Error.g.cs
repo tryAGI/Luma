@@ -4,7 +4,8 @@
 namespace Luma
 {
     /// <summary>
-    /// The error object
+    /// The error object<br/>
+    /// Example: {"detail":"Invalid API key is provided"}
     /// </summary>
     public sealed partial class Error
     {

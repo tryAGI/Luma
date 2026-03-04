@@ -4,7 +4,8 @@
 namespace Luma
 {
     /// <summary>
-    /// The image object
+    /// The image object<br/>
+    /// Example: {"type":"image","url":"https://example.com/image.jpg"}
     /// </summary>
     public sealed partial class ImageReference
     {

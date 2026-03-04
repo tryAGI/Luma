@@ -6,13 +6,16 @@
 namespace Luma
 {
     /// <summary>
-    /// The generation response object
+    /// The generation response object<br/>
+    /// Example: {"assets":{"video":"https://example.com/video.mp4"},"created_at":"2023-06-01T12:00:00.0000000\u002B00:00","failure_reason":"","id":"123e4567-e89b-12d3-a456-426614174000","model":"ray-2","request":{"aspect_ratio":"16:9","keyframes":{"frame0":{"type":"image","url":"https://example.com/image.jpg"},"frame1":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}},"loop":true,"prompt":"A serene lake surrounded by mountains at sunset"},"state":"completed"}
     /// </summary>
     public sealed partial class Generation
     {
         /// <summary>
-        /// The assets of the generation
+        /// The assets of the generation<br/>
+        /// Example: {"summary":"Video","value":{"video":"https://example.com/video.mp4"}}
         /// </summary>
+        /// <example>{"summary":"Video","value":{"video":"https://example.com/video.mp4"}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("assets")]
         public global::Luma.Assets? Assets { get; set; }
 
@@ -73,7 +76,8 @@ namespace Luma
         /// Initializes a new instance of the <see cref="Generation" /> class.
         /// </summary>
         /// <param name="assets">
-        /// The assets of the generation
+        /// The assets of the generation<br/>
+        /// Example: {"summary":"Video","value":{"video":"https://example.com/video.mp4"}}
         /// </param>
         /// <param name="createdAt">
         /// The date and time when the generation was created

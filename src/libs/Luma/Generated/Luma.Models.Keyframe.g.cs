@@ -5,7 +5,8 @@
 namespace Luma
 {
     /// <summary>
-    /// A keyframe can be either a Generation reference, an Image, or a Video
+    /// A keyframe can be either a Generation reference, an Image, or a Video<br/>
+    /// Example: {"summary":"Generation reference","value":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}}
     /// </summary>
     public readonly partial struct Keyframe : global::System.IEquatable<Keyframe>
     {
@@ -15,7 +16,8 @@ namespace Luma
         public global::Luma.KeyframeDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// The generation reference object
+        /// The generation reference object<br/>
+        /// Example: {"id":"123e4567-e89b-12d3-a456-426614174003","type":"generation"}
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Luma.GenerationReference? Generation { get; init; }
@@ -31,6 +33,23 @@ namespace Luma
 #endif
         public bool IsGeneration => Generation != null;
 
+        /// <summary>
+        /// The image object<br/>
+        /// Example: {"type":"image","url":"https://example.com/image.jpg"}
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Luma.ImageReference? Image { get; init; }
+#else
+        public global::Luma.ImageReference? Image { get; }
+#endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Image))]
+#endif
+        public bool IsImage => Image != null;
         /// <summary>
         /// 
         /// </summary>
@@ -48,23 +67,6 @@ namespace Luma
         {
             Generation = value;
         }
-
-        /// <summary>
-        /// The image object
-        /// </summary>
-#if NET6_0_OR_GREATER
-        public global::Luma.ImageReference? Image { get; init; }
-#else
-        public global::Luma.ImageReference? Image { get; }
-#endif
-
-        /// <summary>
-        /// 
-        /// </summary>
-#if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Image))]
-#endif
-        public bool IsImage => Image != null;
 
         /// <summary>
         /// 
