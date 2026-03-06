@@ -29,6 +29,7 @@ namespace Luma
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Luma.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Luma.Generation> CreateGenerationAsync(
+
             global::Luma.GenerationRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
