@@ -12,6 +12,7 @@ namespace Luma
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Luma.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Luma.Generation> ModifyVideoAsync(
+
             global::Luma.ModifyVideoRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
 

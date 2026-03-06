@@ -14,6 +14,7 @@ namespace Luma
         /// <exception cref="global::Luma.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Luma.Generation> AddAudioToGenerationAsync(
             string id,
+
             global::Luma.AudioGenerationRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
 

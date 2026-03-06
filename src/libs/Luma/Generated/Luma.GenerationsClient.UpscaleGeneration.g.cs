@@ -33,6 +33,7 @@ namespace Luma
         /// <exception cref="global::Luma.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Luma.Generation> UpscaleGenerationAsync(
             string id,
+
             global::Luma.UpscaleVideoGenerationRequest request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

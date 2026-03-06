@@ -12,6 +12,7 @@ namespace Luma
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Luma.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Luma.Generation> ReframeVideoAsync(
+
             global::Luma.ReframeVideoRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -69,9 +70,9 @@ namespace Luma
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Luma.Generation> ReframeVideoAsync(
-            global::Luma.AspectRatio aspectRatio,
             global::Luma.Media media,
             global::Luma.ReframeVideoModels model,
+            global::Luma.AspectRatio aspectRatio = global::Luma.AspectRatio.x16_9,
             string? callbackUrl = default,
             global::Luma.Media? firstFrame = default,
             global::Luma.ReframeVideoRequestGenerationType generationType = global::Luma.ReframeVideoRequestGenerationType.ReframeVideo,
