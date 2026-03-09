@@ -10,6 +10,7 @@ public partial class Tests
         var cancellationToken = cancellationTokenSource.Token;
 
         Generation generation = await client.Generations.CreateGenerationAsync(
+            model: VideoModel.Ray2,
             prompt: "The beautiful woman just smiles",
             aspectRatio: AspectRatio.x4_3,
             loop: false,

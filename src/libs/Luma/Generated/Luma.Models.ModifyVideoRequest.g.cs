@@ -33,7 +33,7 @@ namespace Luma
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Luma.Media Media { get; set; }
+        public global::Luma.Media Media { get; set; } = default!;
 
         /// <summary>
         /// The mode of the modify video
@@ -41,7 +41,7 @@ namespace Luma
         [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ModifyVideoModeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Luma.ModifyVideoMode Mode { get; set; }
+        public global::Luma.ModifyVideoMode Mode { get; set; } = default!;
 
         /// <summary>
         /// The model used for the modify video
@@ -49,7 +49,7 @@ namespace Luma
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ModifyVideoModelJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Luma.ModifyVideoModel Model { get; set; }
+        public global::Luma.ModifyVideoModel Model { get; set; } = default!;
 
         /// <summary>
         /// The prompt of the generation

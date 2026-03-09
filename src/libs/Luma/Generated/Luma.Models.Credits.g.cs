@@ -13,7 +13,7 @@ namespace Luma
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("credit_balance")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required float CreditBalance { get; set; }
+        public float CreditBalance { get; set; } = default!;
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

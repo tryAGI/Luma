@@ -20,7 +20,7 @@ namespace Luma
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generations")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Luma.Generation> Generations { get; set; }
+        public global::System.Collections.Generic.IList<global::Luma.Generation> Generations { get; set; } = default!;
 
         /// <summary>
         /// Whether there are more generations
