@@ -9,12 +9,6 @@ namespace Luma
     public sealed partial class UpscaleVideoGenerationRequest
     {
         /// <summary>
-        /// The callback URL for the upscale
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
-        public string? CallbackUrl { get; set; }
-
-        /// <summary>
         /// Default Value: upscale_video
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generation_type")]
@@ -22,11 +16,17 @@ namespace Luma
         public global::Luma.UpscaleVideoGenerationRequestGenerationType? GenerationType { get; set; }
 
         /// <summary>
-        /// 
+        /// The resolution of the upscale
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("resolution")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.VideoModelOutputResolutionJsonConverter))]
         public global::Luma.VideoModelOutputResolution? Resolution { get; set; }
+
+        /// <summary>
+        /// The callback URL for the upscale
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
+        public string? CallbackUrl { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -37,24 +37,26 @@ namespace Luma
         /// <summary>
         /// Initializes a new instance of the <see cref="UpscaleVideoGenerationRequest" /> class.
         /// </summary>
-        /// <param name="callbackUrl">
-        /// The callback URL for the upscale
-        /// </param>
         /// <param name="generationType">
         /// Default Value: upscale_video
         /// </param>
-        /// <param name="resolution"></param>
+        /// <param name="resolution">
+        /// The resolution of the upscale
+        /// </param>
+        /// <param name="callbackUrl">
+        /// The callback URL for the upscale
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UpscaleVideoGenerationRequest(
-            string? callbackUrl,
             global::Luma.UpscaleVideoGenerationRequestGenerationType? generationType,
-            global::Luma.VideoModelOutputResolution? resolution)
+            global::Luma.VideoModelOutputResolution? resolution,
+            string? callbackUrl)
         {
-            this.CallbackUrl = callbackUrl;
             this.GenerationType = generationType;
             this.Resolution = resolution;
+            this.CallbackUrl = callbackUrl;
         }
 
         /// <summary>

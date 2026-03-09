@@ -208,48 +208,48 @@ namespace Luma
         /// Modify a video<br/>
         /// Modify a video with style transfer and prompt-based editing
         /// </summary>
-        /// <param name="callbackUrl">
-        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
-        /// </param>
-        /// <param name="firstFrame">
-        /// The image entity object
-        /// </param>
         /// <param name="generationType">
         /// Default Value: modify_video
         /// </param>
         /// <param name="media">
         /// The image entity object
         /// </param>
-        /// <param name="mode">
-        /// The mode of the modify video
+        /// <param name="firstFrame">
+        /// The image entity object
         /// </param>
         /// <param name="model">
         /// The model used for the modify video
         /// </param>
+        /// <param name="mode">
+        /// The mode of the modify video
+        /// </param>
         /// <param name="prompt">
         /// The prompt of the generation
+        /// </param>
+        /// <param name="callbackUrl">
+        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Luma.Generation> ModifyVideoAsync(
             global::Luma.Media media,
-            global::Luma.ModifyVideoMode mode,
             global::Luma.ModifyVideoModel model,
-            string? callbackUrl = default,
-            global::Luma.Media? firstFrame = default,
+            global::Luma.ModifyVideoMode mode,
             global::Luma.ModifyVideoRequestGenerationType generationType = global::Luma.ModifyVideoRequestGenerationType.ModifyVideo,
+            global::Luma.Media? firstFrame = default,
             string? prompt = default,
+            string? callbackUrl = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Luma.ModifyVideoRequest
             {
-                CallbackUrl = callbackUrl,
-                FirstFrame = firstFrame,
                 GenerationType = generationType,
                 Media = media,
-                Mode = mode,
+                FirstFrame = firstFrame,
                 Model = model,
+                Mode = mode,
                 Prompt = prompt,
+                CallbackUrl = callbackUrl,
             };
 
             return await ModifyVideoAsync(

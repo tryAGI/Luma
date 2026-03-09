@@ -9,6 +9,41 @@ namespace Luma
     public sealed partial class ReframeVideoRequest
     {
         /// <summary>
+        /// Default Value: reframe_video
+        /// </summary>
+        /// <default>global::Luma.ReframeVideoRequestGenerationType.ReframeVideo</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("generation_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ReframeVideoRequestGenerationTypeJsonConverter))]
+        public global::Luma.ReframeVideoRequestGenerationType GenerationType { get; set; } = global::Luma.ReframeVideoRequestGenerationType.ReframeVideo;
+
+        /// <summary>
+        /// The image entity object
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("media")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Luma.Media Media { get; set; }
+
+        /// <summary>
+        /// The image entity object
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("first_frame")]
+        public global::Luma.Media? FirstFrame { get; set; }
+
+        /// <summary>
+        /// The model used for the reframe video
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ReframeVideoModelsJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Luma.ReframeVideoModels Model { get; set; }
+
+        /// <summary>
+        /// The prompt of the generation
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
+        public string? Prompt { get; set; }
+
+        /// <summary>
         /// The aspect ratio of the generation<br/>
         /// Default Value: 16:9<br/>
         /// Example: 16:9
@@ -18,27 +53,7 @@ namespace Luma
         [global::System.Text.Json.Serialization.JsonPropertyName("aspect_ratio")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.AspectRatioJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Luma.AspectRatio AspectRatio { get; set; } = default!;
-
-        /// <summary>
-        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
-        public string? CallbackUrl { get; set; }
-
-        /// <summary>
-        /// The image entity object
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("first_frame")]
-        public global::Luma.Media? FirstFrame { get; set; }
-
-        /// <summary>
-        /// Default Value: reframe_video
-        /// </summary>
-        /// <default>global::Luma.ReframeVideoRequestGenerationType.ReframeVideo</default>
-        [global::System.Text.Json.Serialization.JsonPropertyName("generation_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ReframeVideoRequestGenerationTypeJsonConverter))]
-        public global::Luma.ReframeVideoRequestGenerationType GenerationType { get; set; } = global::Luma.ReframeVideoRequestGenerationType.ReframeVideo;
+        public required global::Luma.AspectRatio AspectRatio { get; set; } = global::Luma.AspectRatio.x16_9;
 
         /// <summary>
         /// The x position of the image in the grid
@@ -53,37 +68,10 @@ namespace Luma
         public int? GridPositionY { get; set; }
 
         /// <summary>
-        /// The image entity object
+        /// The x start of the crop bounds
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("media")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Luma.Media Media { get; set; } = default!;
-
-        /// <summary>
-        /// The model used for the reframe video
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ReframeVideoModelsJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Luma.ReframeVideoModels Model { get; set; } = default!;
-
-        /// <summary>
-        /// The prompt of the generation
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
-        public string? Prompt { get; set; }
-
-        /// <summary>
-        /// Resized height of source video
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("resized_height")]
-        public int? ResizedHeight { get; set; }
-
-        /// <summary>
-        /// Resized width of source video
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("resized_width")]
-        public int? ResizedWidth { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("x_start")]
+        public int? XStart { get; set; }
 
         /// <summary>
         /// The x end of the crop bounds
@@ -92,10 +80,10 @@ namespace Luma
         public int? XEnd { get; set; }
 
         /// <summary>
-        /// The x start of the crop bounds
+        /// The y start of the crop bounds
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("x_start")]
-        public int? XStart { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("y_start")]
+        public int? YStart { get; set; }
 
         /// <summary>
         /// The y end of the crop bounds
@@ -104,10 +92,22 @@ namespace Luma
         public int? YEnd { get; set; }
 
         /// <summary>
-        /// The y start of the crop bounds
+        /// Resized width of source video
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("y_start")]
-        public int? YStart { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("resized_width")]
+        public int? ResizedWidth { get; set; }
+
+        /// <summary>
+        /// Resized height of source video
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("resized_height")]
+        public int? ResizedHeight { get; set; }
+
+        /// <summary>
+        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
+        public string? CallbackUrl { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -118,27 +118,13 @@ namespace Luma
         /// <summary>
         /// Initializes a new instance of the <see cref="ReframeVideoRequest" /> class.
         /// </summary>
-        /// <param name="aspectRatio">
-        /// The aspect ratio of the generation<br/>
-        /// Default Value: 16:9<br/>
-        /// Example: 16:9
-        /// </param>
-        /// <param name="callbackUrl">
-        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
-        /// </param>
-        /// <param name="firstFrame">
-        /// The image entity object
-        /// </param>
         /// <param name="generationType">
         /// Default Value: reframe_video
         /// </param>
-        /// <param name="gridPositionX">
-        /// The x position of the image in the grid
-        /// </param>
-        /// <param name="gridPositionY">
-        /// The y position of the image in the grid
-        /// </param>
         /// <param name="media">
+        /// The image entity object
+        /// </param>
+        /// <param name="firstFrame">
         /// The image entity object
         /// </param>
         /// <param name="model">
@@ -147,59 +133,73 @@ namespace Luma
         /// <param name="prompt">
         /// The prompt of the generation
         /// </param>
-        /// <param name="resizedHeight">
-        /// Resized height of source video
+        /// <param name="aspectRatio">
+        /// The aspect ratio of the generation<br/>
+        /// Default Value: 16:9<br/>
+        /// Example: 16:9
         /// </param>
-        /// <param name="resizedWidth">
-        /// Resized width of source video
+        /// <param name="gridPositionX">
+        /// The x position of the image in the grid
         /// </param>
-        /// <param name="xEnd">
-        /// The x end of the crop bounds
+        /// <param name="gridPositionY">
+        /// The y position of the image in the grid
         /// </param>
         /// <param name="xStart">
         /// The x start of the crop bounds
         /// </param>
-        /// <param name="yEnd">
-        /// The y end of the crop bounds
+        /// <param name="xEnd">
+        /// The x end of the crop bounds
         /// </param>
         /// <param name="yStart">
         /// The y start of the crop bounds
+        /// </param>
+        /// <param name="yEnd">
+        /// The y end of the crop bounds
+        /// </param>
+        /// <param name="resizedWidth">
+        /// Resized width of source video
+        /// </param>
+        /// <param name="resizedHeight">
+        /// Resized height of source video
+        /// </param>
+        /// <param name="callbackUrl">
+        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ReframeVideoRequest(
-            global::Luma.AspectRatio aspectRatio,
             global::Luma.Media media,
             global::Luma.ReframeVideoModels model,
-            string? callbackUrl,
+            global::Luma.AspectRatio aspectRatio,
             global::Luma.Media? firstFrame,
+            string? prompt,
             int? gridPositionX,
             int? gridPositionY,
-            string? prompt,
-            int? resizedHeight,
-            int? resizedWidth,
-            int? xEnd,
             int? xStart,
-            int? yEnd,
+            int? xEnd,
             int? yStart,
+            int? yEnd,
+            int? resizedWidth,
+            int? resizedHeight,
+            string? callbackUrl,
             global::Luma.ReframeVideoRequestGenerationType generationType = global::Luma.ReframeVideoRequestGenerationType.ReframeVideo)
         {
-            this.AspectRatio = aspectRatio;
             this.Media = media ?? throw new global::System.ArgumentNullException(nameof(media));
             this.Model = model;
-            this.CallbackUrl = callbackUrl;
-            this.FirstFrame = firstFrame;
+            this.AspectRatio = aspectRatio;
             this.GenerationType = generationType;
+            this.FirstFrame = firstFrame;
+            this.Prompt = prompt;
             this.GridPositionX = gridPositionX;
             this.GridPositionY = gridPositionY;
-            this.Prompt = prompt;
-            this.ResizedHeight = resizedHeight;
-            this.ResizedWidth = resizedWidth;
-            this.XEnd = xEnd;
             this.XStart = xStart;
-            this.YEnd = yEnd;
+            this.XEnd = xEnd;
             this.YStart = yStart;
+            this.YEnd = yEnd;
+            this.ResizedWidth = resizedWidth;
+            this.ResizedHeight = resizedHeight;
+            this.CallbackUrl = callbackUrl;
         }
 
         /// <summary>

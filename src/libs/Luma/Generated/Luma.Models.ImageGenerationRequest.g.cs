@@ -9,6 +9,29 @@ namespace Luma
     public sealed partial class ImageGenerationRequest
     {
         /// <summary>
+        /// Default Value: image
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("generation_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ImageGenerationRequestGenerationTypeJsonConverter))]
+        public global::Luma.ImageGenerationRequestGenerationType? GenerationType { get; set; }
+
+        /// <summary>
+        /// The model used for the generation<br/>
+        /// Default Value: photon-1
+        /// </summary>
+        /// <default>global::Luma.ImageModel.Photon1</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ImageModelJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Luma.ImageModel Model { get; set; } = global::Luma.ImageModel.Photon1;
+
+        /// <summary>
+        /// The prompt of the generation
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
+        public string? Prompt { get; set; }
+
+        /// <summary>
         /// The aspect ratio of the generation<br/>
         /// Default Value: 16:9<br/>
         /// Example: 16:9
@@ -19,18 +42,6 @@ namespace Luma
         public global::Luma.AspectRatio? AspectRatio { get; set; }
 
         /// <summary>
-        /// The callback URL for the generation
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
-        public string? CallbackUrl { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("character_ref")]
-        public global::Luma.ImageGenerationRequestCharacterRef? CharacterRef { get; set; }
-
-        /// <summary>
         /// The format of the image<br/>
         /// Default Value: jpg
         /// </summary>
@@ -39,11 +50,10 @@ namespace Luma
         public global::Luma.ImageFormat? Format { get; set; }
 
         /// <summary>
-        /// Default Value: image
+        /// The callback URL for the generation
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("generation_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ImageGenerationRequestGenerationTypeJsonConverter))]
-        public global::Luma.ImageGenerationRequestGenerationType? GenerationType { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
+        public string? CallbackUrl { get; set; }
 
         /// <summary>
         /// 
@@ -52,32 +62,22 @@ namespace Luma
         public global::System.Collections.Generic.IList<global::Luma.ImageRef>? ImageRef { get; set; }
 
         /// <summary>
-        /// The image model used for the generation<br/>
-        /// Default Value: photon-1
+        /// 
         /// </summary>
-        /// <default>global::Luma.ImageModel.Photon1</default>
-        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ImageModelJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Luma.ImageModel Model { get; set; } = default!;
+        [global::System.Text.Json.Serialization.JsonPropertyName("style_ref")]
+        public global::System.Collections.Generic.IList<global::Luma.ImageRef>? StyleRef { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("character_ref")]
+        public global::Luma.ImageGenerationRequestCharacterRef? CharacterRef { get; set; }
 
         /// <summary>
         /// The modify image reference object
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("modify_image_ref")]
         public global::Luma.ModifyImageRef? ModifyImageRef { get; set; }
-
-        /// <summary>
-        /// The prompt of the generation
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
-        public string? Prompt { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("style_ref")]
-        public global::System.Collections.Generic.IList<global::Luma.ImageRef>? StyleRef { get; set; }
 
         /// <summary>
         /// Create image in synchronous mode and return complated image<br/>
@@ -102,34 +102,34 @@ namespace Luma
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageGenerationRequest" /> class.
         /// </summary>
+        /// <param name="generationType">
+        /// Default Value: image
+        /// </param>
+        /// <param name="model">
+        /// The model used for the generation<br/>
+        /// Default Value: photon-1
+        /// </param>
+        /// <param name="prompt">
+        /// The prompt of the generation
+        /// </param>
         /// <param name="aspectRatio">
         /// The aspect ratio of the generation<br/>
         /// Default Value: 16:9<br/>
         /// Example: 16:9
         /// </param>
-        /// <param name="callbackUrl">
-        /// The callback URL for the generation
-        /// </param>
-        /// <param name="characterRef"></param>
         /// <param name="format">
         /// The format of the image<br/>
         /// Default Value: jpg
         /// </param>
-        /// <param name="generationType">
-        /// Default Value: image
+        /// <param name="callbackUrl">
+        /// The callback URL for the generation
         /// </param>
         /// <param name="imageRef"></param>
-        /// <param name="model">
-        /// The image model used for the generation<br/>
-        /// Default Value: photon-1
-        /// </param>
+        /// <param name="styleRef"></param>
+        /// <param name="characterRef"></param>
         /// <param name="modifyImageRef">
         /// The modify image reference object
         /// </param>
-        /// <param name="prompt">
-        /// The prompt of the generation
-        /// </param>
-        /// <param name="styleRef"></param>
         /// <param name="sync">
         /// Create image in synchronous mode and return complated image<br/>
         /// Default Value: false
@@ -143,28 +143,28 @@ namespace Luma
 #endif
         public ImageGenerationRequest(
             global::Luma.ImageModel model,
-            global::Luma.AspectRatio? aspectRatio,
-            string? callbackUrl,
-            global::Luma.ImageGenerationRequestCharacterRef? characterRef,
-            global::Luma.ImageFormat? format,
             global::Luma.ImageGenerationRequestGenerationType? generationType,
-            global::System.Collections.Generic.IList<global::Luma.ImageRef>? imageRef,
-            global::Luma.ModifyImageRef? modifyImageRef,
             string? prompt,
+            global::Luma.AspectRatio? aspectRatio,
+            global::Luma.ImageFormat? format,
+            string? callbackUrl,
+            global::System.Collections.Generic.IList<global::Luma.ImageRef>? imageRef,
             global::System.Collections.Generic.IList<global::Luma.ImageRef>? styleRef,
+            global::Luma.ImageGenerationRequestCharacterRef? characterRef,
+            global::Luma.ModifyImageRef? modifyImageRef,
             bool? sync,
             double? syncTimeout)
         {
             this.Model = model;
-            this.AspectRatio = aspectRatio;
-            this.CallbackUrl = callbackUrl;
-            this.CharacterRef = characterRef;
-            this.Format = format;
             this.GenerationType = generationType;
-            this.ImageRef = imageRef;
-            this.ModifyImageRef = modifyImageRef;
             this.Prompt = prompt;
+            this.AspectRatio = aspectRatio;
+            this.Format = format;
+            this.CallbackUrl = callbackUrl;
+            this.ImageRef = imageRef;
             this.StyleRef = styleRef;
+            this.CharacterRef = characterRef;
+            this.ModifyImageRef = modifyImageRef;
             this.Sync = sync;
             this.SyncTimeout = syncTimeout;
         }

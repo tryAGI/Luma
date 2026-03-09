@@ -5,8 +5,7 @@
 namespace Luma
 {
     /// <summary>
-    /// A keyframe can be either a Generation reference, an Image, or a Video<br/>
-    /// Example: {"summary":"Generation reference","value":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}}
+    /// A keyframe can be either a Generation reference, an Image, or a Video
     /// </summary>
     public readonly partial struct Keyframe : global::System.IEquatable<Keyframe>
     {
@@ -17,7 +16,7 @@ namespace Luma
 
         /// <summary>
         /// The generation reference object<br/>
-        /// Example: {"id":"123e4567-e89b-12d3-a456-426614174003","type":"generation"}
+        /// Example: {"type":"generation","id":"123e4567-e89b-12d3-a456-426614174003"}
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Luma.GenerationReference? Generation { get; init; }

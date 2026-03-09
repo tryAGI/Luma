@@ -208,26 +208,8 @@ namespace Luma
         /// Reframe an image<br/>
         /// Reframe an image by its ID
         /// </summary>
-        /// <param name="aspectRatio">
-        /// The aspect ratio of the generation<br/>
-        /// Default Value: 16:9<br/>
-        /// Example: 16:9
-        /// </param>
-        /// <param name="callbackUrl">
-        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
-        /// </param>
-        /// <param name="format">
-        /// The format of the image<br/>
-        /// Default Value: jpg
-        /// </param>
         /// <param name="generationType">
         /// Default Value: reframe_image
-        /// </param>
-        /// <param name="gridPositionX">
-        /// The x position of the image in the grid
-        /// </param>
-        /// <param name="gridPositionY">
-        /// The y position of the image in the grid
         /// </param>
         /// <param name="media">
         /// The image entity object
@@ -238,61 +220,79 @@ namespace Luma
         /// <param name="prompt">
         /// The prompt of the generation
         /// </param>
-        /// <param name="resizedHeight">
-        /// Resized height of source image
+        /// <param name="aspectRatio">
+        /// The aspect ratio of the generation<br/>
+        /// Default Value: 16:9<br/>
+        /// Example: 16:9
         /// </param>
-        /// <param name="resizedWidth">
-        /// Resized width of source image
+        /// <param name="gridPositionX">
+        /// The x position of the image in the grid
         /// </param>
-        /// <param name="xEnd">
-        /// The x end of the crop bounds
+        /// <param name="gridPositionY">
+        /// The y position of the image in the grid
         /// </param>
         /// <param name="xStart">
         /// The x start of the crop bounds
         /// </param>
-        /// <param name="yEnd">
-        /// The y end of the crop bounds
+        /// <param name="xEnd">
+        /// The x end of the crop bounds
         /// </param>
         /// <param name="yStart">
         /// The y start of the crop bounds
+        /// </param>
+        /// <param name="yEnd">
+        /// The y end of the crop bounds
+        /// </param>
+        /// <param name="resizedWidth">
+        /// Resized width of source image
+        /// </param>
+        /// <param name="resizedHeight">
+        /// Resized height of source image
+        /// </param>
+        /// <param name="format">
+        /// The format of the image<br/>
+        /// Default Value: jpg
+        /// </param>
+        /// <param name="callbackUrl">
+        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Luma.Generation> ReframeImageAsync(
             global::Luma.Media media,
             global::Luma.ReframeImageModels model,
-            global::Luma.AspectRatio aspectRatio = global::Luma.AspectRatio.x16_9,
-            string? callbackUrl = default,
-            global::Luma.ImageFormat? format = default,
             global::Luma.ReframeImageRequestGenerationType generationType = global::Luma.ReframeImageRequestGenerationType.ReframeImage,
+            string? prompt = default,
+            global::Luma.AspectRatio aspectRatio = global::Luma.AspectRatio.x16_9,
             int? gridPositionX = default,
             int? gridPositionY = default,
-            string? prompt = default,
-            int? resizedHeight = default,
-            int? resizedWidth = default,
-            int? xEnd = default,
             int? xStart = default,
-            int? yEnd = default,
+            int? xEnd = default,
             int? yStart = default,
+            int? yEnd = default,
+            int? resizedWidth = default,
+            int? resizedHeight = default,
+            global::Luma.ImageFormat? format = default,
+            string? callbackUrl = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Luma.ReframeImageRequest
             {
-                AspectRatio = aspectRatio,
-                CallbackUrl = callbackUrl,
-                Format = format,
                 GenerationType = generationType,
-                GridPositionX = gridPositionX,
-                GridPositionY = gridPositionY,
                 Media = media,
                 Model = model,
                 Prompt = prompt,
-                ResizedHeight = resizedHeight,
-                ResizedWidth = resizedWidth,
-                XEnd = xEnd,
+                AspectRatio = aspectRatio,
+                GridPositionX = gridPositionX,
+                GridPositionY = gridPositionY,
                 XStart = xStart,
-                YEnd = yEnd,
+                XEnd = xEnd,
                 YStart = yStart,
+                YEnd = yEnd,
+                ResizedWidth = resizedWidth,
+                ResizedHeight = resizedHeight,
+                Format = format,
+                CallbackUrl = callbackUrl,
             };
 
             return await ReframeImageAsync(
