@@ -20,27 +20,13 @@ namespace Luma
         /// Reframe a video<br/>
         /// Reframe a video by its ID
         /// </summary>
-        /// <param name="aspectRatio">
-        /// The aspect ratio of the generation<br/>
-        /// Default Value: 16:9<br/>
-        /// Example: 16:9
-        /// </param>
-        /// <param name="callbackUrl">
-        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
-        /// </param>
-        /// <param name="firstFrame">
-        /// The image entity object
-        /// </param>
         /// <param name="generationType">
         /// Default Value: reframe_video
         /// </param>
-        /// <param name="gridPositionX">
-        /// The x position of the image in the grid
-        /// </param>
-        /// <param name="gridPositionY">
-        /// The y position of the image in the grid
-        /// </param>
         /// <param name="media">
+        /// The image entity object
+        /// </param>
+        /// <param name="firstFrame">
         /// The image entity object
         /// </param>
         /// <param name="model">
@@ -49,42 +35,56 @@ namespace Luma
         /// <param name="prompt">
         /// The prompt of the generation
         /// </param>
-        /// <param name="resizedHeight">
-        /// Resized height of source video
+        /// <param name="aspectRatio">
+        /// The aspect ratio of the generation<br/>
+        /// Default Value: 16:9<br/>
+        /// Example: 16:9
         /// </param>
-        /// <param name="resizedWidth">
-        /// Resized width of source video
+        /// <param name="gridPositionX">
+        /// The x position of the image in the grid
         /// </param>
-        /// <param name="xEnd">
-        /// The x end of the crop bounds
+        /// <param name="gridPositionY">
+        /// The y position of the image in the grid
         /// </param>
         /// <param name="xStart">
         /// The x start of the crop bounds
         /// </param>
-        /// <param name="yEnd">
-        /// The y end of the crop bounds
+        /// <param name="xEnd">
+        /// The x end of the crop bounds
         /// </param>
         /// <param name="yStart">
         /// The y start of the crop bounds
+        /// </param>
+        /// <param name="yEnd">
+        /// The y end of the crop bounds
+        /// </param>
+        /// <param name="resizedWidth">
+        /// Resized width of source video
+        /// </param>
+        /// <param name="resizedHeight">
+        /// Resized height of source video
+        /// </param>
+        /// <param name="callbackUrl">
+        /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Luma.Generation> ReframeVideoAsync(
             global::Luma.Media media,
             global::Luma.ReframeVideoModels model,
-            global::Luma.AspectRatio aspectRatio = global::Luma.AspectRatio.x16_9,
-            string? callbackUrl = default,
-            global::Luma.Media? firstFrame = default,
             global::Luma.ReframeVideoRequestGenerationType generationType = global::Luma.ReframeVideoRequestGenerationType.ReframeVideo,
+            global::Luma.Media? firstFrame = default,
+            string? prompt = default,
+            global::Luma.AspectRatio aspectRatio = global::Luma.AspectRatio.x16_9,
             int? gridPositionX = default,
             int? gridPositionY = default,
-            string? prompt = default,
-            int? resizedHeight = default,
-            int? resizedWidth = default,
-            int? xEnd = default,
             int? xStart = default,
-            int? yEnd = default,
+            int? xEnd = default,
             int? yStart = default,
+            int? yEnd = default,
+            int? resizedWidth = default,
+            int? resizedHeight = default,
+            string? callbackUrl = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

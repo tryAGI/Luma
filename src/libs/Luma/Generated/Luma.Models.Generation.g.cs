@@ -7,23 +7,32 @@ namespace Luma
 {
     /// <summary>
     /// The generation response object<br/>
-    /// Example: {"assets":{"video":"https://example.com/video.mp4"},"created_at":"2023-06-01T12:00:00.0000000\u002B00:00","failure_reason":"","id":"123e4567-e89b-12d3-a456-426614174000","model":"ray-2","request":{"aspect_ratio":"16:9","keyframes":{"frame0":{"type":"image","url":"https://example.com/image.jpg"},"frame1":{"id":"123e4567-e89b-12d3-a456-426614174000","type":"generation"}},"loop":true,"prompt":"A serene lake surrounded by mountains at sunset"},"state":"completed"}
+    /// Example: {"id":"123e4567-e89b-12d3-a456-426614174000","state":"completed","failure_reason":"openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464","created_at":"2023-06-01T12:00:00Z","assets":{"video":"https://example.com/video.mp4"},"model":"ray-2","request":{"prompt":"A serene lake surrounded by mountains at sunset","aspect_ratio":"16:9","loop":true,"keyframes":{"frame0":{"type":"image","url":"https://example.com/image.jpg"},"frame1":{"type":"generation","id":"123e4567-e89b-12d3-a456-426614174000"}}}}
     /// </summary>
     public sealed partial class Generation
     {
         /// <summary>
-        /// The assets of the generation<br/>
-        /// Example: {"summary":"Video","value":{"video":"https://example.com/video.mp4"}}
+        /// The ID of the generation
         /// </summary>
-        /// <example>{"summary":"Video","value":{"video":"https://example.com/video.mp4"}}</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("assets")]
-        public global::Luma.Assets? Assets { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        public global::System.Guid? Id { get; set; }
 
         /// <summary>
-        /// The date and time when the generation was created
+        /// The type of the generation<br/>
+        /// Default Value: video
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
-        public global::System.DateTime? CreatedAt { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("generation_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.GenerationTypeJsonConverter))]
+        public global::Luma.GenerationType? GenerationType { get; set; }
+
+        /// <summary>
+        /// The state of the generation<br/>
+        /// Example: completed
+        /// </summary>
+        /// <example>completed</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("state")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.StateJsonConverter))]
+        public global::Luma.State? State { get; set; }
 
         /// <summary>
         /// The reason for the state of the generation
@@ -32,17 +41,16 @@ namespace Luma
         public string? FailureReason { get; set; }
 
         /// <summary>
-        /// 
+        /// The date and time when the generation was created
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("generation_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.GenerationTypeJsonConverter))]
-        public global::Luma.GenerationType? GenerationType { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
+        public global::System.DateTime? CreatedAt { get; set; }
 
         /// <summary>
-        /// The ID of the generation
+        /// The assets of the generation
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
-        public global::System.Guid? Id { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("assets")]
+        public global::Luma.Assets? Assets { get; set; }
 
         /// <summary>
         /// The model used for the generation
@@ -58,15 +66,6 @@ namespace Luma
         public global::Luma.OneOf<global::Luma.GenerationRequest, global::Luma.ImageGenerationRequest, global::Luma.UpscaleVideoGenerationRequest, global::Luma.AudioGenerationRequest, global::Luma.ReframeImageRequest, global::Luma.ReframeVideoRequest, global::Luma.ModifyVideoRequest>? Request { get; set; }
 
         /// <summary>
-        /// The state of the generation<br/>
-        /// Example: completed
-        /// </summary>
-        /// <example>completed</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("state")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.StateJsonConverter))]
-        public global::Luma.State? State { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -75,19 +74,25 @@ namespace Luma
         /// <summary>
         /// Initializes a new instance of the <see cref="Generation" /> class.
         /// </summary>
-        /// <param name="assets">
-        /// The assets of the generation<br/>
-        /// Example: {"summary":"Video","value":{"video":"https://example.com/video.mp4"}}
+        /// <param name="id">
+        /// The ID of the generation
         /// </param>
-        /// <param name="createdAt">
-        /// The date and time when the generation was created
+        /// <param name="generationType">
+        /// The type of the generation<br/>
+        /// Default Value: video
+        /// </param>
+        /// <param name="state">
+        /// The state of the generation<br/>
+        /// Example: completed
         /// </param>
         /// <param name="failureReason">
         /// The reason for the state of the generation
         /// </param>
-        /// <param name="generationType"></param>
-        /// <param name="id">
-        /// The ID of the generation
+        /// <param name="createdAt">
+        /// The date and time when the generation was created
+        /// </param>
+        /// <param name="assets">
+        /// The assets of the generation
         /// </param>
         /// <param name="model">
         /// The model used for the generation
@@ -95,31 +100,27 @@ namespace Luma
         /// <param name="request">
         /// The request of the generation
         /// </param>
-        /// <param name="state">
-        /// The state of the generation<br/>
-        /// Example: completed
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public Generation(
-            global::Luma.Assets? assets,
-            global::System.DateTime? createdAt,
-            string? failureReason,
-            global::Luma.GenerationType? generationType,
             global::System.Guid? id,
+            global::Luma.GenerationType? generationType,
+            global::Luma.State? state,
+            string? failureReason,
+            global::System.DateTime? createdAt,
+            global::Luma.Assets? assets,
             string? model,
-            global::Luma.OneOf<global::Luma.GenerationRequest, global::Luma.ImageGenerationRequest, global::Luma.UpscaleVideoGenerationRequest, global::Luma.AudioGenerationRequest, global::Luma.ReframeImageRequest, global::Luma.ReframeVideoRequest, global::Luma.ModifyVideoRequest>? request,
-            global::Luma.State? state)
+            global::Luma.OneOf<global::Luma.GenerationRequest, global::Luma.ImageGenerationRequest, global::Luma.UpscaleVideoGenerationRequest, global::Luma.AudioGenerationRequest, global::Luma.ReframeImageRequest, global::Luma.ReframeVideoRequest, global::Luma.ModifyVideoRequest>? request)
         {
-            this.Assets = assets;
-            this.CreatedAt = createdAt;
-            this.FailureReason = failureReason;
-            this.GenerationType = generationType;
             this.Id = id;
+            this.GenerationType = generationType;
+            this.State = state;
+            this.FailureReason = failureReason;
+            this.CreatedAt = createdAt;
+            this.Assets = assets;
             this.Model = model;
             this.Request = request;
-            this.State = state;
         }
 
         /// <summary>

@@ -5,17 +5,10 @@ namespace Luma
 {
     /// <summary>
     /// The generation reference object<br/>
-    /// Example: {"id":"123e4567-e89b-12d3-a456-426614174003","type":"generation"}
+    /// Example: {"type":"generation","id":"123e4567-e89b-12d3-a456-426614174003"}
     /// </summary>
     public sealed partial class GenerationReference
     {
-        /// <summary>
-        /// The ID of the generation
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public global::System.Guid Id { get; set; } = default!;
-
         /// <summary>
         /// Default Value: generation
         /// </summary>
@@ -23,6 +16,13 @@ namespace Luma
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.GenerationReferenceTypeJsonConverter))]
         public global::Luma.GenerationReferenceType Type { get; set; } = global::Luma.GenerationReferenceType.Generation;
+
+        /// <summary>
+        /// The ID of the generation
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Guid Id { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -33,11 +33,11 @@ namespace Luma
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerationReference" /> class.
         /// </summary>
-        /// <param name="id">
-        /// The ID of the generation
-        /// </param>
         /// <param name="type">
         /// Default Value: generation
+        /// </param>
+        /// <param name="id">
+        /// The ID of the generation
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

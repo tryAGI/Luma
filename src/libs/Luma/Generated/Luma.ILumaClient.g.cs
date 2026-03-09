@@ -40,12 +40,17 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public CreditsClient Credits { get; }
+        public PingClient Ping { get; }
 
         /// <summary>
         /// 
         /// </summary>
         public GenerationsClient Generations { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public CreditsClient Credits { get; }
 
         /// <summary>
         /// 
@@ -66,11 +71,6 @@ namespace Luma
         /// 
         /// </summary>
         public ModifyClient Modify { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public PingClient Ping { get; }
 
     }
 }
