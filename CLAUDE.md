@@ -10,10 +10,10 @@ C# SDK for the [Luma AI](https://lumalabs.ai/) Dream Machine video and image gen
 
 ```bash
 # Build the solution
-dotnet build Luma.sln
+dotnet build Luma.slnx
 
 # Build for release (also produces NuGet package)
-dotnet build Luma.sln -c Release
+dotnet build Luma.slnx -c Release
 
 # Run integration tests (requires LUMA_API_KEY env var)
 dotnet test src/tests/IntegrationTests/Luma.IntegrationTests.csproj
