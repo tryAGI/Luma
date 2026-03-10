@@ -40,8 +40,9 @@ namespace Luma.JsonConverters
             {
             }
 
-            var result = new global::Luma.VideoModelOutputDuration(
+            var __value = new global::Luma.VideoModelOutputDuration(
                 value1,
+
                 value2
                 );
 
@@ -58,7 +59,7 @@ namespace Luma.JsonConverters
                 _ = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
-            return result;
+            return __value;
         }
 
         /// <inheritdoc />
