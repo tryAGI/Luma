@@ -59,7 +59,7 @@ namespace Luma
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.VideoModelJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public global::Luma.VideoModel Model { get; set; } = default!;
+        public required global::Luma.VideoModel Model { get; set; }
 
         /// <summary>
         /// The resolution of the generation
