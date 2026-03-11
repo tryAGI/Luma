@@ -21,7 +21,7 @@ namespace Luma
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("media")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Luma.Media Media { get; set; }
+        public global::Luma.Media Media { get; set; } = default!;
 
         /// <summary>
         /// The model used for the reframe image
@@ -29,7 +29,7 @@ namespace Luma
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ReframeImageModelsJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Luma.ReframeImageModels Model { get; set; }
+        public global::Luma.ReframeImageModels Model { get; set; } = default!;
 
         /// <summary>
         /// The prompt of the generation
@@ -47,7 +47,7 @@ namespace Luma
         [global::System.Text.Json.Serialization.JsonPropertyName("aspect_ratio")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.AspectRatioJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Luma.AspectRatio AspectRatio { get; set; } = global::Luma.AspectRatio.x16_9;
+        public global::Luma.AspectRatio AspectRatio { get; set; } = default!;
 
         /// <summary>
         /// The x position of the image in the grid

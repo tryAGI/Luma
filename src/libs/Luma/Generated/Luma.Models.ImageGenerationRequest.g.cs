@@ -23,7 +23,7 @@ namespace Luma
         [global::System.Text.Json.Serialization.JsonPropertyName("model")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Luma.JsonConverters.ImageModelJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Luma.ImageModel Model { get; set; } = global::Luma.ImageModel.Photon1;
+        public global::Luma.ImageModel Model { get; set; } = default!;
 
         /// <summary>
         /// The prompt of the generation
