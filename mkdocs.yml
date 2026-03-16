@@ -1,7 +1,13 @@
 site_name: Luma .NET Documentation
 nav:
 - Overview: index.md
-# EXAMPLES #
+# EXAMPLES:START
+- Examples:
+  - GenerateImage: samples/GenerateImage.md
+  - GenerateVideo: samples/GenerateVideo.md
+  - ListGenerations: samples/ListGenerations.md
+  - Ping: samples/Ping.md
+# EXAMPLES:END
         
 theme:
   name: material
