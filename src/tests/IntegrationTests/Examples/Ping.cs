@@ -1,3 +1,9 @@
+/*
+order: 40
+title: Ping
+slug: ping
+*/
+
 namespace Luma.IntegrationTests;
 
 public partial class Tests

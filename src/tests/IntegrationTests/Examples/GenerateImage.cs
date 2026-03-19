@@ -1,3 +1,9 @@
+/*
+order: 10
+title: Generate Image
+slug: generate-image
+*/
+
 namespace Luma.IntegrationTests;
 
 public partial class Tests

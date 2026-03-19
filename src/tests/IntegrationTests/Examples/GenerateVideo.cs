@@ -1,3 +1,9 @@
+/*
+order: 20
+title: Generate Video
+slug: generate-video
+*/
+
 namespace Luma.IntegrationTests;
 
 public partial class Tests

@@ -1,3 +1,9 @@
+/*
+order: 30
+title: List Generations
+slug: list-generations
+*/
+
 namespace Luma.IntegrationTests;
 
 public partial class Tests
