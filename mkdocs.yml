@@ -3,10 +3,10 @@ nav:
 - Overview: index.md
 # EXAMPLES:START
 - Examples:
-  - GenerateImage: samples/GenerateImage.md
-  - GenerateVideo: samples/GenerateVideo.md
-  - ListGenerations: samples/ListGenerations.md
-  - Ping: samples/Ping.md
+  - Generate Image: examples/generate-image.md
+  - Generate Video: examples/generate-video.md
+  - List Generations: examples/list-generations.md
+  - Ping: examples/ping.md
 # EXAMPLES:END
         
 theme:
