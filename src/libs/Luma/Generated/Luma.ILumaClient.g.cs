@@ -55,25 +55,5 @@ namespace Luma
         /// </summary>
         public CreditsClient Credits { get; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public ImageClient Image { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ReframeClient Reframe { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public VideoClient Video { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ModifyClient Modify { get; }
-
     }
 }
