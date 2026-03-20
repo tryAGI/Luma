@@ -15,7 +15,6 @@ namespace Luma
 
             global::Luma.ReframeVideoRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Reframe a video<br/>
         /// Reframe a video by its ID

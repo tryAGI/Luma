@@ -224,7 +224,6 @@ namespace Luma
                 }
             }
         }
-
         /// <summary>
         /// Upscale a generation<br/>
         /// Upscale a generation by its ID

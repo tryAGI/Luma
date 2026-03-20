@@ -15,7 +15,6 @@ namespace Luma
 
             global::Luma.ReframeImageRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Reframe an image<br/>
         /// Reframe an image by its ID

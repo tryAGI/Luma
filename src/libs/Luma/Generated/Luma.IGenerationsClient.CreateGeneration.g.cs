@@ -15,7 +15,6 @@ namespace Luma
 
             global::Luma.GenerationRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Create a generation<br/>
         /// Initiate a new generation with the provided prompt

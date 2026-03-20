@@ -218,7 +218,6 @@ namespace Luma
                 }
             }
         }
-
         /// <summary>
         /// Reframe an image<br/>
         /// Reframe an image by its ID

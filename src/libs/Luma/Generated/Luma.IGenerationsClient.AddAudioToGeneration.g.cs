@@ -17,7 +17,6 @@ namespace Luma
 
             global::Luma.AudioGenerationRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Add audio to a generation<br/>
         /// Add audio to a generation by its ID

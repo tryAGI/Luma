@@ -15,7 +15,6 @@ namespace Luma
 
             global::Luma.ImageGenerationRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Generate an image<br/>
         /// Generate an image with the provided prompt

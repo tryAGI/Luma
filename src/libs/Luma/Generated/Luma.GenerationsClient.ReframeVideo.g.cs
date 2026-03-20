@@ -218,7 +218,6 @@ namespace Luma
                 }
             }
         }
-
         /// <summary>
         /// Reframe a video<br/>
         /// Reframe a video by its ID

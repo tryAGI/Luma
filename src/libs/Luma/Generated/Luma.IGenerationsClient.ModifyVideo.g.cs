@@ -15,7 +15,6 @@ namespace Luma
 
             global::Luma.ModifyVideoRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Modify a video<br/>
         /// Modify a video with style transfer and prompt-based editing
