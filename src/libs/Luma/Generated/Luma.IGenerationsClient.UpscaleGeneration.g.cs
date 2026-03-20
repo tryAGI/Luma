@@ -17,7 +17,6 @@ namespace Luma
 
             global::Luma.UpscaleVideoGenerationRequest request,
             global::System.Threading.CancellationToken cancellationToken = default);
-
         /// <summary>
         /// Upscale a generation<br/>
         /// Upscale a generation by its ID

@@ -218,7 +218,6 @@ namespace Luma
                 }
             }
         }
-
         /// <summary>
         /// Generate an image<br/>
         /// Generate an image with the provided prompt
