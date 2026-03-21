@@ -43,7 +43,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public PingClient Ping { get; }
+        public CreditsClient Credits { get; }
 
         /// <summary>
         /// 
@@ -53,7 +53,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public CreditsClient Credits { get; }
+        public PingClient Ping { get; }
 
     }
 }
