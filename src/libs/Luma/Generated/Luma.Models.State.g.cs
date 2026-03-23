@@ -12,7 +12,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        Queued,
+        Completed,
         /// <summary>
         /// 
         /// </summary>
@@ -20,11 +20,11 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        Completed,
+        Failed,
         /// <summary>
         /// 
         /// </summary>
-        Failed,
+        Queued,
     }
 
     /// <summary>
@@ -39,10 +39,10 @@ namespace Luma
         {
             return value switch
             {
-                State.Queued => "queued",
-                State.Dreaming => "dreaming",
                 State.Completed => "completed",
+                State.Dreaming => "dreaming",
                 State.Failed => "failed",
+                State.Queued => "queued",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -53,10 +53,10 @@ namespace Luma
         {
             return value switch
             {
-                "queued" => State.Queued,
-                "dreaming" => State.Dreaming,
                 "completed" => State.Completed,
+                "dreaming" => State.Dreaming,
                 "failed" => State.Failed,
+                "queued" => State.Queued,
                 _ => null,
             };
         }

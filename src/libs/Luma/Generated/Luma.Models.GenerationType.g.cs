@@ -11,11 +11,11 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        Video,
+        Image,
         /// <summary>
         /// 
         /// </summary>
-        Image,
+        Video,
     }
 
     /// <summary>
@@ -30,8 +30,8 @@ namespace Luma
         {
             return value switch
             {
-                GenerationType.Video => "video",
                 GenerationType.Image => "image",
+                GenerationType.Video => "video",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -42,8 +42,8 @@ namespace Luma
         {
             return value switch
             {
-                "video" => GenerationType.Video,
                 "image" => GenerationType.Image,
+                "video" => GenerationType.Video,
                 _ => null,
             };
         }
