@@ -102,12 +102,12 @@ namespace Luma
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageGenerationRequest" /> class.
         /// </summary>
-        /// <param name="generationType">
-        /// Default Value: image
-        /// </param>
         /// <param name="model">
         /// The model used for the generation<br/>
         /// Default Value: photon-1
+        /// </param>
+        /// <param name="generationType">
+        /// Default Value: image
         /// </param>
         /// <param name="prompt">
         /// The prompt of the generation
@@ -155,8 +155,8 @@ namespace Luma
             bool? sync,
             double? syncTimeout)
         {
-            this.Model = model;
             this.GenerationType = generationType;
+            this.Model = model;
             this.Prompt = prompt;
             this.AspectRatio = aspectRatio;
             this.Format = format;

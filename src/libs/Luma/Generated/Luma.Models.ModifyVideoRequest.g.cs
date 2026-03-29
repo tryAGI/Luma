@@ -66,13 +66,7 @@ namespace Luma
         /// <summary>
         /// Initializes a new instance of the <see cref="ModifyVideoRequest" /> class.
         /// </summary>
-        /// <param name="generationType">
-        /// Default Value: modify_video
-        /// </param>
         /// <param name="media">
-        /// The image entity object
-        /// </param>
-        /// <param name="firstFrame">
         /// The image entity object
         /// </param>
         /// <param name="model">
@@ -81,11 +75,17 @@ namespace Luma
         /// <param name="mode">
         /// The mode of the modify video
         /// </param>
+        /// <param name="firstFrame">
+        /// The image entity object
+        /// </param>
         /// <param name="prompt">
         /// The prompt of the generation
         /// </param>
         /// <param name="callbackUrl">
         /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
+        /// </param>
+        /// <param name="generationType">
+        /// Default Value: modify_video
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -99,11 +99,11 @@ namespace Luma
             string? callbackUrl,
             global::Luma.ModifyVideoRequestGenerationType generationType = global::Luma.ModifyVideoRequestGenerationType.ModifyVideo)
         {
+            this.GenerationType = generationType;
             this.Media = media ?? throw new global::System.ArgumentNullException(nameof(media));
+            this.FirstFrame = firstFrame;
             this.Model = model;
             this.Mode = mode;
-            this.GenerationType = generationType;
-            this.FirstFrame = firstFrame;
             this.Prompt = prompt;
             this.CallbackUrl = callbackUrl;
         }

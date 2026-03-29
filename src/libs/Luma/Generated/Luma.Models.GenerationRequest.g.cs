@@ -90,6 +90,10 @@ namespace Luma
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerationRequest" /> class.
         /// </summary>
+        /// <param name="model">
+        /// The model used for the generation<br/>
+        /// Example: ray-2
+        /// </param>
         /// <param name="generationType">
         /// Default Value: video
         /// </param>
@@ -110,10 +114,6 @@ namespace Luma
         /// </param>
         /// <param name="callbackUrl">
         /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
-        /// </param>
-        /// <param name="model">
-        /// The model used for the generation<br/>
-        /// Example: ray-2
         /// </param>
         /// <param name="resolution">
         /// The resolution of the generation
@@ -139,13 +139,13 @@ namespace Luma
             global::Luma.VideoModelOutputDuration? duration,
             global::System.Collections.Generic.IList<global::Luma.Concept>? concepts)
         {
-            this.Model = model;
             this.GenerationType = generationType;
             this.Prompt = prompt;
             this.AspectRatio = aspectRatio;
             this.Loop = loop;
             this.Keyframes = keyframes;
             this.CallbackUrl = callbackUrl;
+            this.Model = model;
             this.Resolution = resolution;
             this.Duration = duration;
             this.Concepts = concepts;

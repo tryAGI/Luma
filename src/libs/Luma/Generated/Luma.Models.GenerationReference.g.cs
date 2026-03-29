@@ -33,11 +33,11 @@ namespace Luma
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerationReference" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: generation
-        /// </param>
         /// <param name="id">
         /// The ID of the generation
+        /// </param>
+        /// <param name="type">
+        /// Default Value: generation
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -46,8 +46,8 @@ namespace Luma
             global::System.Guid id,
             global::Luma.GenerationReferenceType type = global::Luma.GenerationReferenceType.Generation)
         {
-            this.Id = id;
             this.Type = type;
+            this.Id = id;
         }
 
         /// <summary>
