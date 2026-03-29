@@ -120,22 +120,19 @@ namespace Luma
         /// <summary>
         /// Initializes a new instance of the <see cref="ReframeImageRequest" /> class.
         /// </summary>
-        /// <param name="generationType">
-        /// Default Value: reframe_image
-        /// </param>
         /// <param name="media">
         /// The image entity object
         /// </param>
         /// <param name="model">
         /// The model used for the reframe image
         /// </param>
-        /// <param name="prompt">
-        /// The prompt of the generation
-        /// </param>
         /// <param name="aspectRatio">
         /// The aspect ratio of the generation<br/>
         /// Default Value: 16:9<br/>
         /// Example: 16:9
+        /// </param>
+        /// <param name="prompt">
+        /// The prompt of the generation
         /// </param>
         /// <param name="gridPositionX">
         /// The x position of the image in the grid
@@ -168,6 +165,9 @@ namespace Luma
         /// <param name="callbackUrl">
         /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
         /// </param>
+        /// <param name="generationType">
+        /// Default Value: reframe_image
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -188,11 +188,11 @@ namespace Luma
             string? callbackUrl,
             global::Luma.ReframeImageRequestGenerationType generationType = global::Luma.ReframeImageRequestGenerationType.ReframeImage)
         {
+            this.GenerationType = generationType;
             this.Media = media ?? throw new global::System.ArgumentNullException(nameof(media));
             this.Model = model;
-            this.AspectRatio = aspectRatio;
-            this.GenerationType = generationType;
             this.Prompt = prompt;
+            this.AspectRatio = aspectRatio;
             this.GridPositionX = gridPositionX;
             this.GridPositionY = gridPositionY;
             this.XStart = xStart;

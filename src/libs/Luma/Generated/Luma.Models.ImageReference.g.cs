@@ -33,11 +33,11 @@ namespace Luma
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageReference" /> class.
         /// </summary>
-        /// <param name="type">
-        /// Default Value: image
-        /// </param>
         /// <param name="url">
         /// The URL of the image
+        /// </param>
+        /// <param name="type">
+        /// Default Value: image
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -46,8 +46,8 @@ namespace Luma
             string url,
             global::Luma.ImageReferenceType type = global::Luma.ImageReferenceType.Image)
         {
-            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.Type = type;
+            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
         }
 
         /// <summary>
