@@ -59,13 +59,13 @@ namespace Luma.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.GenerationReference), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.GenerationReference?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Luma.GenerationReference).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Generation, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Generation!, typeInfo);
             }
             else if (value.IsImage)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.ImageReference), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.ImageReference?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Luma.ImageReference).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Image, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Image!, typeInfo);
             }
         }
     }
