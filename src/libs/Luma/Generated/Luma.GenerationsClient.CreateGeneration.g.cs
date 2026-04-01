@@ -271,7 +271,6 @@ namespace Luma
             global::System.Collections.Generic.IList<global::Luma.Concept>? concepts = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Luma.GenerationRequest
             {
                 GenerationType = generationType,
