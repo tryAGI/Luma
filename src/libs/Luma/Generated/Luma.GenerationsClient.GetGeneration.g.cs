@@ -96,13 +96,13 @@ namespace Luma
                     if (ReadResponseAsString)
                     {
                         __content_default = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_default = global::Luma.Error.FromJson(__content_default, JsonSerializerContext);
+                        __value_default = global::Luma.Error.FromJson(__content_default, JsonSerializerOptions);
                     }
                     else
                     {
                         __content_default = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_default = global::Luma.Error.FromJson(__content_default, JsonSerializerContext);
+                        __value_default = global::Luma.Error.FromJson(__content_default, JsonSerializerOptions);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -146,7 +146,7 @@ namespace Luma
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Luma.Generation.FromJson(__content, JsonSerializerContext) ??
+                        global::Luma.Generation.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -177,7 +177,7 @@ namespace Luma
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Luma.Generation.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::Luma.Generation.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
