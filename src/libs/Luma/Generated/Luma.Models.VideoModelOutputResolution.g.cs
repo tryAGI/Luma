@@ -13,35 +13,35 @@ namespace Luma
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Luma.VideoModelOutputResolutionEnum? Value1 { get; init; }
+        public global::Luma.VideoModelOutputResolutionEnum? Enum { get; init; }
 #else
-        public global::Luma.VideoModelOutputResolutionEnum? Value1 { get; }
+        public global::Luma.VideoModelOutputResolutionEnum? Enum { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value1))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Enum))]
 #endif
-        public bool IsValue1 => Value1 != null;
+        public bool IsEnum => Enum != null;
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        public string? Value2 { get; init; }
+        public string? VideoModelOutputResolutionVariant2 { get; init; }
 #else
-        public string? Value2 { get; }
+        public string? VideoModelOutputResolutionVariant2 { get; }
 #endif
 
         /// <summary>
         /// 
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Value2))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoModelOutputResolutionVariant2))]
 #endif
-        public bool IsValue2 => Value2 != null;
+        public bool IsVideoModelOutputResolutionVariant2 => VideoModelOutputResolutionVariant2 != null;
         /// <summary>
         /// 
         /// </summary>
@@ -50,14 +50,14 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator global::Luma.VideoModelOutputResolutionEnum?(VideoModelOutputResolution @this) => @this.Value1;
+        public static implicit operator global::Luma.VideoModelOutputResolutionEnum?(VideoModelOutputResolution @this) => @this.Enum;
 
         /// <summary>
         /// 
         /// </summary>
         public VideoModelOutputResolution(global::Luma.VideoModelOutputResolutionEnum? value)
         {
-            Value1 = value;
+            Enum = value;
         }
 
         /// <summary>
@@ -68,42 +68,42 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public static implicit operator string?(VideoModelOutputResolution @this) => @this.Value2;
+        public static implicit operator string?(VideoModelOutputResolution @this) => @this.VideoModelOutputResolutionVariant2;
 
         /// <summary>
         /// 
         /// </summary>
         public VideoModelOutputResolution(string? value)
         {
-            Value2 = value;
+            VideoModelOutputResolutionVariant2 = value;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public VideoModelOutputResolution(
-            global::Luma.VideoModelOutputResolutionEnum? value1,
-            string? value2
+            global::Luma.VideoModelOutputResolutionEnum? @enum,
+            string? videoModelOutputResolutionVariant2
             )
         {
-            Value1 = value1;
-            Value2 = value2;
+            Enum = @enum;
+            VideoModelOutputResolutionVariant2 = videoModelOutputResolutionVariant2;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public object? Object =>
-            Value2 as object ??
-            Value1 as object 
+            VideoModelOutputResolutionVariant2 as object ??
+            Enum as object 
             ;
 
         /// <summary>
         /// 
         /// </summary>
         public override string? ToString() =>
-            Value1?.ToValueString() ??
-            Value2?.ToString() 
+            Enum?.ToValueString() ??
+            VideoModelOutputResolutionVariant2?.ToString() 
             ;
 
         /// <summary>
@@ -111,15 +111,15 @@ namespace Luma
         /// </summary>
         public bool Validate()
         {
-            return IsValue1 || IsValue2;
+            return IsEnum || IsVideoModelOutputResolutionVariant2;
         }
 
         /// <summary>
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Luma.VideoModelOutputResolutionEnum?, TResult>? value1 = null,
-            global::System.Func<string?, TResult>? value2 = null,
+            global::System.Func<global::Luma.VideoModelOutputResolutionEnum?, TResult>? @enum = null,
+            global::System.Func<string?, TResult>? videoModelOutputResolutionVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -127,13 +127,13 @@ namespace Luma
                 Validate();
             }
 
-            if (IsValue1 && value1 != null)
+            if (IsEnum && @enum != null)
             {
-                return value1(Value1!);
+                return @enum(Enum!);
             }
-            else if (IsValue2 && value2 != null)
+            else if (IsVideoModelOutputResolutionVariant2 && videoModelOutputResolutionVariant2 != null)
             {
-                return value2(Value2!);
+                return videoModelOutputResolutionVariant2(VideoModelOutputResolutionVariant2!);
             }
 
             return default(TResult);
@@ -143,8 +143,8 @@ namespace Luma
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Luma.VideoModelOutputResolutionEnum?>? value1 = null,
-            global::System.Action<string?>? value2 = null,
+            global::System.Action<global::Luma.VideoModelOutputResolutionEnum?>? @enum = null,
+            global::System.Action<string?>? videoModelOutputResolutionVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -152,13 +152,13 @@ namespace Luma
                 Validate();
             }
 
-            if (IsValue1)
+            if (IsEnum)
             {
-                value1?.Invoke(Value1!);
+                @enum?.Invoke(Enum!);
             }
-            else if (IsValue2)
+            else if (IsVideoModelOutputResolutionVariant2)
             {
-                value2?.Invoke(Value2!);
+                videoModelOutputResolutionVariant2?.Invoke(VideoModelOutputResolutionVariant2!);
             }
         }
 
@@ -169,9 +169,9 @@ namespace Luma
         {
             var fields = new object?[]
             {
-                Value1,
+                Enum,
                 typeof(global::Luma.VideoModelOutputResolutionEnum),
-                Value2,
+                VideoModelOutputResolutionVariant2,
                 typeof(string),
             };
             const int offset = unchecked((int)2166136261);
@@ -189,8 +189,8 @@ namespace Luma
         public bool Equals(VideoModelOutputResolution other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::Luma.VideoModelOutputResolutionEnum?>.Default.Equals(Value1, other.Value1) &&
-                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(Value2, other.Value2) 
+                global::System.Collections.Generic.EqualityComparer<global::Luma.VideoModelOutputResolutionEnum?>.Default.Equals(Enum, other.Enum) &&
+                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(VideoModelOutputResolutionVariant2, other.VideoModelOutputResolutionVariant2) 
                 ;
         }
 
