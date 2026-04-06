@@ -91,13 +91,13 @@ namespace Luma
                     if (ReadResponseAsString)
                     {
                         __content_default = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_default = global::Luma.Error.FromJson(__content_default, JsonSerializerOptions);
+                        __value_default = global::Luma.Error.FromJson(__content_default, JsonSerializerContext);
                     }
                     else
                     {
                         __content_default = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_default = global::Luma.Error.FromJson(__content_default, JsonSerializerOptions);
+                        __value_default = global::Luma.Error.FromJson(__content_default, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
