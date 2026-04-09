@@ -6,6 +6,7 @@ namespace Luma
     public sealed partial class LumaClient
     {
         /// <inheritdoc cref="LumaClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::Luma.EndPointAuthorization}?, bool)"/>
+
         public LumaClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,
