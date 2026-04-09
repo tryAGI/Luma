@@ -5,6 +5,25 @@ namespace Luma
 {
     public partial class GenerationsClient
     {
+
+
+        private static readonly global::Luma.EndPointSecurityRequirement s_ListGenerationsSecurityRequirement0 =
+            new global::Luma.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Luma.EndPointAuthorizationRequirement[]
+                {                    new global::Luma.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Luma.EndPointSecurityRequirement[] s_ListGenerationsSecurityRequirements =
+            new global::Luma.EndPointSecurityRequirement[]
+            {                s_ListGenerationsSecurityRequirement0,
+            };
         partial void PrepareListGenerationsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref int? limit,
@@ -47,13 +66,19 @@ namespace Luma
                 limit: ref limit,
                 offset: ref offset);
 
+
+            var __authorizations = global::Luma.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_ListGenerationsSecurityRequirements,
+                operationName: "ListGenerationsAsync");
+
             var __pathBuilder = new global::Luma.PathBuilder(
                 path: "/generations",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("limit", limit?.ToString())
                 .AddOptionalParameter("offset", offset?.ToString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -63,7 +88,7 @@ namespace Luma
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

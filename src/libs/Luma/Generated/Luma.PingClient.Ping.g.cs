@@ -5,6 +5,25 @@ namespace Luma
 {
     public partial class PingClient
     {
+
+
+        private static readonly global::Luma.EndPointSecurityRequirement s_PingSecurityRequirement0 =
+            new global::Luma.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Luma.EndPointAuthorizationRequirement[]
+                {                    new global::Luma.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Luma.EndPointSecurityRequirement[] s_PingSecurityRequirements =
+            new global::Luma.EndPointSecurityRequirement[]
+            {                s_PingSecurityRequirement0,
+            };
         partial void PreparePingArguments(
             global::System.Net.Http.HttpClient httpClient);
         partial void PreparePingRequest(
@@ -33,9 +52,15 @@ namespace Luma
             PreparePingArguments(
                 httpClient: HttpClient);
 
+
+            var __authorizations = global::Luma.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_PingSecurityRequirements,
+                operationName: "PingAsync");
+
             var __pathBuilder = new global::Luma.PathBuilder(
                 path: "/ping",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -45,7 +70,7 @@ namespace Luma
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

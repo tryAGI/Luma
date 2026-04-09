@@ -5,6 +5,25 @@ namespace Luma
 {
     public partial class GenerationsClient
     {
+
+
+        private static readonly global::Luma.EndPointSecurityRequirement s_DeleteGenerationSecurityRequirement0 =
+            new global::Luma.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Luma.EndPointAuthorizationRequirement[]
+                {                    new global::Luma.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Luma.EndPointSecurityRequirement[] s_DeleteGenerationSecurityRequirements =
+            new global::Luma.EndPointSecurityRequirement[]
+            {                s_DeleteGenerationSecurityRequirement0,
+            };
         partial void PrepareDeleteGenerationArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id);
@@ -33,9 +52,15 @@ namespace Luma
                 httpClient: HttpClient,
                 id: ref id);
 
+
+            var __authorizations = global::Luma.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_DeleteGenerationSecurityRequirements,
+                operationName: "DeleteGenerationAsync");
+
             var __pathBuilder = new global::Luma.PathBuilder(
                 path: $"/generations/{id}",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -45,7 +70,7 @@ namespace Luma
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
