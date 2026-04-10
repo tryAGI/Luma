@@ -9,11 +9,13 @@ namespace Luma
         /// Initiate a new generation with the provided prompt
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Luma.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Luma.Generation> CreateGenerationAsync(
 
             global::Luma.GenerationRequest request,
+            global::Luma.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a generation<br/>
@@ -53,6 +55,7 @@ namespace Luma
         /// <param name="concepts">
         /// The concepts of the generation
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Luma.Generation> CreateGenerationAsync(
@@ -66,6 +69,7 @@ namespace Luma
             global::Luma.VideoModelOutputResolution? resolution = default,
             global::Luma.VideoModelOutputDuration? duration = default,
             global::System.Collections.Generic.IList<global::Luma.Concept>? concepts = default,
+            global::Luma.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
