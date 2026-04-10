@@ -9,11 +9,13 @@ namespace Luma
         /// Reframe a video by its ID
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Luma.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Luma.Generation> ReframeVideoAsync(
 
             global::Luma.ReframeVideoRequest request,
+            global::Luma.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Reframe a video<br/>
@@ -66,6 +68,7 @@ namespace Luma
         /// <param name="callbackUrl">
         /// The callback URL of the generation, a POST request with Generation object will be sent to the callback URL when the generation is dreaming, completed, or failed
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Luma.Generation> ReframeVideoAsync(
@@ -84,6 +87,7 @@ namespace Luma
             int? resizedWidth = default,
             int? resizedHeight = default,
             string? callbackUrl = default,
+            global::Luma.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
