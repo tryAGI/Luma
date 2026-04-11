@@ -1,0 +1,147 @@
+{
+  "Examples": [
+    {
+      "Order": 1,
+      "Title": "Get credits",
+      "Slug": "getcredits",
+      "Description": "Get the credits information for the api user",
+      "Language": "csharp",
+      "Code": "using var client = new LumaClient(apiKey);\nvar response = await client.Credits.GetCreditsAsync();",
+      "Format": "sdk",
+      "OperationId": "getCredits",
+      "Setup": "This example assumes \u0060using Luma;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 2,
+      "Title": "Add audio to a generation",
+      "Slug": "addaudiotogeneration",
+      "Description": "Add audio to a generation by its ID",
+      "Language": "http",
+      "Code": "### Add audio to a generation\n# @name addAudioToGeneration\nPOST {{host}}/generations/{{id}}/audio\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022generation_type\u0022: \u0022add_audio\u0022,\n  \u0022prompt\u0022: \u0022string\u0022,\n  \u0022negative_prompt\u0022: \u0022string\u0022,\n  \u0022callback_url\u0022: \u0022https://example.com\u0022\n}\n\n## Responses\n# 200\n# Description: Audio added to generation\n# Content-Type: application/json\n# default\n# Description: Error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "addAudioToGeneration",
+      "Setup": null
+    },
+    {
+      "Order": 3,
+      "Title": "Create a generation",
+      "Slug": "creategeneration",
+      "Description": "Initiate a new generation with the provided prompt",
+      "Language": "csharp",
+      "Code": "using var client = new LumaClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Luma.GenerationRequest\u003E(\n    @\u0022{\n  \u0022\u0022prompt\u0022\u0022: \u0022\u0022A serene lake surrounded by mountains at sunset\u0022\u0022,\n  \u0022\u0022aspect_ratio\u0022\u0022: \u0022\u002216:9\u0022\u0022,\n  \u0022\u0022loop\u0022\u0022: true,\n  \u0022\u0022keyframes\u0022\u0022: {\n    \u0022\u0022frame0\u0022\u0022: {\n      \u0022\u0022type\u0022\u0022: \u0022\u0022image\u0022\u0022,\n      \u0022\u0022url\u0022\u0022: \u0022\u0022https://example.com/image.jpg\u0022\u0022\n    },\n    \u0022\u0022frame1\u0022\u0022: {\n      \u0022\u0022type\u0022\u0022: \u0022\u0022generation\u0022\u0022,\n      \u0022\u0022id\u0022\u0022: \u0022\u0022123e4567-e89b-12d3-a456-426614174000\u0022\u0022\n    }\n  }\n}\u0022)!;\n\nvar response = await client.Generations.CreateGenerationAsync(\n    request: request\n);\n\n// Example response:\n// {\n//   \u0022id\u0022: \u0022123e4567-e89b-12d3-a456-426614174000\u0022,\n//   \u0022state\u0022: \u0022completed\u0022,\n//   \u0022failure_reason\u0022: \u0022openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464\u0022,\n//   \u0022created_at\u0022: \u00222023-06-01T12:00:00Z\u0022,\n//   \u0022assets\u0022: {\n//     \u0022video\u0022: \u0022https://example.com/video.mp4\u0022\n//   },\n//   \u0022model\u0022: \u0022ray-2\u0022,\n//   \u0022request\u0022: {\n//     \u0022prompt\u0022: \u0022A serene lake surrounded by mountains at sunset\u0022,\n//     \u0022aspect_ratio\u0022: \u002216:9\u0022,\n//     \u0022loop\u0022: true,\n//     \u0022keyframes\u0022: {\n//       \u0022frame0\u0022: {\n//         \u0022type\u0022: \u0022image\u0022,\n//         \u0022url\u0022: \u0022https://example.com/image.jpg\u0022\n//       },\n//       \u0022frame1\u0022: {\n//         \u0022type\u0022: \u0022generation\u0022,\n//         \u0022id\u0022: \u0022123e4567-e89b-12d3-a456-426614174000\u0022\n//       }\n//     }\n//   }\n// }",
+      "Format": "sdk",
+      "OperationId": "createGeneration",
+      "Setup": "This example assumes \u0060using Luma;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 4,
+      "Title": "Delete a generation",
+      "Slug": "deletegeneration",
+      "Description": "Remove a specific generation by its ID",
+      "Language": "http",
+      "Code": "### Delete a generation\n# @name deleteGeneration\nDELETE {{host}}/generations/{{id}}\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 204\n# Description: Generation deleted\n# default\n# Description: Error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "deleteGeneration",
+      "Setup": null
+    },
+    {
+      "Order": 5,
+      "Title": "Generate an image",
+      "Slug": "generateimage",
+      "Description": "Generate an image with the provided prompt",
+      "Language": "http",
+      "Code": "### Generate an image\n# @name generateImage\nPOST {{host}}/generations/image\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022generation_type\u0022: \u0022image\u0022,\n  \u0022model\u0022: \u0022photon-1\u0022,\n  \u0022prompt\u0022: \u0022string\u0022,\n  \u0022aspect_ratio\u0022: \u002216:9\u0022,\n  \u0022format\u0022: \u0022jpg\u0022,\n  \u0022callback_url\u0022: \u0022https://example.com\u0022,\n  \u0022image_ref\u0022: [\n    {\n      \u0022url\u0022: \u0022https://example.com\u0022,\n      \u0022weight\u0022: 0\n    }\n  ],\n  \u0022style_ref\u0022: [\n    {\n      \u0022url\u0022: \u0022https://example.com\u0022,\n      \u0022weight\u0022: 0\n    }\n  ],\n  \u0022character_ref\u0022: {\n    \u0022identity0\u0022: {\n      \u0022images\u0022: []\n    }\n  },\n  \u0022modify_image_ref\u0022: {\n    \u0022url\u0022: \u0022https://example.com\u0022,\n    \u0022weight\u0022: 0\n  },\n  \u0022sync\u0022: false,\n  \u0022sync_timeout\u0022: 60\n}\n\n## Responses\n# 201\n# Description: Image generated\n# Content-Type: application/json\n# default\n# Description: Error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "generateImage",
+      "Setup": null
+    },
+    {
+      "Order": 6,
+      "Title": "Get concepts",
+      "Slug": "getconcepts",
+      "Description": "Get all possible concepts",
+      "Language": "csharp",
+      "Code": "using var client = new LumaClient(apiKey);\nvar response = await client.Generations.GetConceptsAsync();",
+      "Format": "sdk",
+      "OperationId": "getConcepts",
+      "Setup": "This example assumes \u0060using Luma;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 7,
+      "Title": "Get a generation",
+      "Slug": "getgeneration",
+      "Description": "Retrieve details of a specific generation by its ID",
+      "Language": "http",
+      "Code": "### Get a generation\n# @name getGeneration\nGET {{host}}/generations/{{id}}\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Generation found\n# Content-Type: application/json\n# default\n# Description: Error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "getGeneration",
+      "Setup": null
+    },
+    {
+      "Order": 8,
+      "Title": "List generations",
+      "Slug": "listgenerations",
+      "Description": "Retrieve a list of generations with optional filtering and sorting",
+      "Language": "csharp",
+      "Code": "using var client = new LumaClient(apiKey);\nvar response = await client.Generations.ListGenerationsAsync();\n\n// Example response:\n// {\n//   \u0022has_more\u0022: false,\n//   \u0022count\u0022: 1,\n//   \u0022limit\u0022: 100,\n//   \u0022offset\u0022: 0,\n//   \u0022generations\u0022: [\n//     {\n//       \u0022id\u0022: \u0022123e4567-e89b-12d3-a456-426614174000\u0022,\n//       \u0022state\u0022: \u0022completed\u0022,\n//       \u0022failure_reason\u0022: \u0022openapi-json-null-sentinel-value-2BF93600-0FE4-4250-987A-E5DDB203E464\u0022,\n//       \u0022created_at\u0022: \u00222023-06-01T12:00:00Z\u0022,\n//       \u0022assets\u0022: {\n//         \u0022video\u0022: \u0022https://example.com/video.mp4\u0022\n//       },\n//       \u0022version\u0022: \u0022v1.6\u0022,\n//       \u0022request\u0022: {\n//         \u0022prompt\u0022: \u0022A serene lake surrounded by mountains at sunset\u0022,\n//         \u0022aspect_ratio\u0022: \u002216:9\u0022,\n//         \u0022loop\u0022: true,\n//         \u0022keyframes\u0022: {\n//           \u0022frame0\u0022: {\n//             \u0022type\u0022: \u0022image\u0022,\n//             \u0022url\u0022: \u0022https://example.com/image.jpg\u0022\n//           },\n//           \u0022frame1\u0022: {\n//             \u0022type\u0022: \u0022generation\u0022,\n//             \u0022id\u0022: \u0022123e4567-e89b-12d3-a456-426614174000\u0022\n//           }\n//         }\n//       }\n//     }\n//   ]\n// }",
+      "Format": "sdk",
+      "OperationId": "listGenerations",
+      "Setup": "This example assumes \u0060using Luma;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 9,
+      "Title": "Modify a video",
+      "Slug": "modifyvideo",
+      "Description": "Modify a video with style transfer and prompt-based editing",
+      "Language": "http",
+      "Code": "### Modify a video\n# @name modifyVideo\nPOST {{host}}/generations/video/modify\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022generation_type\u0022: \u0022modify_video\u0022,\n  \u0022media\u0022: {\n    \u0022url\u0022: \u0022https://example.com\u0022\n  },\n  \u0022first_frame\u0022: {\n    \u0022url\u0022: \u0022https://example.com\u0022\n  },\n  \u0022model\u0022: \u0022ray-2\u0022,\n  \u0022mode\u0022: \u0022adhere_1\u0022,\n  \u0022prompt\u0022: \u0022string\u0022,\n  \u0022callback_url\u0022: \u0022https://example.com\u0022\n}\n\n## Responses\n# 201\n# Description: Video modified\n# Content-Type: application/json\n# default\n# Description: Error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "modifyVideo",
+      "Setup": null
+    },
+    {
+      "Order": 10,
+      "Title": "Reframe an image",
+      "Slug": "reframeimage",
+      "Description": "Reframe an image by its ID",
+      "Language": "http",
+      "Code": "### Reframe an image\n# @name reframeImage\nPOST {{host}}/generations/image/reframe\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022generation_type\u0022: \u0022reframe_image\u0022,\n  \u0022media\u0022: {\n    \u0022url\u0022: \u0022https://example.com\u0022\n  },\n  \u0022model\u0022: \u0022photon-1\u0022,\n  \u0022prompt\u0022: \u0022\u0022,\n  \u0022aspect_ratio\u0022: \u002216:9\u0022,\n  \u0022grid_position_x\u0022: 0,\n  \u0022grid_position_y\u0022: 0,\n  \u0022x_start\u0022: 0,\n  \u0022x_end\u0022: 0,\n  \u0022y_start\u0022: 0,\n  \u0022y_end\u0022: 0,\n  \u0022resized_width\u0022: 0,\n  \u0022resized_height\u0022: 0,\n  \u0022format\u0022: \u0022jpg\u0022,\n  \u0022callback_url\u0022: \u0022https://example.com\u0022\n}\n\n## Responses\n# 201\n# Description: Image reframed\n# Content-Type: application/json\n# default\n# Description: Error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "reframeImage",
+      "Setup": null
+    },
+    {
+      "Order": 11,
+      "Title": "Reframe a video",
+      "Slug": "reframevideo",
+      "Description": "Reframe a video by its ID",
+      "Language": "http",
+      "Code": "### Reframe a video\n# @name reframeVideo\nPOST {{host}}/generations/video/reframe\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022generation_type\u0022: \u0022reframe_video\u0022,\n  \u0022media\u0022: {\n    \u0022url\u0022: \u0022https://example.com\u0022\n  },\n  \u0022first_frame\u0022: {\n    \u0022url\u0022: \u0022https://example.com\u0022\n  },\n  \u0022model\u0022: \u0022ray-2\u0022,\n  \u0022prompt\u0022: \u0022\u0022,\n  \u0022aspect_ratio\u0022: \u002216:9\u0022,\n  \u0022grid_position_x\u0022: 0,\n  \u0022grid_position_y\u0022: 0,\n  \u0022x_start\u0022: 0,\n  \u0022x_end\u0022: 0,\n  \u0022y_start\u0022: 0,\n  \u0022y_end\u0022: 0,\n  \u0022resized_width\u0022: 0,\n  \u0022resized_height\u0022: 0,\n  \u0022callback_url\u0022: \u0022https://example.com\u0022\n}\n\n## Responses\n# 201\n# Description: Video reframed\n# Content-Type: application/json\n# default\n# Description: Error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "reframeVideo",
+      "Setup": null
+    },
+    {
+      "Order": 12,
+      "Title": "Upscale a generation",
+      "Slug": "upscalegeneration",
+      "Description": "Upscale a generation by its ID",
+      "Language": "http",
+      "Code": "### Upscale a generation\n# @name upscaleGeneration\nPOST {{host}}/generations/{{id}}/upscale\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022generation_type\u0022: \u0022upscale_video\u0022,\n  \u0022resolution\u0022: \u0022540p\u0022,\n  \u0022callback_url\u0022: \u0022https://example.com\u0022\n}\n\n## Responses\n# 200\n# Description: Generation upscaled\n# Content-Type: application/json\n# default\n# Description: Error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "upscaleGeneration",
+      "Setup": null
+    },
+    {
+      "Order": 13,
+      "Title": "Ping",
+      "Slug": "ping",
+      "Description": "Check if the API is running",
+      "Language": "csharp",
+      "Code": "using var client = new LumaClient(apiKey);\nvar response = await client.Ping.PingAsync();\n\n// Example response:\n// {\n//   \u0022message\u0022: \u0022pong\u0022\n// }",
+      "Format": "sdk",
+      "OperationId": "ping",
+      "Setup": "This example assumes \u0060using Luma;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    }
+  ]
+}
