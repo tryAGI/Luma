@@ -120,7 +120,7 @@ namespace Luma
                 PrepareDeleteGenerationRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id);
+                    id: id!);
 
                 return __httpRequest;
             }
