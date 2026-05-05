@@ -43,7 +43,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public CreditsClient Credits => new CreditsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public CreditsClient Credits => new CreditsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -52,7 +52,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public GenerationsClient Generations => new GenerationsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public GenerationsClient Generations => new GenerationsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -61,7 +61,7 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
-        public PingClient Ping => new PingClient(HttpClient, authorizations: Authorizations, options: Options)
+        public PingClient Ping => new PingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -100,10 +100,10 @@ namespace Luma
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
         public LumaClient(
-            global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null,
-            global::System.Collections.Generic.List<global::Luma.EndPointAuthorization>? authorizations = null,
-            global::Luma.AutoSDKClientOptions? options = null,
+            global::System.Net.Http.HttpClient? httpClient,
+            global::System.Uri? baseUri,
+            global::System.Collections.Generic.List<global::Luma.EndPointAuthorization>? authorizations,
+            global::Luma.AutoSDKClientOptions? options,
             bool disposeHttpClient = true)
         {
 
