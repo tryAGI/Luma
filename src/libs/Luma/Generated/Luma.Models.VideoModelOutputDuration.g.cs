@@ -29,6 +29,19 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickEnum(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Luma.VideoModelOutputDurationEnum? value)
+        {
+            value = Enum;
+            return IsEnum;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public string? VideoModelOutputDurationVariant2 { get; init; }
 #else
@@ -42,6 +55,19 @@ namespace Luma
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoModelOutputDurationVariant2))]
 #endif
         public bool IsVideoModelOutputDurationVariant2 => VideoModelOutputDurationVariant2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickVideoModelOutputDurationVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out string? value)
+        {
+            value = VideoModelOutputDurationVariant2;
+            return IsVideoModelOutputDurationVariant2;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -119,7 +145,7 @@ namespace Luma
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Luma.VideoModelOutputDurationEnum?, TResult>? @enum = null,
-            global::System.Func<string?, TResult>? videoModelOutputDurationVariant2 = null,
+            global::System.Func<string, TResult>? videoModelOutputDurationVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -144,7 +170,31 @@ namespace Luma
         /// </summary>
         public void Match(
             global::System.Action<global::Luma.VideoModelOutputDurationEnum?>? @enum = null,
-            global::System.Action<string?>? videoModelOutputDurationVariant2 = null,
+
+            global::System.Action<string>? videoModelOutputDurationVariant2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsEnum)
+            {
+                @enum?.Invoke(Enum!);
+            }
+            else if (IsVideoModelOutputDurationVariant2)
+            {
+                videoModelOutputDurationVariant2?.Invoke(VideoModelOutputDurationVariant2!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Luma.VideoModelOutputDurationEnum?>? @enum = null,
+            global::System.Action<string>? videoModelOutputDurationVariant2 = null,
             bool validate = true)
         {
             if (validate)

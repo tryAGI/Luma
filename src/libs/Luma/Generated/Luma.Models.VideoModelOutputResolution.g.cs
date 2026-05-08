@@ -29,6 +29,19 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
+        public bool TryPickEnum(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Luma.VideoModelOutputResolutionEnum? value)
+        {
+            value = Enum;
+            return IsEnum;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public string? VideoModelOutputResolutionVariant2 { get; init; }
 #else
@@ -42,6 +55,19 @@ namespace Luma
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoModelOutputResolutionVariant2))]
 #endif
         public bool IsVideoModelOutputResolutionVariant2 => VideoModelOutputResolutionVariant2 != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickVideoModelOutputResolutionVariant2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out string? value)
+        {
+            value = VideoModelOutputResolutionVariant2;
+            return IsVideoModelOutputResolutionVariant2;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -119,7 +145,7 @@ namespace Luma
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Luma.VideoModelOutputResolutionEnum?, TResult>? @enum = null,
-            global::System.Func<string?, TResult>? videoModelOutputResolutionVariant2 = null,
+            global::System.Func<string, TResult>? videoModelOutputResolutionVariant2 = null,
             bool validate = true)
         {
             if (validate)
@@ -144,7 +170,31 @@ namespace Luma
         /// </summary>
         public void Match(
             global::System.Action<global::Luma.VideoModelOutputResolutionEnum?>? @enum = null,
-            global::System.Action<string?>? videoModelOutputResolutionVariant2 = null,
+
+            global::System.Action<string>? videoModelOutputResolutionVariant2 = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsEnum)
+            {
+                @enum?.Invoke(Enum!);
+            }
+            else if (IsVideoModelOutputResolutionVariant2)
+            {
+                videoModelOutputResolutionVariant2?.Invoke(VideoModelOutputResolutionVariant2!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Luma.VideoModelOutputResolutionEnum?>? @enum = null,
+            global::System.Action<string>? videoModelOutputResolutionVariant2 = null,
             bool validate = true)
         {
             if (validate)
