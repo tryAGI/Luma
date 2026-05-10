@@ -208,5 +208,6 @@ namespace Luma
         public ReframeVideoRequest()
         {
         }
+
     }
 }

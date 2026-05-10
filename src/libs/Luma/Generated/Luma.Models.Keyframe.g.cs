@@ -46,6 +46,13 @@ namespace Luma
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.GenerationReference PickGeneration() => IsGeneration
+            ? Generation!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Generation' but the value was {ToString()}.");
+
+        /// <summary>
         /// The image object<br/>
         /// Example: {"type":"image","url":"https://example.com/image.jpg"}
         /// </summary>
@@ -75,6 +82,13 @@ namespace Luma
             value = Image;
             return IsImage;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.ImageReference PickImage() => IsImage
+            ? Image!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Image' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
