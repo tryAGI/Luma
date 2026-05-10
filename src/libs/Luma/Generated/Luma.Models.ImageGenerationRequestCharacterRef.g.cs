@@ -41,5 +41,6 @@ namespace Luma
         public ImageGenerationRequestCharacterRef()
         {
         }
+
     }
 }

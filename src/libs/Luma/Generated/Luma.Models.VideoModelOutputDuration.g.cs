@@ -42,6 +42,13 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
+        public global::Luma.VideoModelOutputDurationEnum PickEnum() => IsEnum
+            ? Enum!.Value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Enum' but the value was {ToString()}.");
+
+        /// <summary>
+        /// 
+        /// </summary>
 #if NET6_0_OR_GREATER
         public string? VideoModelOutputDurationVariant2 { get; init; }
 #else
@@ -68,6 +75,13 @@ namespace Luma
             value = VideoModelOutputDurationVariant2;
             return IsVideoModelOutputDurationVariant2;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string PickVideoModelOutputDurationVariant2() => IsVideoModelOutputDurationVariant2
+            ? VideoModelOutputDurationVariant2!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'VideoModelOutputDurationVariant2' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>

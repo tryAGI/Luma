@@ -52,5 +52,6 @@ namespace Luma
         public ModifyImageRef()
         {
         }
+
     }
 }
