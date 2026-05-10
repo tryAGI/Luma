@@ -96,6 +96,11 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
+        public static Keyframe FromGeneration(global::Luma.GenerationReference? value) => new Keyframe(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Keyframe(global::Luma.ImageReference value) => new Keyframe((global::Luma.ImageReference?)value);
 
         /// <summary>
@@ -110,6 +115,11 @@ namespace Luma
         {
             Image = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Keyframe FromImage(global::Luma.ImageReference? value) => new Keyframe(value);
 
         /// <summary>
         /// 
