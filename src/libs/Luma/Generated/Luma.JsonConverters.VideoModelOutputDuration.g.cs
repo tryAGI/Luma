@@ -108,7 +108,10 @@ namespace Luma.JsonConverters
                 catch (global::System.InvalidOperationException)
                 {
                 }
+            }
 
+            if (@enum == null && videoModelOutputDurationVariant2 == null)
+            {
                 try
                 {
 
