@@ -157,5 +157,6 @@ namespace Luma
         public GenerationRequest()
         {
         }
+
     }
 }

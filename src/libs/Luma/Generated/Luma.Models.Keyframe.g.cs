@@ -33,6 +33,26 @@ namespace Luma
         public bool IsGeneration => Generation != null;
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickGeneration(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Luma.GenerationReference? value)
+        {
+            value = Generation;
+            return IsGeneration;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.GenerationReference PickGeneration() => IsGeneration
+            ? Generation!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Generation' but the value was {ToString()}.");
+
+        /// <summary>
         /// The image object<br/>
         /// Example: {"type":"image","url":"https://example.com/image.jpg"}
         /// </summary>
@@ -49,6 +69,26 @@ namespace Luma
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Image))]
 #endif
         public bool IsImage => Image != null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool TryPickImage(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Luma.ImageReference? value)
+        {
+            value = Image;
+            return IsImage;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Luma.ImageReference PickImage() => IsImage
+            ? Image!
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Image' but the value was {ToString()}.");
         /// <summary>
         /// 
         /// </summary>
@@ -70,6 +110,11 @@ namespace Luma
         /// <summary>
         /// 
         /// </summary>
+        public static Keyframe FromGeneration(global::Luma.GenerationReference? value) => new Keyframe(value);
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static implicit operator Keyframe(global::Luma.ImageReference value) => new Keyframe((global::Luma.ImageReference?)value);
 
         /// <summary>
@@ -84,6 +129,11 @@ namespace Luma
         {
             Image = value;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Keyframe FromImage(global::Luma.ImageReference? value) => new Keyframe(value);
 
         /// <summary>
         /// 
@@ -128,8 +178,8 @@ namespace Luma
         /// 
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Luma.GenerationReference?, TResult>? generation = null,
-            global::System.Func<global::Luma.ImageReference?, TResult>? image = null,
+            global::System.Func<global::Luma.GenerationReference, TResult>? generation = null,
+            global::System.Func<global::Luma.ImageReference, TResult>? image = null,
             bool validate = true)
         {
             if (validate)
@@ -153,8 +203,32 @@ namespace Luma
         /// 
         /// </summary>
         public void Match(
-            global::System.Action<global::Luma.GenerationReference?>? generation = null,
-            global::System.Action<global::Luma.ImageReference?>? image = null,
+            global::System.Action<global::Luma.GenerationReference>? generation = null,
+
+            global::System.Action<global::Luma.ImageReference>? image = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (IsGeneration)
+            {
+                generation?.Invoke(Generation!);
+            }
+            else if (IsImage)
+            {
+                image?.Invoke(Image!);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::Luma.GenerationReference>? generation = null,
+            global::System.Action<global::Luma.ImageReference>? image = null,
             bool validate = true)
         {
             if (validate)

@@ -175,5 +175,6 @@ namespace Luma
         public ImageGenerationRequest()
         {
         }
+
     }
 }

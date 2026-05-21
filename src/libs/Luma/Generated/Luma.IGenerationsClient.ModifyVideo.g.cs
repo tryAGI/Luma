@@ -21,6 +21,19 @@ namespace Luma
         /// Modify a video<br/>
         /// Modify a video with style transfer and prompt-based editing
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Luma.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Luma.AutoSDKHttpResponse<global::Luma.Generation>> ModifyVideoAsResponseAsync(
+
+            global::Luma.ModifyVideoRequest request,
+            global::Luma.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Modify a video<br/>
+        /// Modify a video with style transfer and prompt-based editing
+        /// </summary>
         /// <param name="generationType">
         /// Default Value: modify_video
         /// </param>

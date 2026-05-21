@@ -172,6 +172,7 @@ namespace Luma
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Luma.UpscaleVideoGenerationRequestGenerationType), TypeInfoPropertyName = "UpscaleVideoGenerationRequestGenerationType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Luma.AudioGenerationRequestGenerationType), TypeInfoPropertyName = "AudioGenerationRequestGenerationType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Luma.PingResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Luma.OneOf<global::Luma.GenerationRequest, global::Luma.ImageGenerationRequest, global::Luma.UpscaleVideoGenerationRequest, global::Luma.AudioGenerationRequest, global::Luma.ReframeImageRequest, global::Luma.ReframeVideoRequest, global::Luma.ModifyVideoRequest>?), TypeInfoPropertyName = "ModifyVideoRequest_ece088dd7ebdb71e")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Luma.Generation>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Luma.Concept>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]

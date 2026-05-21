@@ -40,5 +40,6 @@ namespace Luma
         public KeyframeDiscriminator()
         {
         }
+
     }
 }

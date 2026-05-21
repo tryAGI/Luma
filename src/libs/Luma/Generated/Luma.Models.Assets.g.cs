@@ -63,5 +63,6 @@ namespace Luma
         public Assets()
         {
         }
+
     }
 }
