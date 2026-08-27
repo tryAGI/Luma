@@ -9,7 +9,7 @@ namespace Luma
     public enum AudioGenerationRequestGenerationType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AddAudio,
     }

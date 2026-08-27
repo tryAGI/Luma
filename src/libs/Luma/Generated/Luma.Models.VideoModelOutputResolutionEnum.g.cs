@@ -4,24 +4,24 @@
 namespace Luma
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VideoModelOutputResolutionEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x1080p,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x4k,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x540p,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x720p,
     }

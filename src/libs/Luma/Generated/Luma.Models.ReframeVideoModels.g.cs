@@ -9,11 +9,11 @@ namespace Luma
     public enum ReframeVideoModels
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ray2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RayFlash2,
     }

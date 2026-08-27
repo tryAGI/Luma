@@ -10,11 +10,11 @@ namespace Luma
     public enum VideoModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ray2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RayFlash2,
     }

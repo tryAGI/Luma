@@ -126,7 +126,7 @@ namespace Luma
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::Luma.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

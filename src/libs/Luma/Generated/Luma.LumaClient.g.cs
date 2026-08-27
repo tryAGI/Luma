@@ -11,7 +11,7 @@ namespace Luma
     public sealed partial class LumaClient : global::Luma.ILumaClient, global::System.IDisposable
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const string DefaultBaseUrl = "https://api.lumalabs.ai/dream-machine/v1";
 
@@ -38,7 +38,7 @@ namespace Luma
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Luma.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
@@ -48,7 +48,7 @@ namespace Luma
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CreditsClient Credits => new CreditsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -57,7 +57,7 @@ namespace Luma
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public GenerationsClient Generations => new GenerationsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -66,7 +66,7 @@ namespace Luma
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PingClient Ping => new PingClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {

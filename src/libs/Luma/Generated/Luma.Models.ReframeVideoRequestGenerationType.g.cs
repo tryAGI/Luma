@@ -9,7 +9,7 @@ namespace Luma
     public enum ReframeVideoRequestGenerationType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReframeVideo,
     }

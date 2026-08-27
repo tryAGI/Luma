@@ -5,12 +5,12 @@
 namespace Luma
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct VideoModelOutputDuration : global::System.IEquatable<VideoModelOutputDuration>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Luma.VideoModelOutputDurationEnum? Enum { get; init; }
@@ -19,7 +19,7 @@ namespace Luma
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Enum))]
@@ -27,7 +27,7 @@ namespace Luma
         public bool IsEnum => Enum != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickEnum(
 #if NET6_0_OR_GREATER
@@ -40,14 +40,14 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Luma.VideoModelOutputDurationEnum PickEnum() => IsEnum
             ? Enum!.Value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Enum' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public string? VideoModelOutputDurationVariant2 { get; init; }
@@ -56,7 +56,7 @@ namespace Luma
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(VideoModelOutputDurationVariant2))]
@@ -64,7 +64,7 @@ namespace Luma
         public bool IsVideoModelOutputDurationVariant2 => VideoModelOutputDurationVariant2 != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickVideoModelOutputDurationVariant2(
 #if NET6_0_OR_GREATER
@@ -77,23 +77,23 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public string PickVideoModelOutputDurationVariant2() => IsVideoModelOutputDurationVariant2
             ? VideoModelOutputDurationVariant2!
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoModelOutputDurationVariant2' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoModelOutputDuration(global::Luma.VideoModelOutputDurationEnum value) => new VideoModelOutputDuration((global::Luma.VideoModelOutputDurationEnum?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Luma.VideoModelOutputDurationEnum?(VideoModelOutputDuration @this) => @this.Enum;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoModelOutputDuration(global::Luma.VideoModelOutputDurationEnum? value)
         {
@@ -101,22 +101,22 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoModelOutputDuration FromEnum(global::Luma.VideoModelOutputDurationEnum? value) => new VideoModelOutputDuration(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator VideoModelOutputDuration(string value) => new VideoModelOutputDuration((string?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator string?(VideoModelOutputDuration @this) => @this.VideoModelOutputDurationVariant2;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoModelOutputDuration(string? value)
         {
@@ -124,12 +124,12 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static VideoModelOutputDuration FromVideoModelOutputDurationVariant2(string? value) => new VideoModelOutputDuration(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public VideoModelOutputDuration(
             global::Luma.VideoModelOutputDurationEnum? @enum,
@@ -141,23 +141,23 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             VideoModelOutputDurationVariant2 as object ??
-            Enum as object 
+            Enum as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Enum?.ToValueString() ??
-            VideoModelOutputDurationVariant2?.ToString() 
+            VideoModelOutputDurationVariant2?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -165,7 +165,7 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Luma.VideoModelOutputDurationEnum?, TResult>? @enum = null,
@@ -190,7 +190,7 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Luma.VideoModelOutputDurationEnum?>? @enum = null,
@@ -214,7 +214,7 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Luma.VideoModelOutputDurationEnum?>? @enum = null,
@@ -237,7 +237,7 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -258,18 +258,18 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(VideoModelOutputDuration other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Luma.VideoModelOutputDurationEnum?>.Default.Equals(Enum, other.Enum) &&
-                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(VideoModelOutputDurationVariant2, other.VideoModelOutputDurationVariant2) 
+                global::System.Collections.Generic.EqualityComparer<string?>.Default.Equals(VideoModelOutputDurationVariant2, other.VideoModelOutputDurationVariant2)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(VideoModelOutputDuration obj1, VideoModelOutputDuration obj2)
         {
@@ -277,7 +277,7 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(VideoModelOutputDuration obj1, VideoModelOutputDuration obj2)
         {
@@ -285,7 +285,7 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

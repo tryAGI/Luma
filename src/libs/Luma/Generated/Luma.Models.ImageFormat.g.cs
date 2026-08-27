@@ -10,11 +10,11 @@ namespace Luma
     public enum ImageFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Jpg,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Png,
     }

@@ -4,16 +4,16 @@
 namespace Luma
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum KeyframeDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Generation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Image,
     }

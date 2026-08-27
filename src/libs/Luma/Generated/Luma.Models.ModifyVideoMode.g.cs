@@ -9,39 +9,39 @@ namespace Luma
     public enum ModifyVideoMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Adhere1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Adhere2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Adhere3,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flex1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flex2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flex3,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Reimagine1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Reimagine2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Reimagine3,
     }

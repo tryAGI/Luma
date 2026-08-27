@@ -9,7 +9,7 @@ namespace Luma
     public enum GenerationRequestGenerationType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Video,
     }
