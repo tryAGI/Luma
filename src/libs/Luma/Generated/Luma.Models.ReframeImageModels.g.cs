@@ -9,11 +9,11 @@ namespace Luma
     public enum ReframeImageModels
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Photon1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PhotonFlash1,
     }

@@ -9,7 +9,7 @@ namespace Luma
     public enum UpscaleVideoGenerationRequestGenerationType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpscaleVideo,
     }

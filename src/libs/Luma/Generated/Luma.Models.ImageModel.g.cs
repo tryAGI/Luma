@@ -10,11 +10,11 @@ namespace Luma
     public enum ImageModel
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Photon1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PhotonFlash1,
     }

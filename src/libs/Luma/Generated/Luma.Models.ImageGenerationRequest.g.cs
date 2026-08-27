@@ -56,19 +56,19 @@ namespace Luma
         public string? CallbackUrl { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("image_ref")]
         public global::System.Collections.Generic.IList<global::Luma.ImageRef>? ImageRef { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("style_ref")]
         public global::System.Collections.Generic.IList<global::Luma.ImageRef>? StyleRef { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("character_ref")]
         public global::Luma.ImageGenerationRequestCharacterRef? CharacterRef { get; set; }

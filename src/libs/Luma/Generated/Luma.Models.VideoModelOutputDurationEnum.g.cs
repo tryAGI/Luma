@@ -4,16 +4,16 @@
 namespace Luma
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum VideoModelOutputDurationEnum
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x5s,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x9s,
     }

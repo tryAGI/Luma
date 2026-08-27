@@ -9,7 +9,7 @@ namespace Luma
     public enum ImageGenerationRequestGenerationType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Image,
     }

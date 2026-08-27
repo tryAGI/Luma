@@ -10,7 +10,7 @@ namespace Luma
     public readonly partial struct Keyframe : global::System.IEquatable<Keyframe>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Luma.KeyframeDiscriminatorType? Type { get; }
 
@@ -25,7 +25,7 @@ namespace Luma
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Generation))]
@@ -33,7 +33,7 @@ namespace Luma
         public bool IsGeneration => Generation != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickGeneration(
 #if NET6_0_OR_GREATER
@@ -46,7 +46,7 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Luma.GenerationReference PickGeneration() => IsGeneration
             ? Generation!
@@ -63,7 +63,7 @@ namespace Luma
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Image))]
@@ -71,7 +71,7 @@ namespace Luma
         public bool IsImage => Image != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickImage(
 #if NET6_0_OR_GREATER
@@ -84,23 +84,23 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Luma.ImageReference PickImage() => IsImage
             ? Image!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Image' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Keyframe(global::Luma.GenerationReference value) => new Keyframe((global::Luma.GenerationReference?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Luma.GenerationReference?(Keyframe @this) => @this.Generation;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Keyframe(global::Luma.GenerationReference? value)
         {
@@ -108,22 +108,22 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Keyframe FromGeneration(global::Luma.GenerationReference? value) => new Keyframe(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator Keyframe(global::Luma.ImageReference value) => new Keyframe((global::Luma.ImageReference?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Luma.ImageReference?(Keyframe @this) => @this.Image;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Keyframe(global::Luma.ImageReference? value)
         {
@@ -131,12 +131,12 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static Keyframe FromImage(global::Luma.ImageReference? value) => new Keyframe(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public Keyframe(
             global::Luma.KeyframeDiscriminatorType? type,
@@ -151,23 +151,23 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Image as object ??
-            Generation as object 
+            Generation as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Generation?.ToString() ??
-            Image?.ToString() 
+            Image?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -175,7 +175,7 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Luma.GenerationReference, TResult>? generation = null,
@@ -200,7 +200,7 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Luma.GenerationReference>? generation = null,
@@ -224,7 +224,7 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Luma.GenerationReference>? generation = null,
@@ -247,7 +247,7 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -268,18 +268,18 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(Keyframe other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Luma.GenerationReference?>.Default.Equals(Generation, other.Generation) &&
-                global::System.Collections.Generic.EqualityComparer<global::Luma.ImageReference?>.Default.Equals(Image, other.Image) 
+                global::System.Collections.Generic.EqualityComparer<global::Luma.ImageReference?>.Default.Equals(Image, other.Image)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(Keyframe obj1, Keyframe obj2)
         {
@@ -287,7 +287,7 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(Keyframe obj1, Keyframe obj2)
         {
@@ -295,7 +295,7 @@ namespace Luma
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

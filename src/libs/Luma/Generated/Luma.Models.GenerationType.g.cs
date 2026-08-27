@@ -4,16 +4,16 @@
 namespace Luma
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GenerationType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Image,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Video,
     }

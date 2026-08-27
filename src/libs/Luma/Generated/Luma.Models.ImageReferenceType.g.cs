@@ -9,7 +9,7 @@ namespace Luma
     public enum ImageReferenceType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Image,
     }

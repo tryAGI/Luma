@@ -9,7 +9,7 @@ namespace Luma
     public enum ReframeImageRequestGenerationType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ReframeImage,
     }

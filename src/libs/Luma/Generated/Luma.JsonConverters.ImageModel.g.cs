@@ -20,7 +20,7 @@ namespace Luma.JsonConverters
                     {
                         return global::Luma.ImageModelExtensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

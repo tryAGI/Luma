@@ -4,7 +4,7 @@
 namespace Luma
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ImageGenerationRequestCharacterRef
     {

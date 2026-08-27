@@ -10,7 +10,7 @@ namespace Luma
     public sealed partial class CreditsClient : global::Luma.ICreditsClient, global::System.IDisposable
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const string DefaultBaseUrl = "https://api.lumalabs.ai/dream-machine/v1";
 
@@ -37,7 +37,7 @@ namespace Luma
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Luma.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
