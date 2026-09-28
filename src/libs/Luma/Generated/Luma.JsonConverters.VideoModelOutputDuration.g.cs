@@ -149,13 +149,13 @@ namespace Luma.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Luma.VideoModelOutputDurationEnum), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Luma.VideoModelOutputDurationEnum> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Luma.VideoModelOutputDurationEnum).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Enum!.Value, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickEnum(), typeInfo);
             }
             else if (value.IsVideoModelOutputDurationVariant2)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(string), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<string?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(string).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.VideoModelOutputDurationVariant2!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickVideoModelOutputDurationVariant2(), typeInfo);
             }
         }
     }

@@ -42,8 +42,8 @@ namespace Luma
         /// <summary>
         ///
         /// </summary>
-        public global::Luma.VideoModelOutputResolutionEnum PickEnum() => IsEnum
-            ? Enum!.Value
+        public global::Luma.VideoModelOutputResolutionEnum PickEnum() => Enum is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Enum' but the value was {ToString()}.");
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Luma
         /// <summary>
         ///
         /// </summary>
-        public string PickVideoModelOutputResolutionVariant2() => IsVideoModelOutputResolutionVariant2
-            ? VideoModelOutputResolutionVariant2!
+        public string PickVideoModelOutputResolutionVariant2() => VideoModelOutputResolutionVariant2 is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'VideoModelOutputResolutionVariant2' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -177,13 +177,13 @@ namespace Luma
                 Validate();
             }
 
-            if (IsEnum && @enum != null)
+            if (Enum is { } __value0 && @enum != null)
             {
-                return @enum(Enum!);
+                return @enum(__value0);
             }
-            else if (IsVideoModelOutputResolutionVariant2 && videoModelOutputResolutionVariant2 != null)
+            else if (VideoModelOutputResolutionVariant2 is { } __value1 && videoModelOutputResolutionVariant2 != null)
             {
-                return videoModelOutputResolutionVariant2(VideoModelOutputResolutionVariant2!);
+                return videoModelOutputResolutionVariant2(__value1);
             }
 
             return default(TResult);
@@ -203,13 +203,13 @@ namespace Luma
                 Validate();
             }
 
-            if (IsEnum)
+            if (Enum is { } __value0)
             {
-                @enum?.Invoke(Enum!);
+                @enum?.Invoke(__value0);
             }
-            else if (IsVideoModelOutputResolutionVariant2)
+            else if (VideoModelOutputResolutionVariant2 is { } __value1)
             {
-                videoModelOutputResolutionVariant2?.Invoke(VideoModelOutputResolutionVariant2!);
+                videoModelOutputResolutionVariant2?.Invoke(__value1);
             }
         }
 
@@ -226,13 +226,13 @@ namespace Luma
                 Validate();
             }
 
-            if (IsEnum)
+            if (Enum is { } __value0)
             {
-                @enum?.Invoke(Enum!);
+                @enum?.Invoke(__value0);
             }
-            else if (IsVideoModelOutputResolutionVariant2)
+            else if (VideoModelOutputResolutionVariant2 is { } __value1)
             {
-                videoModelOutputResolutionVariant2?.Invoke(VideoModelOutputResolutionVariant2!);
+                videoModelOutputResolutionVariant2?.Invoke(__value1);
             }
         }
 
